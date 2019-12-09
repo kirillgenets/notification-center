@@ -1,0 +1,58 @@
+/* Notification */
+
+.notification {
+  border-bottom: 1px solid #e5e5e5;
+
+  color: #666666;
+}
+
+.unread {
+  background-color: #F3F6F9;
+}
+
+.category, .message, .date {
+  padding: 25px 0;
+}
+
+.category {
+  padding-left: 46px;
+
+  position: relative;
+
+  text-transform: uppercase;
+}
+
+.unread .category::before {
+  content: '';
+
+  width: 9px;
+  height: 100%;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.critical::before {
+  background-color: #CD3E3E;
+}
+
+.info::before {
+  background-color: #4174F7;
+}
+
+.success::before {
+  background-color: #8BD244;
+}
+
+.warn::before {
+  background-color: #E3D552;
+}
+
+.message {
+  width: 825px;
+}
+
+.date {
+
+}

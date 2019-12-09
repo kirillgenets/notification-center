@@ -1,0 +1,39 @@
+/* HeadingColumn */
+
+.column {
+  padding: 13px 0;
+}
+
+.column:first-child {
+  padding-left: 46px;
+}
+
+.usual, .toggler {
+  font-size: 24px;
+}
+
+.usual {
+  color: #999999;
+}
+
+.toggler {
+  padding: 0;
+  border: none;
+
+  position: relative;
+
+  background-color: transparent;
+
+  color: #51A8E7;
+}
+
+.toggler::before {
+  content: '...';
+
+  position: absolute;
+  left: 2px;
+  bottom: -10px;
+
+  font-size: 30px;
+  font-weight: bold;
+}
