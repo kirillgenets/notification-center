@@ -1,0 +1,13 @@
+/* Global */
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+		url('../fonts/Roboto-Regular.woff') format('woff');
+	font-display: swap;
+}
+
+body {
+  font-family: 'Roboto', Calibri, sans-serif;
+  font-weight: normal;
+}
