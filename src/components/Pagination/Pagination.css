@@ -1,0 +1,33 @@
+/* Pagination */
+
+.pagination {
+  margin: 17px 0;
+}
+
+.list {
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+}
+
+.item a, .item span {
+  margin-right: 3px;
+
+  color: #666666;
+}
+
+.item a {
+  transition: 0.3s;
+}
+
+.item a:hover {
+  opacity: 0.8;
+}
+
+.item a:active {
+  opacity: 0.6;
+}

@@ -51,8 +51,6 @@
 
 .message {
   width: 825px;
-}
 
-.date {
-
+  text-transform: capitalize;
 }

@@ -11,3 +11,7 @@ body {
   font-family: 'Roboto', Calibri, sans-serif;
   font-weight: normal;
 }
+
+a {
+  text-decoration: none;
+}
