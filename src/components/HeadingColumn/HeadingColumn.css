@@ -2,6 +2,8 @@
 
 .column {
   padding: 13px 0;
+
+  position: relative;
 }
 
 .column:first-child {
