@@ -1,13 +1,13 @@
 import React from 'react';
 import TableHeading from '../TableHeading/TableHeading';
-import Notifications from '../Notificatons/Notifications';
+import NotificationsContainer from '../../containers/NotificationsContainer';
 import styles from './Table.css';
 
 const Table = () => {
     return (
         <table className={styles.table}>
             <TableHeading />
-            <Notifications />
+            <NotificationsContainer />
         </table>
     );
 };

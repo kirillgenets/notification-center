@@ -6,7 +6,7 @@ const Notification = (props) => {
     return (
         <tr className={[styles.notification, styles[props.readStatus]].join(' ')}>
             <td className={[styles.category, styles[props.category]].join(' ')}>{props.category}</td>
-            <td className={styles.message}>{props.message}</td>
+            <td className={styles.message}>{props.text}</td>
             <td className={styles.date}>{props.date}</td>
         </tr>
     );
@@ -15,7 +15,7 @@ const Notification = (props) => {
 Notification.propTypes = {
     readStatus: PropTypes.string,
     category: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
 };
 

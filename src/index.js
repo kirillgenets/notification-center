@@ -1,10 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './components/App/App';
+import configureStore from './store/configureStore';
+import initialState from './store/initialState';
 import './style/style.css';
 import './style/normalize.css';
-import generateNotifications from './API/generator';
 
-console.log(generateNotifications(10));
+import getRandomNotifications from './data/generator';
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+console.log(getRandomNotifications(10));
+
+const store = configureStore(initialState);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.querySelector('#root')
+);

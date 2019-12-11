@@ -13,4 +13,4 @@ const texts = [
   'Your attention required',
 ];
 
-module.exports = { categories, priorities, texts };
+export { categories, priorities, texts };
