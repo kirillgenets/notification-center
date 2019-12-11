@@ -4,7 +4,7 @@ import styles from './ReadAll.css';
 const ReadAll = () => {
     return (
         <button className={styles.button}>
-      Mark all as read
+            Mark all as read
         </button>
     );
 };
