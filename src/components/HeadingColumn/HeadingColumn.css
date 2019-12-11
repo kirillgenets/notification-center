@@ -6,51 +6,11 @@
   position: relative;
 }
 
-.column:first-child {
-  padding-left: 46px;
-}
-
 .column:last-child {
   padding-right: 116px;
 }
 
-.usual, .toggler {
+.text {
   font-size: 24px;
-}
-
-.usual {
   color: #999999;
-}
-
-.toggler {
-  padding: 0;
-  border: none;
-
-  position: relative;
-
-  background-color: transparent;
-
-  color: #51A8E7;
-
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.toggler:hover {
-  opacity: 0.8;
-}
-
-.toggler:active {
-  opacity: 0.5;
-}
-
-.toggler::before {
-  content: '...';
-
-  position: absolute;
-  left: 2px;
-  bottom: -10px;
-
-  font-size: 30px;
-  font-weight: bold;
 }
