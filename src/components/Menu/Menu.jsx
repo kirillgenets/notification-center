@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Filter from '../Filter/Filter';
+import FilterContainer from '../../containers/FilterContainer';
 import styles from './Menu.css';
 
 const Menu = () => {
@@ -13,7 +13,7 @@ const Menu = () => {
         <div className={styles.container}>
             <button className={styles.toggler} onClick={handleTogglerClick}>Category</button>
             {isShown ?
-                <Filter /> :
+                <FilterContainer /> :
                 null}
         </div>
     );
