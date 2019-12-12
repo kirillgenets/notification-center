@@ -8,14 +8,19 @@ const Notifications = props => {
         props.receiveNotifications();
     }, []);
 
+    const onNotificationClick = notification => () => {
+        props.markNotificationAsRead(notification, props.allNotifications);
+    }
+
     return (
         <tbody>
-            {props.notifications.map(item => (
+            {props.notificationsToShow.map(item => (
                 <Notification
                     key={uuid()}
                     isRead={item.isRead}
                     category={item.category}
                     text={item.text}
+                    onNotificationClick={onNotificationClick(item)}
                     date={item.readOn ? item.readOn.toString() : ''}
                 />
             ))}            
@@ -25,7 +30,9 @@ const Notifications = props => {
 
 Notifications.propTypes = {
     receiveNotifications: PropTypes.func.isRequired,
-    notifications: PropTypes.array.isRequired
+    notificationsToShow: PropTypes.array.isRequired,
+    allNotifications: PropTypes.array,
+    markNotificationAsRead: PropTypes.func
 }
 
 export default Notifications;

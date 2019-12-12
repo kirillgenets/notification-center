@@ -6,7 +6,7 @@ const Notification = (props) => {
     const readStatus = props.isRead ? 'read' : 'unread';
 
     return (
-        <tr className={[styles.notification, styles[readStatus]].join(' ')}>
+        <tr className={[styles.notification, styles[readStatus]].join(' ')} onClick={props.onNotificationClick}>
             <td className={[styles.category, styles[props.category]].join(' ')}>{props.category}</td>
             <td className={styles.text}>{props.text}</td>
             <td className={styles.date}>{props.date}</td>
@@ -18,7 +18,8 @@ Notification.propTypes = {
     isRead: PropTypes.bool,
     category: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    date: PropTypes.string
+    date: PropTypes.string,
+    onNotificationClick: PropTypes.func
 };
 
 Notification.defaultProps = {

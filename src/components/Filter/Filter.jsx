@@ -4,7 +4,7 @@ import { CategoryFilters, ReadStatusFilters } from '../../store/constants/consta
 import styles from './Filter.css';
 
 const Filter = props => {
-    const handleSubmit = evt => {
+    const handleFormSubmit = evt => {
         evt.preventDefault();
         
         const filterData = new FormData(evt.target);
@@ -28,7 +28,7 @@ const Filter = props => {
     }
 
     return (
-        <form className={styles.filter} onSubmit={handleSubmit}>
+        <form className={styles.filter} onSubmit={handleFormSubmit}>
             <button className={styles.reset} onClick={handleResetClick}>Reset Filter</button>
             <fieldset className={styles.group}>
                 <div className={styles.row}>
