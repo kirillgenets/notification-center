@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CategoryFilters, ReadStatusFilters } from '../../store/constants/constants';
 import styles from './Filter.css';
 
@@ -65,5 +66,11 @@ const Filter = props => {
         </form>
     );
 };
+
+Filter.propTypes = {
+    setReadStatusFilter: PropTypes.func.isRequired,
+    setCategoryFilter: PropTypes.func.isRequired,
+    onFilterSubmit: PropTypes.func
+}
 
 export default Filter;

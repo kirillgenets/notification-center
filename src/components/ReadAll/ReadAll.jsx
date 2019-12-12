@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './ReadAll.css';
 
 const ReadAll = props => {
@@ -12,5 +13,10 @@ const ReadAll = props => {
         </button>
     );
 };
+
+ReadAll.propTypes = {
+    markAllNotificationsAsRead: PropTypes.func.isRequired,
+    notifications: PropTypes.array.isRequired
+}
 
 export default ReadAll;

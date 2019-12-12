@@ -35,14 +35,11 @@ const getNotificationsByCategory = (notifications, filter) => {
     }
 }
 
-const mapStateToProps = state => {
-    console.log(state)
-    return {
-        notifications: getNotificationsByCategory(
-        getNotificationsByReadStatus(state.notifications, state.readStatusFilter), 
-        state.categoryFilter)
-    }
-}
+const mapStateToProps = state => ({
+    notifications: getNotificationsByCategory(
+    getNotificationsByReadStatus(state.notifications, state.readStatusFilter), 
+    state.categoryFilter)
+})
 
 const mapDispatchToProps = dispatch => ({
     receiveNotifications: () => dispatch(receiveNotifications())
