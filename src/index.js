@@ -7,10 +7,6 @@ import initialState from './store/initialState';
 import './style/style.css';
 import './style/normalize.css';
 
-import getRandomNotifications from './data/generator';
-
-console.log(getRandomNotifications(10));
-
 const store = configureStore(initialState);
 
 ReactDOM.render(

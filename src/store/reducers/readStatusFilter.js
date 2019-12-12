@@ -1,10 +1,13 @@
 import initialState from '../initialState';
 import { SET_READ_STATUS_FILTER } from '../constants/constants';
 
-const readStatusFilter = (state = initialState.readStatusFilter, action) => {
+const readStatusFilter = (state = initialState, action) => {
     switch (action.type) {
         case SET_READ_STATUS_FILTER:
-            return action.payload;
+            return {
+                ...state,
+                readStatusFilter: action.payload
+            }
         default:
             return state;
     }

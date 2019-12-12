@@ -10,7 +10,7 @@
   background-color: #F3F6F9;
 }
 
-.category, .message, .date {
+.category, .text, .date {
   padding: 25px 0;
 }
 
@@ -18,8 +18,6 @@
   padding-left: 46px;
 
   position: relative;
-
-  text-transform: uppercase;
 }
 
 .unread .category::before {
@@ -33,7 +31,7 @@
   top: 0;
 }
 
-.critical::before {
+.crit::before {
   background-color: #CD3E3E;
 }
 
@@ -49,8 +47,17 @@
   background-color: #E3D552;
 }
 
-.message {
+.error::before {
+  background-color: rgb(197, 97, 4);
+}
+
+.text {
   width: 825px;
 
   text-transform: capitalize;
+}
+
+.date {
+  width: 200px;
+  padding-right: 116px;
 }

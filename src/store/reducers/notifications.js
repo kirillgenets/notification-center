@@ -1,9 +1,9 @@
 import initialState from '../initialState';
-import { LOAD_NOTIFICATIONS } from '../constants/constants';
+import { RECEIVE_NOTIFICATIONS } from '../constants/constants';
 
-const notifications = (state = initialState.notifications, action) => {
+const notifications = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_NOTIFICATIONS:
+        case RECEIVE_NOTIFICATIONS:
             return [
                 ...state,
                 ...action.payload
