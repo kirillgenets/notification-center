@@ -9,7 +9,7 @@ const getNotificationsByReadStatus = (notifications, filter) => {
             return notifications;
         case ReadStatusFilters.SHOW_READ:
             return notifications.filter(notification => notification.isRead);
-        case ReadStatusFilters.SHOW_READ:
+        case ReadStatusFilters.SHOW_UNREAD:
             return notifications.filter(notification => !notification.isRead);
         default:
             throw new Error(`There is no such filter as ${filter}`);
