@@ -9,11 +9,15 @@ const Menu = () => {
         setIsShown(() => !isShown);
     };
 
+    const onFilterSubmit = () => {
+        setIsShown(() => false);
+    }
+
     return (
         <div className={styles.container}>
             <button className={styles.toggler} onClick={handleTogglerClick}>Category</button>
             {isShown ?
-                <FilterContainer /> :
+                <FilterContainer onFilterSubmit={onFilterSubmit} /> :
                 null}
         </div>
     );

@@ -1,5 +1,5 @@
 import initialState from '../initialState';
-import { RECEIVE_NOTIFICATIONS } from '../constants/constants';
+import { RECEIVE_NOTIFICATIONS, MARK_ALL_NOTIFICATIONS_AS_READ } from '../constants/constants';
 
 const notifications = (state = initialState, action) => {
     switch (action.type) {
@@ -8,6 +8,8 @@ const notifications = (state = initialState, action) => {
                 ...state,
                 ...action.payload
             ];
+        case MARK_ALL_NOTIFICATIONS_AS_READ:
+            return action.payload;
         default:
             return state;
     }

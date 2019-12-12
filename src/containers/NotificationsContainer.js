@@ -28,17 +28,21 @@ const getNotificationsByCategory = (notifications, filter) => {
             return notifications.filter(notification => notification.category === 'WARN');
         case CategoryFilters.SHOW_INFO:
             return notifications.filter(notification => notification.category === 'INFO');
+        case CategoryFilters.SHOW_ERROR:
+            return notifications.filter(notification => notification.category === 'ERROR');
         default:
             throw new Error(`There is no such filter as ${filter}`);
     }
 }
 
-const mapStateToProps = state => ({
-    notifications: getNotificationsByCategory(
+const mapStateToProps = state => {
+    console.log(state)
+    return {
+        notifications: getNotificationsByCategory(
         getNotificationsByReadStatus(state.notifications, state.readStatusFilter), 
-        state.categoryFilter
-    )
-})
+        state.categoryFilter)
+    }
+}
 
 const mapDispatchToProps = dispatch => ({
     receiveNotifications: () => dispatch(receiveNotifications())

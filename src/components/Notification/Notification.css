@@ -31,23 +31,23 @@
   top: 0;
 }
 
-.crit::before {
+.CRIT::before {
   background-color: #CD3E3E;
 }
 
-.info::before {
+.INFO::before {
   background-color: #4174F7;
 }
 
-.success::before {
+.SUCCESS::before {
   background-color: #8BD244;
 }
 
-.warn::before {
+.WARN::before {
   background-color: #E3D552;
 }
 
-.error::before {
+.ERROR::before {
   background-color: rgb(197, 97, 4);
 }
 
