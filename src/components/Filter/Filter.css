@@ -50,47 +50,6 @@
   border-top: 1px solid #ffffff;
 }
 
-.row {
-  margin-bottom: 8px;
-}
-
-.radio {
-  display: none;
-}
-
-.label {
-  padding-left: 28px;
-
-  position: relative;
-
-  font-size: 14px;
-
-  cursor: pointer;
-}
-
-.label::before {
-  content: '';
-
-  box-sizing: border-box;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-
-  position: absolute;
-  left: 0;
-  top: 50%;
-
-  background-color: #ffffff;
-
-  transform: translateY(-50%);
-}
-
-.radio:checked + .label::before {
-  border: 3px solid #ffffff;
-
-  background-color: #4174f7;
-}
-
 .submit {
   width: 100%;
   padding: 12px 0;
