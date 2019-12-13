@@ -5,7 +5,7 @@ import App from './components/App';
 import configureStore from './store/configureStore';
 import initialState from './store/initialState';
 import './style/style.css';
-import './style/normalize.css';
+import 'normalize.css';
 
 const store = configureStore(initialState);
 

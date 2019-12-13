@@ -12,10 +12,6 @@ body {
   font-weight: normal;
 }
 
-a {
-  text-decoration: none;
-}
-
 button:active, button:focus {
   outline: none;
 }
