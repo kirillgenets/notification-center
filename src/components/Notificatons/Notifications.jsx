@@ -5,7 +5,7 @@ import Notification from '../Notification';
 
 const Notifications = (props) => {
   useEffect(() => {
-    props.receiveNotifications();
+    props.requestNotifications(1);
   }, []);
 
   const onNotificationClick = (notification) => () => {
@@ -29,7 +29,7 @@ const Notifications = (props) => {
 };
 
 Notifications.propTypes = {
-  receiveNotifications: PropTypes.func.isRequired,
+  requestNotifications: PropTypes.func.isRequired,
   notificationsToShow: PropTypes.array.isRequired,
   allNotifications: PropTypes.array,
   markNotificationAsRead: PropTypes.func,

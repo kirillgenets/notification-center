@@ -15,7 +15,12 @@ const FilterRadio = (props) => {
                 value={props.value}
                 defaultChecked={isChecked}
             />
-            <label className={styles.label} htmlFor={props.id}>{props.description}</label>
+            <label
+              className={styles.label}
+              htmlFor={props.id}
+            >
+              {props.description}
+            </label>
         </div>
   );
 };

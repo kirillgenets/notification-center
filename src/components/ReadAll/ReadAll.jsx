@@ -8,7 +8,10 @@ const ReadAll = (props) => {
   };
 
   return (
-        <button className={styles.button} onClick={handleButtonClick}>
+        <button
+          className={styles.button}
+          onClick={handleButtonClick}
+        >
             Mark all as read
         </button>
   );

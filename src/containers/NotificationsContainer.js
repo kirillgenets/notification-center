@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import receiveNotifications from '../store/actions/receiveNotifications';
+import requestNotifications from '../store/actions/requestNotifications';
 import markNotificationAsRead from '../store/actions/markNotificationAsRead';
 import { CategoryFilters, ReadStatusFilters } from '../store/constants/constants';
 import Notifications from '../components/Notificatons';
@@ -45,7 +45,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  receiveNotifications: () => dispatch(receiveNotifications()),
+  requestNotifications: (page) => dispatch(requestNotifications(page)),
   markNotificationAsRead: (notification, notifications) => (
     dispatch(markNotificationAsRead(notification, notifications))
   ),

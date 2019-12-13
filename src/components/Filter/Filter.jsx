@@ -32,7 +32,13 @@ const Filter = (props) => {
 
   return (
         <form className={styles.filter} onSubmit={handleFormSubmit}>
-            <button className={styles.reset} type="button" onClick={handleResetClick}>Reset Filter</button>
+            <button
+              className={styles.reset}
+              type="button"
+              onClick={handleResetClick}
+            >
+              Reset Filter
+            </button>
             <fieldset className={styles.group}>
                 <FilterRadioContainer
                     id="read-radio"
@@ -79,7 +85,9 @@ const Filter = (props) => {
                     description="Error"
                 />
             </fieldset>
-            <button className={styles.submit}>Apply</button>
+            <button className={styles.submit}>
+              Apply
+            </button>
         </form>
   );
 };

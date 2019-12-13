@@ -4,7 +4,9 @@ import styles from './HeadingColumn.css';
 
 const HeadingColumn = (props) => (
         <td className={styles.column}>
-            <span className={styles.text}>{props.name}</span>
+            <span className={styles.text}>
+              {props.name}
+            </span>
         </td>
 );
 

@@ -1,9 +1,8 @@
-import getRandomNotifications from '../../data/generator';
-import { RECEIVE_NOTIFICATIONS, NOTIFICATIONS_COUNT } from '../constants/constants';
+import { RECEIVE_NOTIFICATIONS } from '../constants/constants';
 
-const receiveNotifications = () => ({
+const receiveNotifications = (notifications) => ({
   type: RECEIVE_NOTIFICATIONS,
-  payload: getRandomNotifications(NOTIFICATIONS_COUNT),
+  payload: notifications,
 });
 
 export default receiveNotifications;
