@@ -4,33 +4,33 @@ import { CategoryFilters, ReadStatusFilters } from '../../store/constants/consta
 import FilterRadioContainer from '../../containers/FilterRadioContainer';
 import styles from './Filter.css';
 
-const Filter = props => {
-    const handleFormSubmit = evt => {
-        evt.preventDefault();
-        
-        const filterData = new FormData(evt.target);
-        const readStatus = filterData.get('read-status');
-        const category = filterData.get('category');
+const Filter = (props) => {
+  const handleFormSubmit = (evt) => {
+    evt.preventDefault();
 
-        if (readStatus) {
-            props.setReadStatusFilter(readStatus);
-        }
+    const filterData = new FormData(evt.target);
+    const readStatus = filterData.get('read-status');
+    const category = filterData.get('category');
 
-        if (category) {
-            props.setCategoryFilter(category);
-        }
-        
-        props.onFilterSubmit();
+    if (readStatus) {
+      props.setReadStatusFilter(readStatus);
     }
 
-    const handleResetClick = () => {
-        props.setReadStatusFilter(ReadStatusFilters.SHOW_ALL);
-        props.setCategoryFilter(CategoryFilters.SHOW_ALL);
-
-        props.onFilterSubmit();
+    if (category) {
+      props.setCategoryFilter(category);
     }
 
-    return (
+    props.onFilterSubmit();
+  };
+
+  const handleResetClick = () => {
+    props.setReadStatusFilter(ReadStatusFilters.SHOW_ALL);
+    props.setCategoryFilter(CategoryFilters.SHOW_ALL);
+
+    props.onFilterSubmit();
+  };
+
+  return (
         <form className={styles.filter} onSubmit={handleFormSubmit}>
             <button className={styles.reset} type="button" onClick={handleResetClick}>Reset Filter</button>
             <fieldset className={styles.group}>
@@ -81,13 +81,13 @@ const Filter = props => {
             </fieldset>
             <button className={styles.submit}>Apply</button>
         </form>
-    );
+  );
 };
 
 Filter.propTypes = {
-    setReadStatusFilter: PropTypes.func.isRequired,
-    setCategoryFilter: PropTypes.func.isRequired,
-    onFilterSubmit: PropTypes.func
-}
+  setReadStatusFilter: PropTypes.func.isRequired,
+  setCategoryFilter: PropTypes.func.isRequired,
+  onFilterSubmit: PropTypes.func,
+};
 
 export default Filter;

@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './Pagination.css';
 
-const Pagination = () => {
-    return (
+const Pagination = () => (
         <nav className={styles.pagination}>
             <ul className={styles.list}>
                 <li className={styles.item}>
@@ -34,7 +33,6 @@ const Pagination = () => {
                 </li>
             </ul>
         </nav>
-    );
-};
+);
 
 export default Pagination;

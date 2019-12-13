@@ -3,24 +3,24 @@ import FilterContainer from '../../containers/FilterContainer';
 import styles from './Menu.css';
 
 const Menu = () => {
-    const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState(false);
 
-    const handleTogglerClick = () => {
-        setIsShown(() => !isShown);
-    };
+  const handleTogglerClick = () => {
+    setIsShown(() => !isShown);
+  };
 
-    const onFilterSubmit = () => {
-        setIsShown(() => false);
-    }
+  const onFilterSubmit = () => {
+    setIsShown(() => false);
+  };
 
-    return (
+  return (
         <div className={styles.container}>
             <button className={styles.toggler} onClick={handleTogglerClick}>Category</button>
-            {isShown ?
-                <FilterContainer onFilterSubmit={onFilterSubmit} /> :
-                null}
+            {isShown
+              ? <FilterContainer onFilterSubmit={onFilterSubmit} />
+              : null}
         </div>
-    );
+  );
 };
 
 export default Menu;

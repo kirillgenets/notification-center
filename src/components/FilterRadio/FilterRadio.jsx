@@ -2,32 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './FilterRadio.css';
 
-const FilterRadio = props => {
-    console.log(props.categoryFilter);
-    const isChecked = props.categoryFilter === props.value || props.readStatusFilter === props.value;
+const FilterRadio = (props) => {
+  const isChecked = props.categoryFilter === props.value || props.readStatusFilter === props.value;
 
-    return (
+  return (
         <div className={styles.row}>
-            <input  
+            <input
                 type="radio"
                 className={styles.radio}
-                id={props.id} 
-                name={props.name} 
+                id={props.id}
+                name={props.name}
                 value={props.value}
                 defaultChecked={isChecked}
             />
             <label className={styles.label} htmlFor={props.id}>{props.description}</label>
         </div>
-    )
-}
+  );
+};
 
 FilterRadio.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    categoryFilter: PropTypes.string,
-    readStatusFilter: PropTypes.string
-}
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  categoryFilter: PropTypes.string,
+  readStatusFilter: PropTypes.string,
+};
 
 export default FilterRadio;

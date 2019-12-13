@@ -1,10 +1,9 @@
 import React from 'react';
-import HeadingColumn from '../HeadingColumn/HeadingColumn';
-import Menu from '../Menu/Menu';
+import HeadingColumn from '../HeadingColumn';
+import Menu from '../Menu';
 import styles from './TableHeading.css';
 
-const TableHeading = () => {
-    return (
+const TableHeading = () => (
         <thead>
             <tr className={styles.row}>
                 <td className={styles.column}>
@@ -14,7 +13,6 @@ const TableHeading = () => {
                 <HeadingColumn name="Date" />
             </tr>
         </thead>
-    );
-};
+);
 
 export default TableHeading;

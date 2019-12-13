@@ -4,9 +4,9 @@ import readStatusFilter from './readStatusFilter';
 import categoryFilter from './categoryFilter';
 
 const rootReducer = combineReducers({
-    notifications,
-    readStatusFilter,
-    categoryFilter
+  notifications,
+  readStatusFilter,
+  categoryFilter,
 });
 
 export default rootReducer;

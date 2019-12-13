@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
-import Notification from '../Notification/Notification';
+import Notification from '../Notification';
 
-const Notifications = props => {
-    useEffect(() => {
-        props.receiveNotifications();
-    }, []);
+const Notifications = (props) => {
+  useEffect(() => {
+    props.receiveNotifications();
+  }, []);
 
-    const onNotificationClick = notification => () => {
-        props.markNotificationAsRead(notification, props.allNotifications);
-    }
+  const onNotificationClick = (notification) => () => {
+    props.markNotificationAsRead(notification, props.allNotifications);
+  };
 
-    return (
+  return (
         <tbody>
-            {props.notificationsToShow.map(item => (
+            {props.notificationsToShow.map((item) => (
                 <Notification
                     key={uuid()}
                     isRead={item.isRead}
@@ -23,16 +23,16 @@ const Notifications = props => {
                     onNotificationClick={onNotificationClick(item)}
                     date={item.readOn ? item.readOn.toString() : ''}
                 />
-            ))}            
+            ))}
         </tbody>
-    );
+  );
 };
 
 Notifications.propTypes = {
-    receiveNotifications: PropTypes.func.isRequired,
-    notificationsToShow: PropTypes.array.isRequired,
-    allNotifications: PropTypes.array,
-    markNotificationAsRead: PropTypes.func
-}
+  receiveNotifications: PropTypes.func.isRequired,
+  notificationsToShow: PropTypes.array.isRequired,
+  allNotifications: PropTypes.array,
+  markNotificationAsRead: PropTypes.func,
+};
 
 export default Notifications;
