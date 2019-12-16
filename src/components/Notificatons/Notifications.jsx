@@ -25,7 +25,7 @@ const Notifications = (props) => {
           category={item.category}
           text={item.text}
           onNotificationClick={onNotificationClick(item)}
-          date={item.readOn ? getPrettifiedDate(item.readOn) : ''}
+          date={getPrettifiedDate(item.createdOn)}
         />
       ))}
     </tbody>
