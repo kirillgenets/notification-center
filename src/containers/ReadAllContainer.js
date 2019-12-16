@@ -4,6 +4,7 @@ import ReadAll from '../components/ReadAll';
 
 const mapStateToProps = (state) => ({
   notifications: state.notifications,
+  currentPage: state.currentPage,
 });
 
 const mapDispatchToProps = (dispatch) => ({

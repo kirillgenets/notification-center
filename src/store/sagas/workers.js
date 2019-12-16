@@ -18,14 +18,14 @@ export function* fetchNotifications(action) {
   }
 }
 
-export function* markAllNotificationsAsRead() {
+export function* markAllNotificationsAsRead(action) {
   try {
     yield call(
       putData,
       'http://192.168.99.100:3000/api/v1/notifications/',
     );
 
-    yield put(requestNotifications());
+    yield put(requestNotifications(action.page));
   } catch (error) {
     throw new Error(error);
   }
@@ -35,10 +35,10 @@ export function* markNotificationAsRead(action) {
   try {
     yield call(
       putData,
-      `http://192.168.99.100:3000/api/v1/notifications/${action.payload}`,
+      `http://192.168.99.100:3000/api/v1/notifications/${action.id}`,
     );
 
-    yield put(requestNotifications());
+    yield put(requestNotifications(action.page));
   } catch (error) {
     throw new Error(error);
   }

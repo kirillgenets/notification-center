@@ -6,15 +6,15 @@ import Notification from '../Notification';
 const Notifications = (props) => {
   useEffect(() => {
     props.requestNotifications(props.currentPage);
-  });
+  }, [props.currentPage]);
 
   const onNotificationClick = (notification) => () => {
-    props.markNotificationAsRead(notification.ID);
+    if (notification.isRead) return;
+
+    props.markNotificationAsRead(notification.ID, props.currentPage);
   };
 
-  const getPrettifiedDate = (date) => {
-    return moment(date).format('MMM DD, YYYY, HH:mm');
-  }
+  const getPrettifiedDate = (date) => moment(date).format('MMM DD, YYYY, HH:mm');
 
   return (
     <tbody>

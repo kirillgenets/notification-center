@@ -4,7 +4,7 @@ import styles from './ReadAll.css';
 
 const ReadAll = (props) => {
   const handleButtonClick = () => {
-    props.markAllNotificationsAsRead(props.notifications);
+    props.markAllNotificationsAsRead(props.currentPage);
   };
 
   return (
@@ -20,6 +20,7 @@ const ReadAll = (props) => {
 ReadAll.propTypes = {
   markAllNotificationsAsRead: PropTypes.func.isRequired,
   notifications: PropTypes.array.isRequired,
+  currentPage: PropTypes.number,
 };
 
 export default ReadAll;

@@ -1,8 +1,9 @@
 import { MARK_NOTIFICATION_AS_READ } from '../constants/constants';
 
-const markNotificationAsRead = (notification) => ({
+const markNotificationAsRead = (notification, page) => ({
   type: MARK_NOTIFICATION_AS_READ,
-  payload: notification,
+  id: notification,
+  page,
 });
 
 export default markNotificationAsRead;
