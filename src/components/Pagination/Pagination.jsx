@@ -4,10 +4,15 @@ import { NOTIFICATIONS_PER_PAGE } from '../../store/constants/constants';
 import fetchData from '../../API/fetchData';
 import styles from './Pagination.css';
 
-const SHOWN_PAGES_COUNT = 5;
-
 const Pagination = (props) => {
   const [pages, setPages] = useState([]);
+  const SHOWN_PAGES_COUNT = 5;
+
+  const sepator = (
+    <li className={styles.item}>
+      <span>...</span>
+    </li>
+  );
 
   const fetchPages = async () => {
     const response = await fetchData(`http://192.168.99.100:3000/api/v1/notifications/?page=1&perPage=${NOTIFICATIONS_PER_PAGE}`);
@@ -28,8 +33,21 @@ const Pagination = (props) => {
     props.setCurrentPage(page);
   };
 
+  const renderPaginationItem = (number) => {
+    return (
+      <li key={number} className={styles.item}>
+        <a
+          href={number}
+          onClick={handlePageClick(number)}
+        >
+          {number}
+        </a>
+      </li>
+    );
+  }
+
   const getPagesMarkup = () => {
-    const isBiggerThanLimit = props.currentPage - SHOWN_PAGES_COUNT > 0;
+    const isBiggerThanLimit = props.currentPage - SHOWN_PAGES_COUNT >= 0;
 
     const startPoint = isBiggerThanLimit ? props.currentPage - SHOWN_PAGES_COUNT : 0;
     const endPoint = startPoint + SHOWN_PAGES_COUNT;
@@ -38,53 +56,27 @@ const Pagination = (props) => {
     
     if (!isBiggerThanLimit) {
       for (let i = startPoint; i < endPoint; i += 1) {
-        JSX.push(<li key={pages[i]} className={styles.item}>
-                  <a
-                    href={pages[i]}
-                    onClick={handlePageClick(pages[i])}
-                  >
-                    {pages[i]}
-                  </a>
-                </li>);
-        
+        JSX.push(renderPaginationItem(pages[i]));        
       }
       
-      JSX.push(<li className={styles.item}>
-                <span>...</span>
-              </li>);
-      
-      JSX.push(<li className={styles.item}>
-                <a
-                  href="#"
-                  onClick={handlePageClick(pages[pages.length - 1])}
-                >
-                  {pages[pages.length - 1]}
-                </a>
-              </li>);
-    } else {
-      JSX.push(<li className={styles.item}>
-                  <a
-                    href="#"
-                    onClick={handlePageClick(pages[0])}
-                  >
-                    {pages[0]}
-                  </a>
-                </li>);
+      JSX.push(sepator);      
+      JSX.push(renderPaginationItem(pages[pages.length - 1]));              
+    } else if (props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2) <= pages[pages.length - 1]) {
+      JSX.push(renderPaginationItem(pages[0]));
+      JSX.push(sepator);
 
-      JSX.push(<li className={styles.item}>
-                <span>...</span>
-              </li>);
+      for (let i = props.currentPage - Math.floor(SHOWN_PAGES_COUNT / 2); i < props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2); i += 1) {
+        JSX.push(renderPaginationItem(pages[i]));        
+      }
+
+      JSX.push(sepator);
+      JSX.push(renderPaginationItem(pages[pages.length - 1]));
+    } else if (isBiggerThanLimit) {
+      JSX.push(renderPaginationItem(pages[0]));
+      JSX.push(sepator);
 
       for (let i = startPoint; i < endPoint; i += 1) {
-        JSX.push(<li key={pages[i]} className={styles.item}>
-                  <a
-                    href={pages[i]}
-                    onClick={handlePageClick(pages[i])}
-                  >
-                    {pages[i]}
-                  </a>
-                </li>);
-        
+        JSX.push(renderPaginationItem(pages[i]));        
       }
     }
 
