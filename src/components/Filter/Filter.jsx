@@ -31,64 +31,70 @@ const Filter = (props) => {
   };
 
   return (
-        <form className={styles.filter} onSubmit={handleFormSubmit}>
-            <button
-              className={styles.reset}
-              type="button"
-              onClick={handleResetClick}
-            >
-              Reset Filter
-            </button>
-            <fieldset className={styles.group}>
-                <FilterRadioContainer
-                    id="read-radio"
-                    name="read-status"
-                    value={ReadStatusFilters.SHOW_READ}
-                    description="Read"
-                />
-                <FilterRadioContainer
-                    id="unread-radio"
-                    name="read-status"
-                    value={ReadStatusFilters.SHOW_UNREAD}
-                    description="Unread"
-                />
-            </fieldset>
-            <fieldset className={styles.group}>
-                <FilterRadioContainer
-                    id="critical-radio"
-                    name="category"
-                    value={CategoryFilters.SHOW_CRITICAL}
-                    description="Crit"
-                />
-                <FilterRadioContainer
-                    id="warn-radio"
-                    name="category"
-                    value={CategoryFilters.SHOW_WARN}
-                    description="Warn"
-                />
-                <FilterRadioContainer
-                    id="success-radio"
-                    name="category"
-                    value={CategoryFilters.SHOW_SUCCESS}
-                    description="Success"
-                />
-                <FilterRadioContainer
-                    id="info-radio"
-                    name="category"
-                    value={CategoryFilters.SHOW_INFO}
-                    description="Info"
-                />
-                <FilterRadioContainer
-                    id="error-radio"
-                    name="category"
-                    value={CategoryFilters.SHOW_ERROR}
-                    description="Error"
-                />
-            </fieldset>
-            <button className={styles.submit}>
-              Apply
-            </button>
-        </form>
+    <form className={styles.filter} onSubmit={handleFormSubmit}>
+      <button
+        className={styles.reset}
+        type="button"
+        onClick={handleResetClick}
+      >
+        Reset Filter
+      </button>
+      <fieldset className={styles.group}>
+        <FilterRadioContainer
+          id="read-radio"
+          name="read-status"
+          value={ReadStatusFilters.SHOW_READ}
+          description="Read"
+        />
+        <FilterRadioContainer
+          id="unread-radio"
+          name="read-status"
+          value={ReadStatusFilters.SHOW_UNREAD}
+          description="Unread"
+        />
+      </fieldset>
+      <fieldset className={styles.group}>
+        <FilterRadioContainer
+          id="critical-radio"
+          name="category"
+          value={CategoryFilters.SHOW_CRITICAL}
+          description="Crit"
+        />
+        <FilterRadioContainer
+          id="warn-radio"
+          name="category"
+          value={CategoryFilters.SHOW_WARN}
+          description="Warn"
+        />
+        <FilterRadioContainer
+          id="success-radio"
+          name="category"
+          value={CategoryFilters.SHOW_SUCCESS}
+          description="Success"
+        />
+        <FilterRadioContainer
+          id="info-radio"
+          name="category"
+          value={CategoryFilters.SHOW_INFO}
+          description="Info"
+        />
+        <FilterRadioContainer
+          id="error-radio"
+          name="category"
+          value={CategoryFilters.SHOW_ERROR}
+          description="Error"
+        />
+        <FilterRadioContainer
+          id="debug-radio"
+          name="category"
+          value={CategoryFilters.SHOW_DEBUG}
+          description="Debug"
+        />
+      </fieldset>
+      <button className={styles.submit}>
+        Apply
+      </button>
+    </form>
   );
 };
 

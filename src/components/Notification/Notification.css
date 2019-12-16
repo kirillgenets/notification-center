@@ -59,7 +59,11 @@
 }
 
 .error::before {
-  background-color: rgb(197, 97, 4);
+  background-color: #c56104;
+}
+
+.debug::before {
+  background-color: #fc2aab;
 }
 
 .text {

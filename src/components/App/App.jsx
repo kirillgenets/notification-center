@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from '../Header';
 import Table from '../Table';
-import Pagination from '../Pagination';
+import PaginationContainer from '../../containers/PaginationContainer';
 import ReadAllContainer from '../../containers/ReadAllContainer';
 
 const App = () => (
-        <React.Fragment>
-            <Header />
-            <Table />
-            <Pagination />
-            <ReadAllContainer />
-        </React.Fragment>
+  <React.Fragment>
+    <Header />
+    <Table />
+    <PaginationContainer />
+    <ReadAllContainer />
+  </React.Fragment>
 );
 
 export default App;

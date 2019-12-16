@@ -31,6 +31,8 @@ const getNotificationsByCategory = (notifications, filter) => {
       return notifications.filter((notification) => notification.category === 'INFO');
     case CategoryFilters.SHOW_ERROR:
       return notifications.filter((notification) => notification.category === 'ERROR');
+    case CategoryFilters.SHOW_DEBUG:
+      return notifications.filter((notification) => notification.category === 'DEBUG');
     default:
       throw new Error(`There is no such filter as ${filter}`);
   }
@@ -42,6 +44,7 @@ const mapStateToProps = (state) => ({
     state.categoryFilter,
   ),
   allNotifications: state.notifications,
+  currentPage: state.currentPage,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -8,14 +8,11 @@ import {
 const notifications = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_NOTIFICATIONS:
-      return [
-        ...state,
-        ...action.payload,
-      ];
+      return action.payload;
     case MARK_ALL_NOTIFICATIONS_AS_READ:
-      return action.payload;
+      return state;
     case MARK_NOTIFICATION_AS_READ:
-      return action.payload;
+      return state;
     default:
       return state;
   }

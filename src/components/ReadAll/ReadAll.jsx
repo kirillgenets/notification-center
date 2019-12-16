@@ -8,12 +8,12 @@ const ReadAll = (props) => {
   };
 
   return (
-        <button
-          className={styles.button}
-          onClick={handleButtonClick}
-        >
-            Mark all as read
-        </button>
+    <button
+      className={styles.button}
+      onClick={handleButtonClick}
+    >
+        Mark all as read
+    </button>
   );
 };
 

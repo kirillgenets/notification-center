@@ -14,17 +14,17 @@ const Menu = () => {
   };
 
   return (
-        <div className={styles.container}>
-            <button
-              className={styles.toggler}
-              onClick={handleTogglerClick}
-            >
-              Category
-            </button>
-            {isShown
-              ? <FilterContainer onFilterSubmit={onFilterSubmit} />
-              : null}
-        </div>
+    <div className={styles.container}>
+      <button
+        className={styles.toggler}
+        onClick={handleTogglerClick}
+      >
+        Category
+      </button>
+      {isShown
+        ? <FilterContainer onFilterSubmit={onFilterSubmit} />
+        : null}
+    </div>
   );
 };
 

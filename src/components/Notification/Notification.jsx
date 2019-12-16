@@ -6,20 +6,20 @@ const Notification = (props) => {
   const readStatus = props.isRead ? 'read' : 'unread';
 
   return (
-        <tr
-          className={[styles.notification, styles[readStatus]].join(' ')}
-          onClick={props.onNotificationClick}
-        >
-            <td className={[styles.category, styles[props.category.toLowerCase()]].join(' ')}>
-              {props.category}
-            </td>
-            <td className={styles.text}>
-              {props.text}
-            </td>
-            <td className={styles.date}>
-              {props.date}
-            </td>
-        </tr>
+    <tr
+      className={[styles.notification, styles[readStatus]].join(' ')}
+      onClick={props.onNotificationClick}
+    >
+      <td className={[styles.category, styles[props.category.toLowerCase()]].join(' ')}>
+        {props.category}
+      </td>
+      <td className={styles.text}>
+        {props.text}
+      </td>
+      <td className={styles.date}>
+        {props.date}
+      </td>
+    </tr>
   );
 };
 

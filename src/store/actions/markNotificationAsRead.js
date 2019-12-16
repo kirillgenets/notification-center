@@ -1,17 +1,8 @@
 import { MARK_NOTIFICATION_AS_READ } from '../constants/constants';
 
-const markNotificationAsRead = (notification, notifications) => ({
+const markNotificationAsRead = (notification) => ({
   type: MARK_NOTIFICATION_AS_READ,
-  payload: notifications.map((it) => {
-    const item = it;
-
-    if (item === notification && !notification.isRead) {
-      item.isRead = true;
-      item.readOn = new Date();
-    }
-
-    return item;
-  }),
+  payload: notification,
 });
 
 export default markNotificationAsRead;
