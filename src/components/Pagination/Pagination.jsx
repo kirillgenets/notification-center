@@ -52,14 +52,16 @@ const Pagination = (props) => {
   );
 
   const renderPages = () => {
-    const pagination = [];
+    let pagination = [];
 
     const lastPage = pages[pages.length - 1];
 
     const isStart = props.currentPage - SHOWN_PAGES_COUNT < 0;
     const isEnd = props.currentPage + SHOWN_PAGES_COUNT > lastPage + 1;
 
-    if (isStart) {
+    if (pages.length <= SHOWN_PAGES_COUNT) {
+      pagination = pages.map((page) => renderPaginationItem(page));
+    } else if (isStart) {
       const startPoint = 0;
       const endPoint = startPoint + SHOWN_PAGES_COUNT;
 
