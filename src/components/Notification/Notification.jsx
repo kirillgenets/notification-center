@@ -24,9 +24,9 @@ const Notification = (props) => {
 };
 
 Notification.propTypes = {
-  isRead: PropTypes.bool,
   category: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  isRead: PropTypes.bool,
   date: PropTypes.string,
   onNotificationClick: PropTypes.func,
 };
