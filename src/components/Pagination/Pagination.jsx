@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid/v1';
 import { NOTIFICATIONS_PER_PAGE } from '../../store/constants/constants';
 import fetchData from '../../API/fetchData';
 import styles from './Pagination.css';
@@ -7,12 +8,6 @@ import styles from './Pagination.css';
 const Pagination = (props) => {
   const [pages, setPages] = useState([]);
   const SHOWN_PAGES_COUNT = 5;
-
-  const sepator = (
-    <li className={styles.item}>
-      <span>...</span>
-    </li>
-  );
 
   const fetchPages = async () => {
     const response = await fetchData(`http://192.168.99.100:3000/api/v1/notifications/?page=1&perPage=${NOTIFICATIONS_PER_PAGE}`);
@@ -35,7 +30,10 @@ const Pagination = (props) => {
 
   const renderPaginationItem = (number) => {
     return (
-      <li key={number} className={styles.item}>
+      <li 
+        key={uuid()} 
+        className={styles.item}
+      >
         <a
           href={number}
           onClick={handlePageClick(number)}
@@ -45,48 +43,70 @@ const Pagination = (props) => {
       </li>
     );
   }
+  
+  const renderSeparator = () => {
+    return (
+      <li 
+        key={uuid()} 
+        className={styles.item}
+      >
+        <span>...</span>
+      </li>
+    );
+  }
 
-  const getPagesMarkup = () => {
-    const isBiggerThanLimit = props.currentPage - SHOWN_PAGES_COUNT >= 0;
+  const renderPages = () => {
+    const pagination = [];
 
-    const startPoint = isBiggerThanLimit ? props.currentPage - SHOWN_PAGES_COUNT : 0;
-    const endPoint = startPoint + SHOWN_PAGES_COUNT;
+    const lastPage = pages[pages.length - 1];
 
-    const JSX = [];
-    
-    if (!isBiggerThanLimit) {
-      for (let i = startPoint; i < endPoint; i += 1) {
-        JSX.push(renderPaginationItem(pages[i]));        
-      }
-      
-      JSX.push(sepator);      
-      JSX.push(renderPaginationItem(pages[pages.length - 1]));              
-    } else if (props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2) <= pages[pages.length - 1]) {
-      JSX.push(renderPaginationItem(pages[0]));
-      JSX.push(sepator);
+    const isStart = props.currentPage - SHOWN_PAGES_COUNT < 0;
+    const isEnd = props.currentPage + SHOWN_PAGES_COUNT > lastPage + 1;
 
-      for (let i = props.currentPage - Math.floor(SHOWN_PAGES_COUNT / 2); i < props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2); i += 1) {
-        JSX.push(renderPaginationItem(pages[i]));        
-      }
-
-      JSX.push(sepator);
-      JSX.push(renderPaginationItem(pages[pages.length - 1]));
-    } else if (isBiggerThanLimit) {
-      JSX.push(renderPaginationItem(pages[0]));
-      JSX.push(sepator);
+    if (isStart) {
+      const startPoint = 0;
+      const endPoint = startPoint + SHOWN_PAGES_COUNT;
 
       for (let i = startPoint; i < endPoint; i += 1) {
-        JSX.push(renderPaginationItem(pages[i]));        
+        pagination.push(renderPaginationItem(pages[i]));
       }
+
+      pagination.push(renderSeparator());
+      pagination.push(renderPaginationItem(lastPage));
+    } else if (isEnd) {
+      const startPoint = lastPage - SHOWN_PAGES_COUNT;
+      const endPoint = lastPage;
+
+      pagination.push(renderPaginationItem(pages[0]));
+      pagination.push(renderSeparator());
+
+      for (let i = startPoint; i < endPoint; i += 1) {
+        pagination.push(renderPaginationItem(pages[i]));
+      }
+    } else {
+      const startPoint = props.currentPage - Math.floor(SHOWN_PAGES_COUNT / 2);
+      const endPoint = props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2);
+
+      pagination.push(renderPaginationItem(pages[0]));
+      pagination.push(renderSeparator());
+
+      for (let i = startPoint; i < endPoint; i += 1) {
+        pagination.push(renderPaginationItem(pages[i]));
+      }
+
+      pagination.push(renderSeparator());
+      pagination.push(renderPaginationItem(lastPage));
     }
 
-    return JSX;
+    return pagination;
   }
 
   return (
     <nav className={styles.pagination}>
       <ul className={styles.list}>
-        <li className={styles.item}>
+        <li 
+          className={styles.item}
+        >
           <a
             href="#"
             onClick={handlePageClick(props.currentPage - 1)}
@@ -94,18 +114,10 @@ const Pagination = (props) => {
             {'<'}
           </a>
         </li>
-        {getPagesMarkup()}
-        {/* {pages.map((page) => (
-          <li key={page} className={styles.item}>
-            <a
-              href={page}
-              onClick={handlePageClick(page)}
-            >
-              {page}
-            </a>
-          </li>
-        ))} */}
-        <li className={styles.item}>
+        {renderPages()}
+        <li 
+          className={styles.item}
+        >
           <a
             href="#"
             onClick={handlePageClick(props.currentPage + 1)}
