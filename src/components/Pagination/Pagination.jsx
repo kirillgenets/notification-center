@@ -28,10 +28,9 @@ const Pagination = (props) => {
     props.setCurrentPage(page);
   };
 
-  const renderPaginationItem = (number) => {
-    return (
-      <li 
-        key={uuid()} 
+  const renderPaginationItem = (number) => (
+      <li
+        key={uuid()}
         className={styles.item}
       >
         <a
@@ -41,19 +40,16 @@ const Pagination = (props) => {
           {number}
         </a>
       </li>
-    );
-  }
-  
-  const renderSeparator = () => {
-    return (
-      <li 
-        key={uuid()} 
+  );
+
+  const renderSeparator = () => (
+      <li
+        key={uuid()}
         className={styles.item}
       >
         <span>...</span>
       </li>
-    );
-  }
+  );
 
   const renderPages = () => {
     const pagination = [];
@@ -99,12 +95,12 @@ const Pagination = (props) => {
     }
 
     return pagination;
-  }
+  };
 
   return (
     <nav className={styles.pagination}>
       <ul className={styles.list}>
-        <li 
+        <li
           className={styles.item}
         >
           <a
@@ -115,7 +111,7 @@ const Pagination = (props) => {
           </a>
         </li>
         {renderPages()}
-        <li 
+        <li
           className={styles.item}
         >
           <a
