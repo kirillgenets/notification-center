@@ -3,6 +3,9 @@
     "airbnb-base",
     "plugin:react/recommended"
   ],
+  "plugins": [
+    "jest"
+  ],
   "parser" : "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
@@ -11,7 +14,8 @@
     }
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "settings": {
     "react": {

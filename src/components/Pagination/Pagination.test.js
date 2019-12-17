@@ -1,11 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Header from './Header';
+import Pagination from './Pagination';
 
-it('Header renders correctly', () => {
+it('Pagination renders correctly', () => {
   const tree = renderer
     .create(
-      <Header />,
+      <Pagination
+        setCurrentPage={jest.fn()}
+        currentPage={1}
+      />,
     )
     .toJSON();
 

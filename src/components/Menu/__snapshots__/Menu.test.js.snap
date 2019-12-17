@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Click handler works correctly 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Category
+  </button>
+</div>
+`;
+
+exports[`Click handler works correctly 2`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Category
+  </button>
+  <Connect(Filter)
+    onFilterSubmit={[Function]}
+  />
+</div>
+`;
+
+exports[`Menu renders correctly 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Category
+  </button>
+</div>
+`;

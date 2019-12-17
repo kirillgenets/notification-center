@@ -9,11 +9,11 @@ it('Read notification renders correctly', () => {
         category="WARN"
         text="This Session Is Running In Sandbox Mode. Changes Will Not Be Saved"
         isRead={true}
-      />
+      />,
     )
     .toJSON();
-  
-    expect(tree).toMatchSnapshot();
+
+  expect(tree).toMatchSnapshot();
 });
 
 it('Unread notification renders correctly', () => {
@@ -23,9 +23,9 @@ it('Unread notification renders correctly', () => {
         category="WARN"
         text="This Session Is Running In Sandbox Mode. Changes Will Not Be Saved"
         isRead={false}
-      />
+      />,
     )
     .toJSON();
-  
-    expect(tree).toMatchSnapshot();
+
+  expect(tree).toMatchSnapshot();
 });

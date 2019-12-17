@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableHeading renders correctly 1`] = `
+<thead>
+  <tr>
+    <td>
+      <div>
+        <button
+          onClick={[Function]}
+        >
+          Category
+        </button>
+      </div>
+    </td>
+    <td>
+      <span>
+        Message
+      </span>
+    </td>
+    <td>
+      <span>
+        Date
+      </span>
+    </td>
+  </tr>
+</thead>
+`;

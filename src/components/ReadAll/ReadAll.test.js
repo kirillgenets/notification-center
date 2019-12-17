@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Header from './Header';
+import ReadAll from './ReadAll';
 
-it('Header renders correctly', () => {
+it('ReadAll renders correctly', () => {
   const tree = renderer
     .create(
-      <Header />,
+      <ReadAll />,
     )
     .toJSON();
 

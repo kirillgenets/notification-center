@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Header from './Header';
+import TableHeading from './TableHeading';
 
-it('Header renders correctly', () => {
+it('TableHeading renders correctly', () => {
   const tree = renderer
     .create(
-      <Header />,
+      <TableHeading />,
     )
     .toJSON();
 

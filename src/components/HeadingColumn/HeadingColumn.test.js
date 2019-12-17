@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Header from './Header';
+import HeadingColumn from './HeadingColumn';
 
-it('Header renders correctly', () => {
+it('HeadingColumn renders correctly', () => {
   const tree = renderer
     .create(
-      <Header />,
+      <HeadingColumn name="Category" />,
     )
     .toJSON();
 

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders correctly 1`] = `
+<nav>
+  <ul>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        &lt;
+      </a>
+    </li>
+    <li>
+      <a
+        onClick={[Function]}
+      />
+    </li>
+    <li>
+      <a
+        onClick={[Function]}
+      />
+    </li>
+    <li>
+      <a
+        onClick={[Function]}
+      />
+    </li>
+    <li>
+      <a
+        onClick={[Function]}
+      />
+    </li>
+    <li>
+      <a
+        onClick={[Function]}
+      />
+    </li>
+    <li>
+      <span>
+        ...
+      </span>
+    </li>
+    <li>
+      <a
+        onClick={[Function]}
+      />
+    </li>
+    <li>
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        &gt;
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

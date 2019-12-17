@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterRadio renders correctly 1`] = `
+<div>
+  <input
+    defaultChecked={false}
+    id="unread-radio"
+    name="read-status"
+    type="radio"
+    value="SHOW_UNREAD"
+  />
+  <label
+    htmlFor="unread-radio"
+  >
+    Unread
+  </label>
+</div>
+`;

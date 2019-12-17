@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter renders correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Reset Filter
+  </button>
+  <fieldset>
+    <Connect(FilterRadio)
+      description="Read"
+      id="read-radio"
+      name="read-status"
+      value="SHOW_READ"
+    />
+    <Connect(FilterRadio)
+      description="Unread"
+      id="unread-radio"
+      name="read-status"
+      value="SHOW_UNREAD"
+    />
+  </fieldset>
+  <fieldset>
+    <Connect(FilterRadio)
+      description="Crit"
+      id="critical-radio"
+      name="category"
+      value="SHOW_CRITICAL"
+    />
+    <Connect(FilterRadio)
+      description="Warn"
+      id="warn-radio"
+      name="category"
+      value="SHOW_WARN"
+    />
+    <Connect(FilterRadio)
+      description="Success"
+      id="success-radio"
+      name="category"
+      value="SHOW_SUCCESS"
+    />
+    <Connect(FilterRadio)
+      description="Info"
+      id="info-radio"
+      name="category"
+      value="SHOW_INFO"
+    />
+    <Connect(FilterRadio)
+      description="Error"
+      id="error-radio"
+      name="category"
+      value="SHOW_ERROR"
+    />
+    <Connect(FilterRadio)
+      description="Debug"
+      id="debug-radio"
+      name="category"
+      value="SHOW_DEBUG"
+    />
+  </fieldset>
+  <button>
+    Apply
+  </button>
+</form>
+`;
