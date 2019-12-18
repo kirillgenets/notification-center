@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import fetchData from '../../API/fetchData';
 import putData from '../../API/putData';
-import { NOTIFICATIONS_PER_PAGE } from '../constants/constants';
+import { NOTIFICATIONS_PER_PAGE } from '../constants';
 import receiveNotifications from '../actions/receiveNotifications';
 import requestNotifications from '../actions/requestNotifications';
 

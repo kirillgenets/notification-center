@@ -1,4 +1,4 @@
-import { RECEIVE_NOTIFICATIONS } from '../constants/constants';
+import { RECEIVE_NOTIFICATIONS } from '../constants';
 
 const receiveNotifications = (notifications) => ({
   type: RECEIVE_NOTIFICATIONS,

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import requestNotifications from '../store/actions/requestNotifications';
 import markNotificationAsRead from '../store/actions/markNotificationAsRead';
-import { CategoryFilters, ReadStatusFilters } from '../store/constants/constants';
+import { CategoryFilters, ReadStatusFilters } from '../store/constants';
 import Notifications from '../components/Notificatons';
 
 const getNotificationsByReadStatus = (notifications, filter) => {

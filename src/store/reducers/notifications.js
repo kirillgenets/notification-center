@@ -3,7 +3,7 @@ import {
   RECEIVE_NOTIFICATIONS,
   MARK_ALL_NOTIFICATIONS_AS_READ,
   MARK_NOTIFICATION_AS_READ,
-} from '../constants/constants';
+} from '../constants';
 
 const notifications = (state = initialState, action) => {
   switch (action.type) {

@@ -1,4 +1,4 @@
-import { MARK_ALL_NOTIFICATIONS_AS_READ } from '../constants/constants';
+import { MARK_ALL_NOTIFICATIONS_AS_READ } from '../constants';
 
 const markAllNotificationsAsRead = (page) => ({
   type: MARK_ALL_NOTIFICATIONS_AS_READ,

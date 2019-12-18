@@ -1,4 +1,4 @@
-import { REQUEST_NOTIFICATIONS } from '../constants/constants';
+import { REQUEST_NOTIFICATIONS } from '../constants';
 
 const requestNotifications = (page) => ({
   type: REQUEST_NOTIFICATIONS,

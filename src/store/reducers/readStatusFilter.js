@@ -1,5 +1,5 @@
 import initialState from '../initialState';
-import { SET_READ_STATUS_FILTER } from '../constants/constants';
+import { SET_READ_STATUS_FILTER } from '../constants';
 
 const readStatusFilter = (state = initialState, action) => {
   switch (action.type) {

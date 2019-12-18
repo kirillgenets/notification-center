@@ -1,5 +1,5 @@
 import initialState from '../initialState';
-import { SET_CATEGORY_FILTER } from '../constants/constants';
+import { SET_CATEGORY_FILTER } from '../constants';
 
 const categoryFilter = (state = initialState, action) => {
   switch (action.type) {

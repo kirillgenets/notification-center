@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CategoryFilters, ReadStatusFilters } from '../../store/constants/constants';
+import { CategoryFilters, ReadStatusFilters } from '../../store/constants';
 import FilterRadioContainer from '../../containers/FilterRadioContainer';
 import styles from './Filter.css';
 

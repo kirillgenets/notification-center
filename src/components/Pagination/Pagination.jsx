@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import classNames from 'classnames';
-import { NOTIFICATIONS_PER_PAGE } from '../../store/constants/constants';
+import { NOTIFICATIONS_PER_PAGE } from '../../store/constants';
 import fetchData from '../../API/fetchData';
 import styles from './Pagination.css';
 
