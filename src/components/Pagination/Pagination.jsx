@@ -59,7 +59,7 @@ const Pagination = (props) => {
     const isStart = props.currentPage - SHOWN_PAGES_COUNT < 0;
     const isEnd = props.currentPage + SHOWN_PAGES_COUNT > lastPage + 1;
 
-    if (pages.length <= SHOWN_PAGES_COUNT) {
+    if (pages.length <= SHOWN_PAGES_COUNT + 1) {
       pagination = pages.map((page) => renderPaginationItem(page));
     } else if (isStart) {
       const startPoint = 0;
