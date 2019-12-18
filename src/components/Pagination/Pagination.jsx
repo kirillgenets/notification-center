@@ -7,7 +7,9 @@ import styles from './Pagination.css';
 
 const Pagination = (props) => {
   const [pages, setPages] = useState([]);
+
   const SHOWN_PAGES_COUNT = 5;
+  const lastPage = pages[pages.length - 1];
 
   const fetchPages = async () => {
     const response = await fetchData(`http://192.168.99.100:3000/api/v1/notifications/?page=1&perPage=${NOTIFICATIONS_PER_PAGE}`);
@@ -51,52 +53,71 @@ const Pagination = (props) => {
       </li>
   );
 
-  const renderPages = () => {
-    let pagination = [];
+  const renderShortPagination = () => {
+    return pages.map((page) => renderPaginationItem(page));
+  }
 
-    const lastPage = pages[pages.length - 1];
+  const renderStartPagination = () => {
+    const pagination = [];
+    const startPoint = 0;
+    const endPoint = startPoint + SHOWN_PAGES_COUNT;
 
+    for (let i = startPoint; i < endPoint; i += 1) {
+      pagination.push(renderPaginationItem(pages[i]));
+    }
+
+    pagination.push(renderSeparator());
+    pagination.push(renderPaginationItem(lastPage));
+
+    return pagination;
+  }
+
+  const renderEndPagination = () => {
+    const pagination = [];
+    const startPoint = lastPage - SHOWN_PAGES_COUNT;
+    const endPoint = lastPage;
+
+    pagination.push(renderPaginationItem(pages[0]));
+    pagination.push(renderSeparator());
+
+    for (let i = startPoint; i < endPoint; i += 1) {
+      pagination.push(renderPaginationItem(pages[i]));
+    }
+
+    return pagination;
+  }
+
+  const renderMiddlePagination = () => {
+    const pagination = [];
+    const startPoint = props.currentPage - Math.floor(SHOWN_PAGES_COUNT / 2);
+    const endPoint = props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2);
+
+    pagination.push(renderPaginationItem(pages[0]));
+    pagination.push(renderSeparator());
+
+    for (let i = startPoint; i < endPoint; i += 1) {
+      pagination.push(renderPaginationItem(pages[i]));
+    }
+
+    pagination.push(renderSeparator());
+    pagination.push(renderPaginationItem(lastPage));
+
+    return pagination;
+  }
+
+  const renderPagination = () => {
     const isStart = props.currentPage - SHOWN_PAGES_COUNT < 0;
     const isEnd = props.currentPage + SHOWN_PAGES_COUNT > lastPage + 1;
 
     if (pages.length <= SHOWN_PAGES_COUNT + 1) {
-      pagination = pages.map((page) => renderPaginationItem(page));
+      return [...renderShortPagination()];
     } else if (isStart) {
-      const startPoint = 0;
-      const endPoint = startPoint + SHOWN_PAGES_COUNT;
-
-      for (let i = startPoint; i < endPoint; i += 1) {
-        pagination.push(renderPaginationItem(pages[i]));
-      }
-
-      pagination.push(renderSeparator());
-      pagination.push(renderPaginationItem(lastPage));
+      return [...renderStartPagination()];
     } else if (isEnd) {
-      const startPoint = lastPage - SHOWN_PAGES_COUNT;
-      const endPoint = lastPage;
-
-      pagination.push(renderPaginationItem(pages[0]));
-      pagination.push(renderSeparator());
-
-      for (let i = startPoint; i < endPoint; i += 1) {
-        pagination.push(renderPaginationItem(pages[i]));
-      }
+      return [...renderEndPagination()];
     } else {
-      const startPoint = props.currentPage - Math.floor(SHOWN_PAGES_COUNT / 2);
-      const endPoint = props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2);
-
-      pagination.push(renderPaginationItem(pages[0]));
-      pagination.push(renderSeparator());
-
-      for (let i = startPoint; i < endPoint; i += 1) {
-        pagination.push(renderPaginationItem(pages[i]));
-      }
-
-      pagination.push(renderSeparator());
-      pagination.push(renderPaginationItem(lastPage));
+      return [...renderMiddlePagination()];
     }
-
-    return pagination;
   };
 
   return (
@@ -112,7 +133,7 @@ const Pagination = (props) => {
             {'<'}
           </a>
         </li>
-        {renderPages()}
+        {renderPagination()}
         <li
           className={styles.item}
         >
