@@ -1,4 +1,5 @@
 export const NOTIFICATIONS_PER_PAGE = 9;
+export const API_URL = 'http://192.168.99.100:3000/api/v1/notifications';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 export const REQUEST_NOTIFICATIONS = 'REQUEST_NOTIFICATIONS';
 export const RECEIVE_NOTIFICATIONS = 'RECEIVE_NOTIFICATIONS';

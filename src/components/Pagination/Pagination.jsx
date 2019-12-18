@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import classNames from 'classnames';
-import { NOTIFICATIONS_PER_PAGE } from '../../store/constants';
+import { NOTIFICATIONS_PER_PAGE, API_URL } from '../../store/constants';
 import fetchData from '../../API/fetchData';
 import styles from './Pagination.css';
 
@@ -13,7 +13,7 @@ const Pagination = (props) => {
   const lastPage = pages[pages.length - 1];
 
   const fetchPages = async () => {
-    const response = await fetchData(`http://192.168.99.100:3000/api/v1/notifications/?page=1&perPage=${NOTIFICATIONS_PER_PAGE}`);
+    const response = await fetchData(`${API_URL}/?page=1&perPage=${NOTIFICATIONS_PER_PAGE}`);
     setPages(() => Array.from({
       length: response.data.pagination.total,
     }, (item, index) => index + 1));
