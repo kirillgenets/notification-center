@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import styles from './Notification.css';
 
 const Notification = (props) => {
@@ -7,10 +8,16 @@ const Notification = (props) => {
 
   return (
     <tr
-      className={[styles.notification, styles[readStatus]].join(' ')}
+      className={classNames(
+        styles.notification,
+        styles[readStatus],
+      )}
       onClick={props.onNotificationClick}
     >
-      <td className={[styles.category, styles[props.category.toLowerCase()]].join(' ')}>
+      <td className={classNames(
+        styles.category,
+        styles[props.category.toLowerCase()],
+      )}>
         {props.category}
       </td>
       <td className={styles.text}>

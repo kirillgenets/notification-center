@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
+import classNames from 'classnames';
 import { NOTIFICATIONS_PER_PAGE } from '../../store/constants/constants';
 import fetchData from '../../API/fetchData';
 import styles from './Pagination.css';
@@ -33,7 +34,10 @@ const Pagination = (props) => {
   const renderPaginationItem = (number) => (
       <li
         key={uuid()}
-        className={styles.item}
+        className={classNames(
+          styles.item,
+          { [styles.current]: props.currentPage === number },
+        )}
       >
         <a
           href={number}
@@ -53,9 +57,7 @@ const Pagination = (props) => {
       </li>
   );
 
-  const renderShortPagination = () => {
-    return pages.map((page) => renderPaginationItem(page));
-  }
+  const renderShortPagination = () => pages.map((page) => renderPaginationItem(page));
 
   const renderStartPagination = () => {
     const pagination = [];
@@ -70,7 +72,7 @@ const Pagination = (props) => {
     pagination.push(renderPaginationItem(lastPage));
 
     return pagination;
-  }
+  };
 
   const renderEndPagination = () => {
     const pagination = [];
@@ -85,7 +87,7 @@ const Pagination = (props) => {
     }
 
     return pagination;
-  }
+  };
 
   const renderMiddlePagination = () => {
     const pagination = [];
@@ -103,7 +105,7 @@ const Pagination = (props) => {
     pagination.push(renderPaginationItem(lastPage));
 
     return pagination;
-  }
+  };
 
   const renderPagination = () => {
     const isStart = props.currentPage - SHOWN_PAGES_COUNT < 0;
@@ -111,13 +113,12 @@ const Pagination = (props) => {
 
     if (pages.length <= SHOWN_PAGES_COUNT + 1) {
       return [...renderShortPagination()];
-    } else if (isStart) {
+    } if (isStart) {
       return [...renderStartPagination()];
-    } else if (isEnd) {
+    } if (isEnd) {
       return [...renderEndPagination()];
-    } else {
-      return [...renderMiddlePagination()];
     }
+    return [...renderMiddlePagination()];
   };
 
   return (

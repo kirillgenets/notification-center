@@ -33,3 +33,7 @@
 .item a:active {
   opacity: 0.6;
 }
+
+.current a {
+  text-decoration: underline;
+}
