@@ -20,13 +20,15 @@ const Filter = (props) => {
       props.setCategoryFilter(category);
     }
 
+    props.setCurrentPage(1);
+
     props.onFilterSubmit();
   };
 
   const handleResetClick = () => {
     props.setReadStatusFilter(ReadStatusFilters.SHOW_ALL);
     props.setCategoryFilter(CategoryFilters.SHOW_ALL);
-
+    props.setCurrentPage(1);
     props.onFilterSubmit();
   };
 
@@ -67,12 +69,6 @@ const Filter = (props) => {
           description="Warn"
         />
         <FilterRadioContainer
-          id="success-radio"
-          name="category"
-          value={CategoryFilters.SHOW_SUCCESS}
-          description="Success"
-        />
-        <FilterRadioContainer
           id="info-radio"
           name="category"
           value={CategoryFilters.SHOW_INFO}
@@ -101,6 +97,7 @@ const Filter = (props) => {
 Filter.propTypes = {
   setReadStatusFilter: PropTypes.func.isRequired,
   setCategoryFilter: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func,
   onFilterSubmit: PropTypes.func,
 };
 

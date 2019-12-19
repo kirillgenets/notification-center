@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import classNames from 'classnames';
-import { NOTIFICATIONS_PER_PAGE, API_URL } from '../../store/constants';
 import fetchData from '../../API/fetchData';
+import getURL from '../../API/getURL';
 import styles from './Pagination.css';
 
 const Pagination = (props) => {
@@ -13,7 +13,9 @@ const Pagination = (props) => {
   const lastPage = pages[pages.length - 1];
 
   const fetchPages = async () => {
-    const response = await fetchData(`${API_URL}/?page=1&perPage=${NOTIFICATIONS_PER_PAGE}`);
+    const URL = getURL(1, props.categoryFilter, props.readStatusFilter);
+
+    const response = await fetchData(URL);
     setPages(() => Array.from({
       length: response.data.pagination.total,
     }, (item, index) => index + 1));
@@ -21,7 +23,7 @@ const Pagination = (props) => {
 
   useEffect(() => {
     fetchPages();
-  }, []);
+  }, [props.categoryFilter, props.readStatusFilter, props.notifications.length]);
 
   const handlePageClick = (page) => (evt) => {
     evt.preventDefault();
@@ -153,6 +155,9 @@ const Pagination = (props) => {
 Pagination.propTypes = {
   setCurrentPage: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
+  categoryFilter: PropTypes.string,
+  readStatusFilter: PropTypes.string,
+  notifications: PropTypes.array,
 };
 
 export default Pagination;

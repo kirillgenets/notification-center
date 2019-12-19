@@ -5,11 +5,13 @@ import ReadAll from '../components/ReadAll';
 const mapStateToProps = (state) => ({
   notifications: state.notifications,
   currentPage: state.currentPage,
+  categoryFilter: state.categoryFilter,
+  readStatusFilter: state.readStatusFilter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  markAllNotificationsAsRead: (notifications) => (
-    dispatch(markAllNotificationsAsRead(notifications))
+  markAllNotificationsAsRead: (notifications, page, category, isRead) => (
+    dispatch(markAllNotificationsAsRead(notifications, page, category, isRead))
   ),
 });
 

@@ -1,15 +1,18 @@
 import { call, put } from 'redux-saga/effects';
 import fetchData from '../../API/fetchData';
 import putData from '../../API/putData';
-import { NOTIFICATIONS_PER_PAGE, API_URL } from '../constants';
+import getURL from '../../API/getURL';
+import { API_URL } from '../constants';
 import receiveNotifications from '../actions/receiveNotifications';
 import requestNotifications from '../actions/requestNotifications';
 
 export function* fetchNotifications(action) {
   try {
+    const URL = getURL(action.page, action.category, action.isRead);
+
     const response = yield call(
       fetchData,
-      `${API_URL}/?page=${action.payload}&perPage=${NOTIFICATIONS_PER_PAGE}`,
+      URL,
     );
 
     yield put(receiveNotifications(response.data.notifications));
@@ -25,7 +28,7 @@ export function* markAllNotificationsAsRead(action) {
       API_URL,
     );
 
-    yield put(requestNotifications(action.page));
+    yield put(requestNotifications(action.page, action.category, action.isRead));
   } catch (error) {
     throw new Error(error);
   }
@@ -38,7 +41,7 @@ export function* markNotificationAsRead(action) {
       `${API_URL}/${action.id}`,
     );
 
-    yield put(requestNotifications(action.page));
+    yield put(requestNotifications(action.page, action.category, action.isRead));
   } catch (error) {
     throw new Error(error);
   }

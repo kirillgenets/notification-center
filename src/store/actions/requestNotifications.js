@@ -1,8 +1,10 @@
 import { REQUEST_NOTIFICATIONS } from '../constants';
 
-const requestNotifications = (page) => ({
+const requestNotifications = (page, category, isRead) => ({
   type: REQUEST_NOTIFICATIONS,
-  payload: page,
+  page,
+  category,
+  isRead,
 });
 
 export default requestNotifications;
