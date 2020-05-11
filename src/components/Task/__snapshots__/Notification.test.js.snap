@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Read notification renders correctly 1`] = `
+<tr
+  className=" "
+>
+  <td
+    className=" "
+  >
+    WARN
+  </td>
+  <td>
+    This Session Is Running In Sandbox Mode. Changes Will Not Be Saved
+  </td>
+  <td />
+</tr>
+`;
+
+exports[`Unread notification renders correctly 1`] = `
+<tr
+  className=" "
+>
+  <td
+    className=" "
+  >
+    WARN
+  </td>
+  <td>
+    This Session Is Running In Sandbox Mode. Changes Will Not Be Saved
+  </td>
+  <td />
+</tr>
+`;

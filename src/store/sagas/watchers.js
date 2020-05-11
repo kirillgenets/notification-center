@@ -1,9 +1,8 @@
 import { takeEvery } from 'redux-saga/effects';
-import { REQUEST_NOTIFICATIONS, MARK_ALL_NOTIFICATIONS_AS_READ, MARK_NOTIFICATION_AS_READ } from '../constants';
-import { fetchNotifications, markAllNotificationsAsRead, markNotificationAsRead } from './workers';
+import { REQUEST_TASKS, MARK_TASK_AS_READ } from '../constants';
+import { fetchTasks, markTaskAsRead } from './workers';
 
 export default function* rootSaga() {
-  yield takeEvery(REQUEST_NOTIFICATIONS, fetchNotifications);
-  yield takeEvery(MARK_ALL_NOTIFICATIONS_AS_READ, markAllNotificationsAsRead);
-  yield takeEvery(MARK_NOTIFICATION_AS_READ, markNotificationAsRead);
+  yield takeEvery(REQUEST_TASKS, fetchTasks);
+  yield takeEvery(MARK_TASK_AS_READ, markTaskAsRead);
 }

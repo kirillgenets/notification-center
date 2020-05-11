@@ -1,5 +1,5 @@
 const initialState = {
-  notifications: [],
+  tasks: [],
   currentPage: 1,
   readStatusFilter: '',
   categoryFilter: '',

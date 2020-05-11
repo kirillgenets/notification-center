@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import notifications from './notifications';
+import tasks from './tasks';
 import readStatusFilter from './readStatusFilter';
 import categoryFilter from './categoryFilter';
 import currentPage from './currentPage';
 
 const rootReducer = combineReducers({
-  notifications,
+  tasks,
   readStatusFilter,
   categoryFilter,
   currentPage,

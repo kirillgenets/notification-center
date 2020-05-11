@@ -1,10 +1,9 @@
-export const NOTIFICATIONS_PER_PAGE = 9;
-export const API_URL = 'http://192.168.99.100:3000/api/v1/notifications';
+export const TASKS_PER_PAGE = 9;
+export const API_URL = 'https://localhost:44357/api/Tasks';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-export const REQUEST_NOTIFICATIONS = 'REQUEST_NOTIFICATIONS';
-export const RECEIVE_NOTIFICATIONS = 'RECEIVE_NOTIFICATIONS';
-export const MARK_ALL_NOTIFICATIONS_AS_READ = 'MARK_ALL_NOTIFICATIONS_AS_READ';
-export const MARK_NOTIFICATION_AS_READ = 'MARK_NOTIFICATION_AS_READ';
+export const REQUEST_TASKS = 'REQUEST_TASKS';
+export const RECEIVE_TASKS = 'RECEIVE_TASKS';
+export const MARK_TASK_AS_READ = 'MARK_TASK_AS_READ';
 export const SET_CATEGORY_FILTER = 'SET_CATEGORY_FILTER';
 export const SET_READ_STATUS_FILTER = 'SET_READ_STATUS_FILTER';
 export const ReadStatusFilters = {

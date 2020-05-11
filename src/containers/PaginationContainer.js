@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
   currentPage: state.currentPage,
   categoryFilter: state.categoryFilter,
   readStatusFilter: state.readStatusFilter,
-  notifications: state.notifications,
+  tasks: state.tasks,
 });
 
 const mapDispatchToProps = (dispatch) => ({

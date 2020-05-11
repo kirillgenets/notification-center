@@ -1,5 +1,5 @@
 {
-  "name": "notification-center",
+  "name": "teamapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kirillgenets/notification-center.git"
+    "url": "git+https://github.com/kirillgenets/teamapp.git"
   },
   "author": "Kiryl Henets",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kirillgenets/notification-center/issues"
+    "url": "https://github.com/kirillgenets/teamapp/issues"
   },
-  "homepage": "https://github.com/kirillgenets/notification-center#readme",
+  "homepage": "https://github.com/kirillgenets/teamapp#readme",
   "dependencies": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",

@@ -16,14 +16,19 @@ const Pagination = (props) => {
     const URL = getURL(1, props.categoryFilter, props.readStatusFilter);
 
     const response = await fetchData(URL);
-    setPages(() => Array.from({
-      length: response.data.pagination.total,
-    }, (item, index) => index + 1));
+    setPages(() =>
+      Array.from(
+        {
+          length: response.data.pagination.total,
+        },
+        (item, index) => index + 1,
+      ),
+    );
   };
 
   useEffect(() => {
     fetchPages();
-  }, [props.categoryFilter, props.readStatusFilter, props.notifications.length]);
+  }, [props.categoryFilter, props.readStatusFilter, props.tasks.length]);
 
   const handlePageClick = (page) => (evt) => {
     evt.preventDefault();
@@ -34,29 +39,20 @@ const Pagination = (props) => {
   };
 
   const renderPaginationItem = (number) => (
-      <li
-        key={uuid()}
-        className={classNames(
-          styles.item,
-          { [styles.current]: props.currentPage === number },
-        )}
-      >
-        <a
-          href={number}
-          onClick={handlePageClick(number)}
-        >
-          {number}
-        </a>
-      </li>
+    <li
+      key={uuid()}
+      className={classNames(styles.item, { [styles.current]: props.currentPage === number })}
+    >
+      <a href={number} onClick={handlePageClick(number)}>
+        {number}
+      </a>
+    </li>
   );
 
   const renderSeparator = () => (
-      <li
-        key={uuid()}
-        className={styles.item}
-      >
-        <span>...</span>
-      </li>
+    <li key={uuid()} className={styles.item}>
+      <span>...</span>
+    </li>
   );
 
   const renderShortPagination = () => pages.map((page) => renderPaginationItem(page));
@@ -115,9 +111,11 @@ const Pagination = (props) => {
 
     if (pages.length <= SHOWN_PAGES_COUNT + 1) {
       return [...renderShortPagination()];
-    } if (isStart) {
+    }
+    if (isStart) {
       return [...renderStartPagination()];
-    } if (isEnd) {
+    }
+    if (isEnd) {
       return [...renderEndPagination()];
     }
     return [...renderMiddlePagination()];
@@ -126,24 +124,14 @@ const Pagination = (props) => {
   return (
     <nav className={styles.pagination}>
       <ul className={styles.list}>
-        <li
-          className={styles.item}
-        >
-          <a
-            href="#"
-            onClick={handlePageClick(props.currentPage - 1)}
-          >
+        <li className={styles.item}>
+          <a href="#" onClick={handlePageClick(props.currentPage - 1)}>
             {'<'}
           </a>
         </li>
         {renderPagination()}
-        <li
-          className={styles.item}
-        >
-          <a
-            href="#"
-            onClick={handlePageClick(props.currentPage + 1)}
-          >
+        <li className={styles.item}>
+          <a href="#" onClick={handlePageClick(props.currentPage + 1)}>
             {'>'}
           </a>
         </li>
@@ -157,7 +145,7 @@ Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   categoryFilter: PropTypes.string,
   readStatusFilter: PropTypes.string,
-  notifications: PropTypes.array,
+  tasks: PropTypes.array,
 };
 
 export default Pagination;

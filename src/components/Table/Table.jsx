@@ -1,12 +1,12 @@
 import React from 'react';
 import TableHeading from '../TableHeading';
-import NotificationsContainer from '../../containers/NotificationsContainer';
+import TasksContainer from '../../containers/TasksContainer';
 import styles from './Table.css';
 
 const Table = () => (
   <table className={styles.table}>
     <TableHeading />
-    <NotificationsContainer />
+    <TasksContainer />
   </table>
 );
 
