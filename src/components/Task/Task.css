@@ -17,7 +17,7 @@
   opacity: 0.4;
 }
 
-.unread {
+.incomplete {
   background-color: #f3f6f9;
 }
 
@@ -33,7 +33,7 @@
   position: relative;
 }
 
-.unread .category::before {
+.incomplete .category::before {
   content: '';
 
   width: 9px;

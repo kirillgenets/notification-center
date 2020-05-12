@@ -1,11 +1,11 @@
 import { API_URL, TASKS_PER_PAGE } from '../store/constants';
 
-const getURL = (page, category, isRead) => {
-  let URL = `${API_URL}/?page=${page}&pageSize=${TASKS_PER_PAGE}`;
-  URL += category ? `&category=${category}` : '';
-  URL += isRead ? `&isRead=${isRead}` : '';
+const getURL = (queries, pageSize = TASKS_PER_PAGE) => {
+  const preparedQueries = Object.entries(queries)
+    .map((entry) => `${entry[0]}=${entry[1]}`)
+    .join('&');
 
-  return URL;
+  return `${API_URL}/?pageSize=${pageSize}&${preparedQueries}`;
 };
 
 export default getURL;

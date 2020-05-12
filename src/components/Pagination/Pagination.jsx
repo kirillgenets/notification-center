@@ -13,7 +13,7 @@ const Pagination = (props) => {
   const lastPage = pages[pages.length - 1];
 
   const fetchPages = async () => {
-    const URL = getURL(1, props.categoryFilter, props.readStatusFilter);
+    const URL = getURL(1, props.categoryFilter, props.completionStatusFilter);
 
     const response = await fetchData(URL);
     setPages(() =>
@@ -28,7 +28,7 @@ const Pagination = (props) => {
 
   useEffect(() => {
     fetchPages();
-  }, [props.categoryFilter, props.readStatusFilter, props.tasks.length]);
+  }, [props.categoryFilter, props.completionStatusFilter, props.tasks.length]);
 
   const handlePageClick = (page) => (evt) => {
     evt.preventDefault();
@@ -144,7 +144,7 @@ Pagination.propTypes = {
   setCurrentPage: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   categoryFilter: PropTypes.string,
-  readStatusFilter: PropTypes.string,
+  completionStatusFilter: PropTypes.string,
   tasks: PropTypes.array,
 };
 

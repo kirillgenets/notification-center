@@ -1,7 +1,7 @@
 import initialState from '../initialState';
 import { SET_CURRENT_PAGE } from '../constants';
 
-const readStatusFilter = (state = initialState, action) => {
+const currentPage = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_PAGE:
       return action.payload;
@@ -10,4 +10,4 @@ const readStatusFilter = (state = initialState, action) => {
   }
 };
 
-export default readStatusFilter;
+export default currentPage;

@@ -5,13 +5,18 @@ import Task from '../Task';
 
 const Tasks = (props) => {
   useEffect(() => {
-    props.requestTasks(props.currentPage, props.categoryFilter, props.readStatusFilter);
-  }, [props.currentPage, props.categoryFilter, props.readStatusFilter]);
+    props.requestTasks(props.currentPage, props.categoryFilter, props.completionStatusFilter);
+  }, [props.currentPage, props.categoryFilter, props.completionStatusFilter]);
 
   const onTaskClick = (task) => () => {
-    if (task.isRead) return;
+    if (task.isCompleted) return;
 
-    props.markTaskAsRead(task.ID, props.currentPage, props.categoryFilter, props.readStatusFilter);
+    props.markTaskAsCompleted(
+      task.ID,
+      props.currentPage,
+      props.categoryFilter,
+      props.completionStatusFilter,
+    );
   };
 
   const getPrettifiedDate = (date) => moment(date).format('MMM DD, YYYY, HH:mm');
@@ -21,7 +26,7 @@ const Tasks = (props) => {
       {props.tasks.map((item) => (
         <Task
           key={item.ID}
-          isRead={item.isRead}
+          isCompleted={item.isCompleted}
           category={item.category}
           description={item.description}
           onTaskClick={onTaskClick(item)}
@@ -36,9 +41,9 @@ Tasks.propTypes = {
   requestTasks: PropTypes.func.isRequired,
   tasks: PropTypes.array.isRequired,
   currentPage: PropTypes.number.isRequired,
-  markTaskAsRead: PropTypes.func,
+  markTaskAsCompleted: PropTypes.func,
   categoryFilter: PropTypes.string,
-  readStatusFilter: PropTypes.string,
+  completionStatusFilter: PropTypes.string,
 };
 
 export default Tasks;

@@ -1,7 +1,8 @@
 const initialState = {
   tasks: [],
   currentPage: 1,
-  readStatusFilter: '',
+  pagesCount: 1,
+  completionStatusFilter: '',
   categoryFilter: '',
 };
 

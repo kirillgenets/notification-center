@@ -5,7 +5,7 @@ import Pagination from '../components/Pagination';
 const mapStateToProps = (state) => ({
   currentPage: state.currentPage,
   categoryFilter: state.categoryFilter,
-  readStatusFilter: state.readStatusFilter,
+  completionStatusFilter: state.completionStatusFilter,
   tasks: state.tasks,
 });
 

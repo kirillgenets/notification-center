@@ -1,10 +1,10 @@
 import { REQUEST_TASKS } from '../constants';
 
-const requestTasks = (page, category, isRead) => ({
+const requestTasks = (page, category, isCompleted) => ({
   type: REQUEST_TASKS,
   page,
   category,
-  isRead,
+  isCompleted,
 });
 
 export default requestTasks;

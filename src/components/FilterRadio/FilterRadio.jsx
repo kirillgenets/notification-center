@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './FilterRadio.css';
 
 const FilterRadio = (props) => {
-  const isChecked = props.categoryFilter === props.value || props.readStatusFilter === props.value;
+  const isChecked =
+    props.categoryFilter === props.value || props.completionStatusFilter === props.value;
 
   return (
     <div className={styles.row}>
@@ -15,10 +16,7 @@ const FilterRadio = (props) => {
         value={props.value}
         defaultChecked={isChecked}
       />
-      <label
-        className={styles.label}
-        htmlFor={props.id}
-      >
+      <label className={styles.label} htmlFor={props.id}>
         {props.description}
       </label>
     </div>
@@ -31,7 +29,7 @@ FilterRadio.propTypes = {
   value: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   categoryFilter: PropTypes.string,
-  readStatusFilter: PropTypes.string,
+  completionStatusFilter: PropTypes.string,
 };
 
 export default FilterRadio;

@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import setCategoryFilter from '../store/actions/setCategoryFilter';
-import setReadStatusFilter from '../store/actions/setReadStatusFilter';
+import setCompletionStatusFilter from '../store/actions/setCompletionStatusFilter';
 import setCurrentPage from '../store/actions/setCurrentPage';
 import Filter from '../components/Filter';
 
 const mapDispatchToProps = (dispatch) => ({
   setCategoryFilter: (filter) => dispatch(setCategoryFilter(filter)),
-  setReadStatusFilter: (filter) => dispatch(setReadStatusFilter(filter)),
+  setCompletionStatusFilter: (filter) => dispatch(setCompletionStatusFilter(filter)),
   setCurrentPage: (page) => dispatch(setCurrentPage(page)),
 });
 

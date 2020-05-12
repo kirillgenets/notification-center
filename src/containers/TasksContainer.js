@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
 import requestTasks from '../store/actions/requestTasks';
-import markTaskAsRead from '../store/actions/markTaskAsRead';
+import markTaskAsCompleted from '../store/actions/markTaskAsCompleted';
 import Tasks from '../components/Tasks';
 
 const mapStateToProps = (state) => ({
   tasks: state.tasks,
   currentPage: state.currentPage,
   categoryFilter: state.categoryFilter,
-  readStatusFilter: state.readStatusFilter,
+  completionStatusFilter: state.completionStatusFilter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  requestTasks: (page, category, isRead) => dispatch(requestTasks(page, category, isRead)),
-  markTaskAsRead: (task, page, category, isRead) =>
-    dispatch(markTaskAsRead(task, page, category, isRead)),
+  requestTasks: (page, category, isCompleted) =>
+    dispatch(requestTasks(page, category, isCompleted)),
+  markTaskAsCompleted: (task, page, category, isCompleted) =>
+    dispatch(markTaskAsCompleted(task, page, category, isCompleted)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tasks);

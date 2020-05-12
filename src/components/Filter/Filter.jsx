@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CategoryFilters, ReadStatusFilters } from '../../store/constants';
+import { CategoryFilters, CompletionStatusFilters } from '../../store/constants';
 import FilterRadioContainer from '../../containers/FilterRadioContainer';
 import styles from './Filter.css';
 
@@ -9,11 +9,11 @@ const Filter = (props) => {
     evt.preventDefault();
 
     const filterData = new FormData(evt.target);
-    const readStatus = filterData.get('read-status');
+    const completionStatus = filterData.get('completion-status');
     const category = filterData.get('category');
 
-    if (readStatus) {
-      props.setReadStatusFilter(readStatus);
+    if (completionStatus) {
+      props.setCompletionStatusFilter(completionStatus);
     }
 
     if (category) {
@@ -26,7 +26,7 @@ const Filter = (props) => {
   };
 
   const handleResetClick = () => {
-    props.setReadStatusFilter(ReadStatusFilters.SHOW_ALL);
+    props.setCompletionStatusFilter(CompletionStatusFilters.SHOW_ALL);
     props.setCategoryFilter(CategoryFilters.SHOW_ALL);
     props.setCurrentPage(1);
     props.onFilterSubmit();
@@ -34,25 +34,21 @@ const Filter = (props) => {
 
   return (
     <form className={styles.filter} onSubmit={handleFormSubmit}>
-      <button
-        className={styles.reset}
-        type="button"
-        onClick={handleResetClick}
-      >
+      <button className={styles.reset} type="button" onClick={handleResetClick}>
         Reset Filter
       </button>
       <fieldset className={styles.group}>
         <FilterRadioContainer
-          id="read-radio"
-          name="read-status"
-          value={ReadStatusFilters.SHOW_READ}
-          description="Read"
+          id="completion-radio"
+          name="completion-status"
+          value={CompletionStatusFilters.SHOW_COMPLETE}
+          description="Completion"
         />
         <FilterRadioContainer
-          id="unread-radio"
-          name="read-status"
-          value={ReadStatusFilters.SHOW_UNREAD}
-          description="Unread"
+          id="uncompletion-radio"
+          name="completion-status"
+          value={CompletionStatusFilters.SHOW_INCOMPLETE}
+          description="Uncompletion"
         />
       </fieldset>
       <fieldset className={styles.group}>
@@ -87,15 +83,13 @@ const Filter = (props) => {
           description="Debug"
         />
       </fieldset>
-      <button className={styles.submit}>
-        Apply
-      </button>
+      <button className={styles.submit}>Apply</button>
     </form>
   );
 };
 
 Filter.propTypes = {
-  setReadStatusFilter: PropTypes.func.isRequired,
+  setCompletionStatusFilter: PropTypes.func.isRequired,
   setCategoryFilter: PropTypes.func.isRequired,
   setCurrentPage: PropTypes.func,
   onFilterSubmit: PropTypes.func,

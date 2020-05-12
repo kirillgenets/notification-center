@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import tasks from './tasks';
-import readStatusFilter from './readStatusFilter';
+import completionStatusFilter from './completionStatusFilter';
 import categoryFilter from './categoryFilter';
 import currentPage from './currentPage';
 
 const rootReducer = combineReducers({
   tasks,
-  readStatusFilter,
+  completionStatusFilter,
   categoryFilter,
   currentPage,
 });

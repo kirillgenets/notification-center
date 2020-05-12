@@ -8,7 +8,7 @@ import requestTask from '../actions/requestTasks';
 
 export function* fetchTasks(action) {
   try {
-    const URL = getURL(action.page, action.category, action.isRead);
+    const URL = getURL(action.page, action.category, action.isCompleted);
 
     const response = yield call(fetchData, URL);
 
@@ -18,11 +18,11 @@ export function* fetchTasks(action) {
   }
 }
 
-export function* markTaskAsRead(action) {
+export function* markTaskAsCompleted(action) {
   try {
     yield call(putData, `${API_URL}/${action.id}`);
 
-    yield put(requestTask(action.page, action.category, action.isRead));
+    yield put(requestTask(action.page, action.category, action.isCompleted));
   } catch (error) {
     throw new Error(error);
   }
