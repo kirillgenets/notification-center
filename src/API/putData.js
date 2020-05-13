@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-const fetchData = (url) => axios.put(url);
+const putData = (url) => axios.put(url);
 
-export default fetchData;
+export default putData;

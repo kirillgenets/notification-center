@@ -9,8 +9,8 @@ export const SET_COMPLETION_STATUS_FILTER = 'SET_COMPLETION_STATUS_FILTER';
 export const SET_PAGES_COUNT = 'SET_PAGES_COUNT';
 export const CompletionStatusFilters = {
   SHOW_ALL: '',
-  SHOW_COMPLETE: 'true',
-  SHOW_INCOMPLETE: 'false',
+  SHOW_COMPLETE: true,
+  SHOW_INCOMPLETE: false,
 };
 export const CategoryFilters = {
   SHOW_ALL: '',
