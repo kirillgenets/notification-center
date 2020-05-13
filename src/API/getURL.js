@@ -5,7 +5,7 @@ const getURL = (queries, pageSize = TASKS_PER_PAGE) => {
     .map((entry) => `${entry[0]}=${entry[1]}`)
     .join('&');
 
-  return `${API_URL}/?pageSize=${pageSize}&${preparedQueries}`;
+  return `${API_URL}/?${preparedQueries}&pageSize=${pageSize}`;
 };
 
 export default getURL;

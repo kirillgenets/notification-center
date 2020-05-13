@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import fetchData from '../../API/fetchData';
 import getURL from '../../API/getURL';
 import styles from './Pagination.css';
+import { TASKS_PER_PAGE } from '../../store/constants';
 
 const Pagination = (props) => {
   const [pages, setPages] = useState([]);
@@ -13,13 +14,13 @@ const Pagination = (props) => {
   const lastPage = pages[pages.length - 1];
 
   const fetchPages = async () => {
-    const URL = getURL(1, props.categoryFilter, props.completionStatusFilter);
+    const URL = getURL({ page: 1, showAll: true });
 
     const response = await fetchData(URL);
     setPages(() =>
       Array.from(
         {
-          length: response.data.pagination.total,
+          length: Math.ceil(response.data.length / TASKS_PER_PAGE),
         },
         (item, index) => index + 1,
       ),

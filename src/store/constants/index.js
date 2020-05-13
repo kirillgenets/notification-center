@@ -6,6 +6,7 @@ export const RECEIVE_TASKS = 'RECEIVE_TASKS';
 export const MARK_TASK_AS_COMPLETED = 'MARK_TASK_AS_COMPLETED';
 export const SET_CATEGORY_FILTER = 'SET_CATEGORY_FILTER';
 export const SET_COMPLETION_STATUS_FILTER = 'SET_COMPLETION_STATUS_FILTER';
+export const SET_PAGES_COUNT = 'SET_PAGES_COUNT';
 export const CompletionStatusFilters = {
   SHOW_ALL: '',
   SHOW_COMPLETE: 'true',

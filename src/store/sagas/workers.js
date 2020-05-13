@@ -8,7 +8,7 @@ import requestTask from '../actions/requestTasks';
 
 export function* fetchTasks(action) {
   try {
-    const URL = getURL(action.page, action.category, action.isCompleted);
+    const URL = getURL(action);
 
     const response = yield call(fetchData, URL);
 
