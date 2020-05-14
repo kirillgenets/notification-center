@@ -5,9 +5,9 @@ import setCurrentPage from '../store/actions/setCurrentPage';
 import Filter from '../components/Filter';
 
 const mapDispatchToProps = (dispatch) => ({
-  setCategoryFilter: (filter) => dispatch(setCategoryFilter(filter)),
-  setCompletionStatusFilter: (filter) => dispatch(setCompletionStatusFilter(filter)),
-  setCurrentPage: (page) => dispatch(setCurrentPage(page)),
+	setCategoryFilter: (filter) => dispatch(setCategoryFilter(filter)),
+	setCompletionStatusFilter: (filter) => dispatch(setCompletionStatusFilter(filter)),
+	setCurrentPage: (page) => dispatch(setCurrentPage(page)),
 });
 
 export default connect(null, mapDispatchToProps)(Filter);

@@ -5,27 +5,21 @@ import Adapter from 'enzyme-adapter-react-16';
 import Menu from './Menu';
 
 configure({
-  adapter: new Adapter(),
+	adapter: new Adapter(),
 });
 
 it('Menu renders correctly', () => {
-  const tree = renderer
-    .create(
-      <Menu />,
-    )
-    .toJSON();
+	const tree = renderer.create(<Menu />).toJSON();
 
-  expect(tree).toMatchSnapshot();
+	expect(tree).toMatchSnapshot();
 });
 
 it('Click handler works correctly', () => {
-  const tree = shallow(
-    <Menu />,
-  );
+	const tree = shallow(<Menu />);
 
-  expect(tree).toMatchSnapshot();
+	expect(tree).toMatchSnapshot();
 
-  tree.find('button').simulate('click');
+	tree.find('button').simulate('click');
 
-  expect(tree).toMatchSnapshot();
+	expect(tree).toMatchSnapshot();
 });

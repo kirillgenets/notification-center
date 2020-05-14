@@ -8,145 +8,145 @@ import styles from './Pagination.css';
 import { TASKS_PER_PAGE } from '../../store/constants';
 
 const Pagination = (props) => {
-  const [pages, setPages] = useState([]);
+	const [pages, setPages] = useState([]);
 
-  const SHOWN_PAGES_COUNT = 5;
-  const lastPage = pages[pages.length - 1];
+	const SHOWN_PAGES_COUNT = 5;
+	const lastPage = pages[pages.length - 1];
 
-  const fetchPages = async () => {
-    const URL = getURL({ page: 1, showAll: true });
+	const fetchPages = async () => {
+		const URL = getURL({ page: 1, showAll: true });
 
-    const response = await fetchData(URL);
-    setPages(() =>
-      Array.from(
-        {
-          length: Math.ceil(response.data.length / TASKS_PER_PAGE),
-        },
-        (item, index) => index + 1,
-      ),
-    );
-  };
+		const response = await fetchData(URL);
+		setPages(() =>
+			Array.from(
+				{
+					length: Math.ceil(response.data.length / TASKS_PER_PAGE),
+				},
+				(item, index) => index + 1
+			)
+		);
+	};
 
-  useEffect(() => {
-    fetchPages();
-  }, [props.categoryFilter, props.completionStatusFilter, props.tasks.length]);
+	useEffect(() => {
+		fetchPages();
+	}, [props.categoryFilter, props.completionStatusFilter, props.tasks.length]);
 
-  const handlePageClick = (page) => (evt) => {
-    evt.preventDefault();
+	const handlePageClick = (page) => (evt) => {
+		evt.preventDefault();
 
-    if (page < 1 || page > pages.length) return;
+		if (page < 1 || page > pages.length) return;
 
-    props.setCurrentPage(page);
-  };
+		props.setCurrentPage(page);
+	};
 
-  const renderPaginationItem = (number) => (
-    <li
-      key={uuid()}
-      className={classNames(styles.item, { [styles.current]: props.currentPage === number })}
-    >
-      <a href={number} onClick={handlePageClick(number)}>
-        {number}
-      </a>
-    </li>
-  );
+	const renderPaginationItem = (number) => (
+		<li
+			key={uuid()}
+			className={classNames(styles.item, { [styles.current]: props.currentPage === number })}
+		>
+			<a href={number} onClick={handlePageClick(number)}>
+				{number}
+			</a>
+		</li>
+	);
 
-  const renderSeparator = () => (
-    <li key={uuid()} className={styles.item}>
-      <span>...</span>
-    </li>
-  );
+	const renderSeparator = () => (
+		<li key={uuid()} className={styles.item}>
+			<span>...</span>
+		</li>
+	);
 
-  const renderShortPagination = () => pages.map((page) => renderPaginationItem(page));
+	const renderShortPagination = () => pages.map((page) => renderPaginationItem(page));
 
-  const renderStartPagination = () => {
-    const pagination = [];
-    const startPoint = 0;
-    const endPoint = startPoint + SHOWN_PAGES_COUNT;
+	const renderStartPagination = () => {
+		const pagination = [];
+		const startPoint = 0;
+		const endPoint = startPoint + SHOWN_PAGES_COUNT;
 
-    for (let i = startPoint; i < endPoint; i += 1) {
-      pagination.push(renderPaginationItem(pages[i]));
-    }
+		for (let i = startPoint; i < endPoint; i += 1) {
+			pagination.push(renderPaginationItem(pages[i]));
+		}
 
-    pagination.push(renderSeparator());
-    pagination.push(renderPaginationItem(lastPage));
+		pagination.push(renderSeparator());
+		pagination.push(renderPaginationItem(lastPage));
 
-    return pagination;
-  };
+		return pagination;
+	};
 
-  const renderEndPagination = () => {
-    const pagination = [];
-    const startPoint = lastPage - SHOWN_PAGES_COUNT;
-    const endPoint = lastPage;
+	const renderEndPagination = () => {
+		const pagination = [];
+		const startPoint = lastPage - SHOWN_PAGES_COUNT;
+		const endPoint = lastPage;
 
-    pagination.push(renderPaginationItem(pages[0]));
-    pagination.push(renderSeparator());
+		pagination.push(renderPaginationItem(pages[0]));
+		pagination.push(renderSeparator());
 
-    for (let i = startPoint; i < endPoint; i += 1) {
-      pagination.push(renderPaginationItem(pages[i]));
-    }
+		for (let i = startPoint; i < endPoint; i += 1) {
+			pagination.push(renderPaginationItem(pages[i]));
+		}
 
-    return pagination;
-  };
+		return pagination;
+	};
 
-  const renderMiddlePagination = () => {
-    const pagination = [];
-    const startPoint = props.currentPage - Math.floor(SHOWN_PAGES_COUNT / 2);
-    const endPoint = props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2);
+	const renderMiddlePagination = () => {
+		const pagination = [];
+		const startPoint = props.currentPage - Math.floor(SHOWN_PAGES_COUNT / 2);
+		const endPoint = props.currentPage + Math.floor(SHOWN_PAGES_COUNT / 2);
 
-    pagination.push(renderPaginationItem(pages[0]));
-    pagination.push(renderSeparator());
+		pagination.push(renderPaginationItem(pages[0]));
+		pagination.push(renderSeparator());
 
-    for (let i = startPoint; i < endPoint; i += 1) {
-      pagination.push(renderPaginationItem(pages[i]));
-    }
+		for (let i = startPoint; i < endPoint; i += 1) {
+			pagination.push(renderPaginationItem(pages[i]));
+		}
 
-    pagination.push(renderSeparator());
-    pagination.push(renderPaginationItem(lastPage));
+		pagination.push(renderSeparator());
+		pagination.push(renderPaginationItem(lastPage));
 
-    return pagination;
-  };
+		return pagination;
+	};
 
-  const renderPagination = () => {
-    const isStart = props.currentPage - SHOWN_PAGES_COUNT < 0;
-    const isEnd = props.currentPage + SHOWN_PAGES_COUNT > lastPage + 1;
+	const renderPagination = () => {
+		const isStart = props.currentPage - SHOWN_PAGES_COUNT < 0;
+		const isEnd = props.currentPage + SHOWN_PAGES_COUNT > lastPage + 1;
 
-    if (pages.length <= SHOWN_PAGES_COUNT + 1) {
-      return [...renderShortPagination()];
-    }
-    if (isStart) {
-      return [...renderStartPagination()];
-    }
-    if (isEnd) {
-      return [...renderEndPagination()];
-    }
-    return [...renderMiddlePagination()];
-  };
+		if (pages.length <= SHOWN_PAGES_COUNT + 1) {
+			return [...renderShortPagination()];
+		}
+		if (isStart) {
+			return [...renderStartPagination()];
+		}
+		if (isEnd) {
+			return [...renderEndPagination()];
+		}
+		return [...renderMiddlePagination()];
+	};
 
-  return (
-    <nav className={styles.pagination}>
-      <ul className={styles.list}>
-        <li className={styles.item}>
-          <a href="#" onClick={handlePageClick(props.currentPage - 1)}>
-            {'<'}
-          </a>
-        </li>
-        {renderPagination()}
-        <li className={styles.item}>
-          <a href="#" onClick={handlePageClick(props.currentPage + 1)}>
-            {'>'}
-          </a>
-        </li>
-      </ul>
-    </nav>
-  );
+	return (
+		<nav className={styles.pagination}>
+			<ul className={styles.list}>
+				<li className={styles.item}>
+					<a href="#" onClick={handlePageClick(props.currentPage - 1)}>
+						{'<'}
+					</a>
+				</li>
+				{renderPagination()}
+				<li className={styles.item}>
+					<a href="#" onClick={handlePageClick(props.currentPage + 1)}>
+						{'>'}
+					</a>
+				</li>
+			</ul>
+		</nav>
+	);
 };
 
 Pagination.propTypes = {
-  setCurrentPage: PropTypes.func.isRequired,
-  currentPage: PropTypes.number.isRequired,
-  categoryFilter: PropTypes.string,
-  completionStatusFilter: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  tasks: PropTypes.array,
+	setCurrentPage: PropTypes.func.isRequired,
+	currentPage: PropTypes.number.isRequired,
+	categoryFilter: PropTypes.string,
+	completionStatusFilter: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+	tasks: PropTypes.array,
 };
 
 export default Pagination;

@@ -4,11 +4,11 @@ import Table from '../Table';
 import PaginationContainer from '../../containers/PaginationContainer';
 
 const App = () => (
-  <React.Fragment>
-    <Header />
-    <Table />
-    <PaginationContainer />
-  </React.Fragment>
+	<React.Fragment>
+		<Header />
+		<Table />
+		<PaginationContainer />
+	</React.Fragment>
 );
 
 export default App;

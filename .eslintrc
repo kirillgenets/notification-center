@@ -1,32 +1,29 @@
 {
-  "extends": ["airbnb-base", "plugin:react/recommended"],
-  "plugins": ["jest"],
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    }
-  },
-  "env": {
-    "browser": true,
-    "jest": true
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "paths": ["./src"]
-      }
-    }
-  },
-  "rules": {
-    "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }],
-    "linebreak-style": ["error", "windows"],
-    "implicit-arrow-linebreak": "off",
-    "function-paren-newline": "off"
-  }
+	"extends": ["prettier", "plugin:react/recommended"],
+	"plugins": ["prettier", "jest"],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true,
+			"modules": true
+		}
+	},
+	"rules": {
+		"prettier/prettier": ["error"]
+	},
+	"env": {
+		"browser": true,
+		"jest": true
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx"],
+				"paths": ["./src"]
+			}
+		}
+	}
 }

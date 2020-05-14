@@ -4,16 +4,16 @@ import FilterRadio from './FilterRadio';
 import { ReadStatusFilters } from '../../store/constants';
 
 it('FilterRadio renders correctly', () => {
-  const tree = renderer
-    .create(
-      <FilterRadio
-        id="unread-radio"
-        value={ReadStatusFilters.SHOW_UNREAD}
-        name="read-status"
-        description="Unread"
-      />,
-    )
-    .toJSON();
+	const tree = renderer
+		.create(
+			<FilterRadio
+				id="unread-radio"
+				value={ReadStatusFilters.SHOW_UNREAD}
+				name="read-status"
+				description="Unread"
+			/>
+		)
+		.toJSON();
 
-  expect(tree).toMatchSnapshot();
+	expect(tree).toMatchSnapshot();
 });

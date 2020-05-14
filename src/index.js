@@ -10,8 +10,8 @@ import 'normalize.css';
 const store = configureStore(initialState);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.querySelector('#root'),
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.querySelector('#root')
 );

@@ -7,15 +7,15 @@ import rootSaga from './sagas/watchers';
 const sagaMiddleware = createSagaMiddleware();
 
 const configureStore = (initialState) => {
-  const store = createStore(
-    rootReducer,
-    initialState,
-    composeWithDevTools(applyMiddleware(sagaMiddleware)),
-  );
+	const store = createStore(
+		rootReducer,
+		initialState,
+		composeWithDevTools(applyMiddleware(sagaMiddleware))
+	);
 
-  sagaMiddleware.run(rootSaga);
+	sagaMiddleware.run(rootSaga);
 
-  return store;
+	return store;
 };
 
 export default configureStore;

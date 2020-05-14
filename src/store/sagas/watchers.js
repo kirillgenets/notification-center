@@ -3,5 +3,5 @@ import { REQUEST_TASKS } from '../constants';
 import { fetchTasks } from './workers';
 
 export default function* rootSaga() {
-  yield takeEvery(REQUEST_TASKS, fetchTasks);
+	yield takeEvery(REQUEST_TASKS, fetchTasks);
 }

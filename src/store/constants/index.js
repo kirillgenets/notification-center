@@ -8,17 +8,17 @@ export const SET_CATEGORY_FILTER = 'SET_CATEGORY_FILTER';
 export const SET_COMPLETION_STATUS_FILTER = 'SET_COMPLETION_STATUS_FILTER';
 export const SET_PAGES_COUNT = 'SET_PAGES_COUNT';
 export const CompletionStatusFilters = {
-  SHOW_ALL: '',
-  SHOW_COMPLETE: true,
-  SHOW_INCOMPLETE: false,
+	SHOW_ALL: '',
+	SHOW_COMPLETE: true,
+	SHOW_INCOMPLETE: false,
 };
 export const CategoryFilters = {
-  SHOW_ALL: '',
-  SHOW_CRITICAL: 'crit',
-  SHOW_WARN: 'warn',
-  SHOW_INFO: 'info',
-  SHOW_ERROR: 'error',
-  SHOW_DEBUG: 'debug',
+	SHOW_ALL: '',
+	SHOW_CRITICAL: 'crit',
+	SHOW_WARN: 'warn',
+	SHOW_INFO: 'info',
+	SHOW_ERROR: 'error',
+	SHOW_DEBUG: 'debug',
 };
 export const FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY';
 export const RESET_FILTERS = 'RESET_FILTERS';

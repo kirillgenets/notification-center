@@ -4,15 +4,15 @@ import getURL from '../../API/getURL';
 import receiveTask from '../actions/receiveTasks';
 
 export function* fetchTasks(action) {
-  try {
-    const URL = getURL(action);
+	try {
+		const URL = getURL(action);
 
-    const response = yield call(fetchData, URL);
+		const response = yield call(fetchData, URL);
 
-    yield put(receiveTask(response.data));
-  } catch (error) {
-    throw new Error(error);
-  }
+		yield put(receiveTask(response.data));
+	} catch (error) {
+		throw new Error(error);
+	}
 }
 
 export const a = {};
