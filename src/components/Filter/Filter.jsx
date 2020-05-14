@@ -9,7 +9,7 @@ const Filter = (props) => {
     evt.preventDefault();
 
     const filterData = new FormData(evt.target);
-    const completionStatus = filterData.get('completion-status');
+    const completionStatus = JSON.parse(filterData.get('completion-status'));
     const category = filterData.get('category');
 
     if (completionStatus) {
@@ -39,16 +39,16 @@ const Filter = (props) => {
       </button>
       <fieldset className={styles.group}>
         <FilterRadioContainer
-          id="completion-radio"
+          id="completed-radio"
           name="completion-status"
           value={CompletionStatusFilters.SHOW_COMPLETE}
-          description="Completion"
+          description="Completed"
         />
         <FilterRadioContainer
-          id="uncompletion-radio"
+          id="incomplete-radio"
           name="completion-status"
           value={CompletionStatusFilters.SHOW_INCOMPLETE}
-          description="Uncompletion"
+          description="Incomplete"
         />
       </fieldset>
       <fieldset className={styles.group}>

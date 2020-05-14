@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import styles from './Task.css';
 
 const Task = (props) => {
-  const completionStatus = props.isCompleted ? 'completed' : 'uncompleted';
+  const completionStatus = props.isCompleted ? 'complete' : 'incomplete';
 
   return (
-    <tr className={classNames(styles.task, styles[completionStatus])} onClick={props.onTaskClick}>
+    <tr className={classNames(styles.task, styles[completionStatus])}>
       <td className={classNames(styles.category, styles[props.category.toLowerCase()])}>
-        {props.category}
+        {props.category.toUpperCase()}
       </td>
       <td className={styles.text}>{props.description}</td>
       <td className={styles.date}>{props.date}</td>
@@ -22,11 +22,10 @@ Task.propTypes = {
   description: PropTypes.string.isRequired,
   isCompleted: PropTypes.bool,
   date: PropTypes.string,
-  onTaskClick: PropTypes.func,
 };
 
 Task.defaultProps = {
-  completedStatus: 'uncompleted',
+  completedStatus: 'incomplete',
 };
 
 export default Task;

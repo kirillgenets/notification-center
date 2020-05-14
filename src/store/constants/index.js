@@ -14,11 +14,11 @@ export const CompletionStatusFilters = {
 };
 export const CategoryFilters = {
   SHOW_ALL: '',
-  SHOW_CRITICAL: 'CRIT',
-  SHOW_WARN: 'WARN',
-  SHOW_INFO: 'INFO',
-  SHOW_ERROR: 'ERROR',
-  SHOW_DEBUG: 'DEBUG',
+  SHOW_CRITICAL: 'crit',
+  SHOW_WARN: 'warn',
+  SHOW_INFO: 'info',
+  SHOW_ERROR: 'error',
+  SHOW_DEBUG: 'debug',
 };
 export const FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY';
 export const RESET_FILTERS = 'RESET_FILTERS';

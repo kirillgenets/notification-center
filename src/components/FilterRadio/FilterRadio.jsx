@@ -29,7 +29,7 @@ FilterRadio.propTypes = {
   value: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   categoryFilter: PropTypes.string,
-  completionStatusFilter: PropTypes.string,
+  completionStatusFilter: PropTypes.boolean,
 };
 
 export default FilterRadio;

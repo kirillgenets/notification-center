@@ -8,17 +8,6 @@ const Tasks = (props) => {
     props.requestTasks(props.currentPage, props.categoryFilter, props.completionStatusFilter);
   }, [props.currentPage, props.categoryFilter, props.completionStatusFilter]);
 
-  const onTaskClick = (task) => () => {
-    if (task.isCompleted) return;
-
-    props.markTaskAsCompleted(
-      task.ID,
-      props.currentPage,
-      props.categoryFilter,
-      props.completionStatusFilter,
-    );
-  };
-
   const getPrettifiedDate = (date) => moment(date).format('MMM DD, YYYY, HH:mm');
 
   return (
@@ -29,7 +18,6 @@ const Tasks = (props) => {
           isCompleted={item.isCompleted}
           category={item.category}
           description={item.description}
-          onTaskClick={onTaskClick(item)}
           date={getPrettifiedDate(item.createdOn)}
         />
       ))}
