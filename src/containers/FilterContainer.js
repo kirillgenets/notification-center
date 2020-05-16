@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import setCategoryFilter from '../store/actions/setCategoryFilter';
 import setCompletionStatusFilter from '../store/actions/setCompletionStatusFilter';
 import setCurrentPage from '../store/actions/setCurrentPage';
-import Filter from '../components/Filter';
+import Filter from '../components/board/Filter';
 
 const mapDispatchToProps = (dispatch) => ({
 	setCategoryFilter: (filter) => dispatch(setCategoryFilter(filter)),

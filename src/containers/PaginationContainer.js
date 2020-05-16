@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import setCurrentPage from '../store/actions/setCurrentPage';
-import Pagination from '../components/Pagination';
+import Pagination from '../components/board/Pagination';
 
 const mapStateToProps = (state) => ({
 	currentPage: state.currentPage,
