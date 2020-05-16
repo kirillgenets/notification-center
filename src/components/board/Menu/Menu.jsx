@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilterContainer from '../../containers/FilterContainer';
+import FilterContainer from '../../../containers/FilterContainer';
 import styles from './Menu.css';
 
 const Menu = () => {

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v1';
 import classNames from 'classnames';
-import fetchData from '../../API/fetchData';
-import getURL from '../../API/getURL';
+import fetchData from '../../../API/fetchData';
+import getURL from '../../../API/getURL';
 import styles from './Pagination.css';
-import { TASKS_PER_PAGE } from '../../store/constants';
+import { TASKS_PER_PAGE } from '../../../store/constants';
 
 const Pagination = (props) => {
 	const [pages, setPages] = useState([]);

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import FilterRadio from './FilterRadio';
-import { ReadStatusFilters } from '../../store/constants';
+import { ReadStatusFilters } from '../../../store/constants';
 
 it('FilterRadio renders correctly', () => {
 	const tree = renderer

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import FilterRadio from '../components/FilterRadio';
+import FilterRadio from '../components/board/FilterRadio';
 
 const mapStateToProps = (state) => ({
 	completionStatusFilter: state.completionStatusFilter,

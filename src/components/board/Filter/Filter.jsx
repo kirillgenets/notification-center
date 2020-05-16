@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CategoryFilters, CompletionStatusFilters } from '../../store/constants';
-import FilterRadioContainer from '../../containers/FilterRadioContainer';
+import { CategoryFilters, CompletionStatusFilters } from '../../../store/constants';
+import FilterRadioContainer from '../../../containers/FilterRadioContainer';
 import styles from './Filter.css';
 
 const Filter = (props) => {
