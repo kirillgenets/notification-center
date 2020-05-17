@@ -1,0 +1,30 @@
+/* Title */
+
+.wrapper {
+	display: flex;
+}
+
+.title {
+	margin: 0;
+
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 28px;
+	color: #ffffff;
+}
+
+.team-name {
+	font-weight: bold;
+	text-decoration: none;
+	color: #ffffff;
+
+	transition: 0.3s;
+}
+
+.team-name:hover {
+	opacity: 0.8;
+}
+
+.team-name:active {
+	opacity: 0.6;
+}

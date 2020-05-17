@@ -1,16 +1,18 @@
 import React from 'react';
-import { NavLink as Link } from 'react-router-dom';
 import propTypes from './propTypes';
 import defaultProps from './defaultProps';
-import styles from './style.css';
+import styles from './Title.css';
 
 const Title = ({ teamName }) => {
 	return (
-		<div>
-			<h1 className={styles.title}>TeamApp!</h1>
-			{teamName ? <span>|</span> : null}
-			{teamName ? <Link to="/board">{teamName}</Link> : null}
-		</div>
+		<h1 className={styles.title}>
+			TeamApp! {teamName ? ' | ' : null}
+			{teamName ? (
+				<a className={styles['team-name']} href="/board">
+					{teamName}
+				</a>
+			) : null}
+		</h1>
 	);
 };
 

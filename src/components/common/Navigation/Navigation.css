@@ -1,0 +1,44 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.list {
+	display: flex;
+
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.item {
+	margin-left: 20px;
+	padding: 0;
+}
+
+.item:first-child {
+	margin: 0;
+}
+
+.link {
+	display: block;
+
+	padding: 11px 27px;
+	border: 2px solid #ffffff;
+	border-radius: 10px;
+
+	color: #ffffff;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	transition: 0.3s;
+}
+
+.link:hover {
+	border-color: #fff;
+
+	background-color: #fff;
+
+	color: #006c7c;
+}
