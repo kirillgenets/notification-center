@@ -1,39 +1,49 @@
 /* Menu */
 
 .container {
-  position: relative;
+	position: relative;
 }
 
 .toggler {
-  padding: 0;
-  border: none;
+	padding: 0;
+	border: none;
 
-  position: relative;
+	position: relative;
 
-  background-color: transparent;
+	background-color: transparent;
 
-  font-size: 24px;
-  color: #51A8E7;
+	font-size: 24px;
+	color: #51a8e7;
 
-  cursor: pointer;
-  transition: 0.3s;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
 .toggler:hover {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 
 .toggler:active {
-  opacity: 0.5;
+	opacity: 0.5;
 }
 
 .toggler::before {
-  content: '...';
+	content: '...';
 
-  position: absolute;
-  left: 2px;
-  bottom: -10px;
+	position: absolute;
+	left: 2px;
+	bottom: -10px;
 
-  font-size: 30px;
-  font-weight: bold;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 690px) {
+	.toggler {
+		font-size: 18px;
+	}
+
+	.toggler::before {
+		font-size: 22px;
+	}
 }

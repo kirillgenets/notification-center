@@ -1,9 +1,21 @@
 /* TableHeading */
 
 .row {
-  border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
 }
 
 .column {
-  padding-left: 46px;
+	padding-left: 46px;
+}
+
+@media screen and (max-width: 900px) {
+	.column {
+		padding-left: 20px;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.column {
+		padding-left: 15px;
+	}
 }

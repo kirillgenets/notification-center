@@ -1,16 +1,22 @@
 /* HeadingColumn */
 
 .column {
-  padding: 13px 0;
+	padding: 13px 0;
 
-  position: relative;
+	position: relative;
 }
 
 .column:last-child {
-  padding-right: 116px;
+	padding-right: 116px;
 }
 
 .text {
-  font-size: 24px;
-  color: #999999;
+	font-size: 24px;
+	color: #999999;
+}
+
+@media screen and (max-width: 690px) {
+	.text {
+		font-size: 18px;
+	}
 }
