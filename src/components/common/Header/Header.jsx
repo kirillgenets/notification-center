@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './Header.css';
+import Title from '../Title';
 
 const Header = () => (
 	<header className={styles.header}>
-		<h1 className={styles.title}>TeamApp!</h1>
+		<Title />
 	</header>
 );
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import requestTasks from '../store/actions/requestTasks';
 import markTaskAsCompleted from '../store/actions/markTaskAsCompleted';
-import Tasks from '../components/board/Tasks';
+import Tasks from '../components/pages/board/Tasks';
 
 const mapStateToProps = (state) => ({
 	tasks: state.tasks,
