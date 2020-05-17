@@ -17,10 +17,6 @@
 	padding: 0;
 }
 
-.item:first-child {
-	margin: 0;
-}
-
 .link {
 	display: block;
 
@@ -28,6 +24,7 @@
 	border: 2px solid #ffffff;
 	border-radius: 10px;
 
+	font-size: 18px;
 	color: #ffffff;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -41,4 +38,32 @@
 	background-color: #fff;
 
 	color: #006c7c;
+}
+
+@media screen and (max-width: 900px) {
+	.item:first-child {
+		margin: 0;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.item {
+		margin-left: 10px;
+	}
+
+	.link {
+		padding: 8px 15px;
+
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 365px) {
+	.item {
+		margin-left: 7px;
+	}
+
+	.link {
+		font-size: 12px;
+	}
 }
