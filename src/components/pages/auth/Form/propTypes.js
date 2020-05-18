@@ -6,7 +6,7 @@ export default {
 		PropTypes.shape({
 			name: PropTypes.string.isRequired,
 			label: PropTypes.string.isRequired,
-			type: PropTypes.string.isRequired,
+			type: PropTypes.string,
 			placeholder: PropTypes.string,
 		})
 	).isRequired,

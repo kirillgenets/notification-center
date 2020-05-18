@@ -5,11 +5,16 @@ import styles from './style.css';
 
 const Form = ({ actionURL, fieldsData, method, title, description, subtitle, analogData }) => {
 	const renderFields = () =>
-		fieldsData.map(({ name, label, placeholder }) => (
+		fieldsData.map(({ name, label, type, placeholder }) => (
 			<div className={styles['field-wrapper']}>
 				<label className={styles.label} htmlFor={name}>
 					{label}
 				</label>
+				<input
+					id={name}
+					className={styles[type ? `input-${type}` : 'input-text']}
+					type={type ? type : 'text'}
+				/>
 			</div>
 		));
 
