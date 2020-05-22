@@ -1,10 +1,11 @@
 import React from 'react';
+import { NavLink as Link } from 'react-router-dom';
 import isObjectEmpty from '../../../utils/isObjectEmpty';
 import propTypes from './propTypes';
 import defaultProps from './defaultProps';
 import styles from './Form.css';
 
-const Form = ({ actionURL, fieldsData, method, title, description, subtitle, analogData }) => {
+const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogData }) => {
 	const renderFields = () =>
 		fieldsData.map(({ name, label, type, placeholder }) => (
 			<div className={styles['input-wrapper']}>
@@ -25,14 +26,14 @@ const Form = ({ actionURL, fieldsData, method, title, description, subtitle, ana
 		analogData && !isObjectEmpty(analogData) ? (
 			<p className={styles.analog}>
 				Or...{' '}
-				<a className={styles['analog-link']} href={analogData.link}>
+				<Link className={styles['analog-link']} to={analogData.link}>
 					{analogData.text}
-				</a>
+				</Link>
 			</p>
 		) : null;
 
 	return (
-		<form className={styles.form} method={method} action={actionURL}>
+		<form className={styles.form} onSubmit={onFormSubmit}>
 			{title ? <h2 className={styles.title}>{title}</h2> : null}
 			{description ? <p className={styles.description}>{description}</p> : null}
 			{subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}

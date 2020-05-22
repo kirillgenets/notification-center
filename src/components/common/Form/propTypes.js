@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 
 export default {
-	actionURL: PropTypes.string.isRequired,
+	onFormSubmit: PropTypes.func.isRequired,
 	fieldsData: PropTypes.arrayOf(
 		PropTypes.shape({
 			name: PropTypes.string.isRequired,
@@ -10,7 +10,6 @@ export default {
 			placeholder: PropTypes.string,
 		})
 	).isRequired,
-	method: PropTypes.oneOf(['get', 'post']).isRequired,
 	title: PropTypes.string,
 	description: PropTypes.string,
 	subtitle: PropTypes.string,
