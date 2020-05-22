@@ -2,12 +2,17 @@
 }
 
 .title {
+	font-size: 24px;
+	font-weight: 500;
 }
 
 .description {
+	font-size: 18px;
 }
 
 .subtitle {
+	font-size: 18px;
+	font-weight: 500;
 }
 
 .fieldset {
@@ -17,12 +22,27 @@
 }
 
 .input-type-text {
+	width: 40%;
+	padding: 10px;
+	border: none;
+
+	font-size: 18px;
+	text-align: center;
+	color: #ffffff;
+
+	background: #006c7c;
 }
 
 .label {
+	font-size: 18px;
 }
 
 .submit {
+	width: 25%;
+	border: 2px solid #006c7c;
+	border-radius: 10px;
+
+	background-color: #ffffff;
 }
 
 .analog {

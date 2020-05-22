@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from '../../../common/Modal';
 import Form from '../../../common/Form';
 import { API_URL } from '../../../../store/constants';
 
@@ -32,12 +33,14 @@ const SignInForm = () => {
 	const handleFormSubmit = () => {};
 
 	return (
-		<Form
-			onFormSubmit={handleFormSubmit}
-			subtitle="If you already have an account:"
-			fieldsData={fieldsData}
-			analogData={analogData}
-		/>
+		<Modal>
+			<Form
+				onFormSubmit={handleFormSubmit}
+				subtitle="If you already have an account:"
+				fieldsData={fieldsData}
+				analogData={analogData}
+			/>
+		</Modal>
 	);
 };
 
