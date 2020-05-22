@@ -2,7 +2,7 @@ import React from 'react';
 import Form from '../../../common/Form';
 import { API_URL } from '../../../../store/constants';
 
-const SignInForm = () => {
+const SignUpForm = () => {
 	const fieldsData = [
 		{
 			name: 'login',
@@ -22,11 +22,18 @@ const SignInForm = () => {
 			placeholder: 'codemonsters',
 			type: 'text',
 		},
+
+		{
+			name: 'team-password',
+			label: 'Your team password:',
+			placeholder: '',
+			type: 'password',
+		},
 	];
 
 	const analogData = {
-		text: 'Sign Up!',
-		link: '/sign-up',
+		text: 'Sign In!',
+		link: '/sign-in',
 	};
 
 	const handleFormSubmit = () => {};
@@ -34,11 +41,11 @@ const SignInForm = () => {
 	return (
 		<Form
 			onFormSubmit={handleFormSubmit}
-			subtitle="If you already have an account:"
+			subtitle="To start work with our app you have to create an account..."
 			fieldsData={fieldsData}
 			analogData={analogData}
 		/>
 	);
 };
 
-export default SignInForm;
+export default SignUpForm;
