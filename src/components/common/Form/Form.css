@@ -1,16 +1,23 @@
 .form {
+	text-align: center;
 }
 
 .title {
+	margin-bottom: 15px;
+
 	font-size: 24px;
 	font-weight: 500;
 }
 
 .description {
+	margin-bottom: 15px;
+
 	font-size: 18px;
 }
 
 .subtitle {
+	margin-bottom: 10px;
+
 	font-size: 18px;
 	font-weight: 500;
 }
@@ -19,6 +26,11 @@
 }
 
 .input-wrapper {
+	margin-bottom: 10px;
+}
+
+.input-wrapper:last-child {
+	margin-bottom: 20px;
 }
 
 .input-type-text {
@@ -34,11 +46,14 @@
 }
 
 .label {
+	display: block;
+
 	font-size: 18px;
 }
 
 .submit {
 	width: 25%;
+	margin-bottom: 25px;
 	border: 2px solid #006c7c;
 	border-radius: 10px;
 
