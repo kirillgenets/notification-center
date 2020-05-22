@@ -8,6 +8,8 @@
 }
 
 body {
+  height: 100vh
+
   font-family: 'Roboto', Calibri, sans-serif;
   font-weight: normal;
 }
