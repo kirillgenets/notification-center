@@ -22,9 +22,6 @@
 	font-weight: 500;
 }
 
-.fieldset {
-}
-
 .input-wrapper {
 	margin-bottom: 10px;
 }
@@ -61,7 +58,9 @@
 }
 
 .analog {
+	font-size: 18px;
 }
 
 .analog-link {
+	color: #006c7c;
 }
