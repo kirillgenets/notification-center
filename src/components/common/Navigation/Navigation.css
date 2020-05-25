@@ -32,12 +32,14 @@
 	transition: 0.3s;
 }
 
-.link:hover {
-	border-color: #fff;
+@media screen and (min-width: 768px) {
+	.link:hover {
+		border-color: #fff;
 
-	background-color: #fff;
+		background-color: #fff;
 
-	color: #006c7c;
+		color: #006c7c;
+	}
 }
 
 @media screen and (max-width: 900px) {
