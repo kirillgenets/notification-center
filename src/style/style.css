@@ -1,19 +1,22 @@
 /* Global */
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
+	font-family: 'Roboto';
+	src: url('../fonts/Roboto-Regular.woff2') format('woff2'),
 		url('../fonts/Roboto-Regular.woff') format('woff');
 	font-display: swap;
 }
 
 body {
-  height: 100vh
+	height: 100vh;
 
-  font-family: 'Roboto', Calibri, sans-serif;
-  font-weight: normal;
+	font-family: 'Roboto', Calibri, sans-serif;
+	font-weight: normal;
+
+	background-color: #eeeeee;
 }
 
-button:active, button:focus {
-  outline: none;
+button:active,
+button:focus {
+	outline: none;
 }

@@ -14,7 +14,7 @@ const SignInForm = () => {
 		{
 			name: 'password',
 			label: 'Your password:',
-			placeholder: '',
+			placeholder: '********',
 			type: 'password',
 		},
 		{

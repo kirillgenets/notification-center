@@ -3,27 +3,13 @@ import propTypes from './propTypes';
 import defaultProps from './defaultProps';
 import styles from './Modal.css';
 
-const Modal = ({ backgroundColor, padding, boxShadow, borderRadius, children }) => {
-	const getPaddingStyle = () => {
-		if (typeof padding === 'string') {
-			return { padding };
-		}
-
-		return {
-			paddingTop: padding.top,
-			paddingBottom: padding.bottom,
-			paddingLeft: padding.left,
-			paddingRight: padding.right,
-		};
-	};
-
+const Modal = ({ backgroundColor, boxShadow, children }) => {
 	return (
 		<div
+			className={styles.wrapper}
 			style={{
 				backgroundColor,
 				boxShadow,
-				borderRadius,
-				...getPaddingStyle(),
 			}}
 		>
 			{children}

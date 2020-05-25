@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from '../../common/Header';
 import Table from '../board/Table';
-import PaginationContainer from '../../../containers/PaginationContainer';
 import RoutesSwitcher from '../../common/RoutesSwitcher';
-import Title from '../../common/Title';
+import SignIn from '../auth/SignIn';
+import SignUp from '../auth/SignUp/SignUp';
 
 const App = () => {
 	return (
@@ -19,16 +19,15 @@ const App = () => {
 							exact: true,
 						},
 						{
-							path: '/table',
-							component: Title,
+							path: '/sign-in',
+							component: SignIn,
 						},
 						{
-							path: '/header',
-							component: PaginationContainer,
+							path: '/sign-up',
+							component: SignUp,
 						},
 					]}
 				/>
-				<PaginationContainer />
 			</Router>
 		</React.Fragment>
 	);

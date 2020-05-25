@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { NavLink as Link } from 'react-router-dom';
 import isObjectEmpty from '../../../utils/isObjectEmpty';
 import propTypes from './propTypes';
@@ -13,7 +14,10 @@ const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogDa
 					{label}
 				</label>
 				<input
-					className={styles[type ? `input-type-${type}` : 'input-type-text']}
+					className={classNames(
+						styles.input,
+						styles[type ? `input-type-${type}` : 'input-type-text']
+					)}
 					type={type ? type : 'text'}
 					name={name}
 					placeholder={placeholder ? placeholder : ''}

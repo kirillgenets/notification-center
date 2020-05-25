@@ -14,7 +14,7 @@ const SignUpForm = () => {
 		{
 			name: 'password',
 			label: 'Your password:',
-			placeholder: '',
+			placeholder: '********',
 			type: 'password',
 		},
 		{
