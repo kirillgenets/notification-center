@@ -1,13 +1,13 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, cancel } from 'redux-saga/effects';
 import fetchData from '../../API/fetchData';
-import getURL from '../../API/getURL';
+import postData from './../../API/postData';
 import receiveTask from '../actions/receiveTasks';
+import { API_URL } from '../constants';
+import registerUser from './../actions/registerUser';
 
 export function* fetchTasks(action) {
 	try {
-		const URL = getURL(action);
-
-		const response = yield call(fetchData, URL);
+		const response = yield call(fetchData, `${API_URL}/Tasks`, action);
 
 		yield put(receiveTask(response.data));
 	} catch (error) {
@@ -15,4 +15,13 @@ export function* fetchTasks(action) {
 	}
 }
 
-export const a = {};
+export function* postUserData(action) {
+	try {
+		console.log('yo');
+		const response = yield call(postData, `${API_URL}/Users`, action.payload);
+
+		yield put(registerUser(response.data));
+	} catch (error) {
+		throw new Error(error);
+	}
+}

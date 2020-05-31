@@ -14,7 +14,7 @@ const Tasks = (props) => {
 		<tbody>
 			{props.tasks.map((item) => (
 				<Task
-					key={item.ID}
+					key={item.id}
 					isCompleted={item.isCompleted}
 					category={item.category}
 					description={item.description}

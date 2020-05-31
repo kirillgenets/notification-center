@@ -1,9 +1,9 @@
 import React from 'react';
 import Modal from '../../../common/Modal';
 import Form from '../../../common/Form';
-import { API_URL } from '../../../../store/constants';
+import propTypes from './propTypes';
 
-const SignUpForm = () => {
+const SignUpForm = ({ requestUserRegistration }) => {
 	const fieldsData = [
 		{
 			name: 'login',
@@ -37,7 +37,17 @@ const SignUpForm = () => {
 		link: '/sign-in',
 	};
 
-	const handleFormSubmit = () => {};
+	const handleFormSubmit = (evt) => {
+		evt.preventDefault();
+
+		const userData = new FormData(evt.target);
+		const login = userData.get('login');
+		const password = userData.get('login');
+		const teamName = userData.get('team-name');
+		const teamPassword = userData.get('team-password');
+
+		requestUserRegistration({ login, password, teamName, teamPassword });
+	};
 
 	return (
 		<Modal>
@@ -50,5 +60,7 @@ const SignUpForm = () => {
 		</Modal>
 	);
 };
+
+SignUpForm.propTypes = propTypes;
 
 export default SignUpForm;

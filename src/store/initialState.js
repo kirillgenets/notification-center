@@ -4,6 +4,7 @@ const initialState = {
 	pagesCount: 1,
 	completionStatusFilter: '',
 	categoryFilter: '',
+	user: {},
 };
 
 export default initialState;

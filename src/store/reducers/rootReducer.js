@@ -4,6 +4,7 @@ import completionStatusFilter from './completionStatusFilter';
 import categoryFilter from './categoryFilter';
 import currentPage from './currentPage';
 import pagesCount from './pagesCount';
+import user from './user';
 
 const rootReducer = combineReducers({
 	tasks,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
 	categoryFilter,
 	currentPage,
 	pagesCount,
+	user,
 });
 
 export default rootReducer;

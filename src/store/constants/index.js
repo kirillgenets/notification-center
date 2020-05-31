@@ -1,5 +1,5 @@
 export const TASKS_PER_PAGE = 9;
-export const API_URL = 'https://localhost:44357/api/Tasks';
+export const API_URL = 'https://localhost:44357/api';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 export const REQUEST_TASKS = 'REQUEST_TASKS';
 export const RECEIVE_TASKS = 'RECEIVE_TASKS';
@@ -7,6 +7,8 @@ export const MARK_TASK_AS_COMPLETED = 'MARK_TASK_AS_COMPLETED';
 export const SET_CATEGORY_FILTER = 'SET_CATEGORY_FILTER';
 export const SET_COMPLETION_STATUS_FILTER = 'SET_COMPLETION_STATUS_FILTER';
 export const SET_PAGES_COUNT = 'SET_PAGES_COUNT';
+export const REGISTER_USER = 'REGISTER_USER';
+export const REQUEST_USER_REGISTRATION = 'REQUEST_USER_REGISTRATION';
 export const CompletionStatusFilters = {
 	SHOW_ALL: '',
 	SHOW_COMPLETE: true,

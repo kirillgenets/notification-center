@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid/dist/v1';
 import classNames from 'classnames';
 import fetchData from '../../../../API/fetchData';
-import getURL from '../../../../API/getURL';
-import { TASKS_PER_PAGE } from '../../../../store/constants';
+import { TASKS_PER_PAGE, API_URL } from '../../../../store/constants';
 import styles from './Pagination.css';
 
 const Pagination = (props) => {
@@ -14,9 +13,7 @@ const Pagination = (props) => {
 	const lastPage = pages[pages.length - 1];
 
 	const fetchPages = async () => {
-		const URL = getURL({ page: 1, showAll: true });
-
-		const response = await fetchData(URL);
+		const response = await fetchData(`${API_URL}/Tasks`, { page: 1, showAll: true });
 		setPages(() =>
 			Array.from(
 				{

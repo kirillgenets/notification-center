@@ -1,5 +1,8 @@
 import axios from 'axios';
 
-const fetchData = (url) => axios.get(url);
+const fetchData = (url, params = {}) =>
+	axios.get(url, {
+		params: params,
+	});
 
 export default fetchData;

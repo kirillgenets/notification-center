@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import PaginationContainer from '../../../containers/PaginationContainer';
 import Header from '../../common/Header';
 import Table from '../board/Table';
 import RoutesSwitcher from '../../common/RoutesSwitcher';
@@ -29,6 +30,7 @@ const App = () => {
 					]}
 				/>
 			</Router>
+			<PaginationContainer />
 		</React.Fragment>
 	);
 };
