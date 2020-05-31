@@ -27,7 +27,7 @@ const SignUpForm = () => {
 		{
 			name: 'team-password',
 			label: 'Your team password:',
-			placeholder: '',
+			placeholder: '********',
 			type: 'password',
 		},
 	];
