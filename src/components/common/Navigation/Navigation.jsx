@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
-import uuid from 'uuid/v1';
+import uuid from 'uuid/dist/v1';
 import propTypes from './propTypes';
 import styles from './Navigation.css';
 

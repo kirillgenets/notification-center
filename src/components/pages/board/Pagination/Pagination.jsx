@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v1';
+import uuid from 'uuid/dist/v1';
 import classNames from 'classnames';
 import fetchData from '../../../../API/fetchData';
 import getURL from '../../../../API/getURL';

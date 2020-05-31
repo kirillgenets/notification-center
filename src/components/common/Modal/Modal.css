@@ -1,7 +1,7 @@
 .wrapper {
 	width: fit-content;
 	height: fit-content;
-	padding: 45px 60px 60px 60px;
+	padding: 35px 50px 50px 50px;
 	border-radius: 35px;
 
 	position: absolute;
@@ -15,5 +15,12 @@
 	.wrapper {
 		padding: 25px 35px 35px 35px;
 		border-radius: 20px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.wrapper {
+		padding: 15px 25px 25px 25px;
+		border-radius: 15px;
 	}
 }

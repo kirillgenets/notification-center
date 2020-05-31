@@ -130,7 +130,7 @@ input:focus {
 	}
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 940px) {
 	.title {
 		margin-bottom: 8px;
 
@@ -167,6 +167,11 @@ input:focus {
 	}
 
 	.analog {
+		font-size: 14px;
+	}
+
+	.input-type-text::placeholder,
+	.input-type-password::placeholder {
 		font-size: 14px;
 	}
 }
