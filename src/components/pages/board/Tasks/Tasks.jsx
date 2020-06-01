@@ -3,16 +3,23 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import Task from '../Task';
 
-const Tasks = (props) => {
+const Tasks = ({
+	tasks,
+	currentPage,
+	categoryFilter,
+	completionStatusFilter,
+	requestTasks,
+	user: { teamId },
+}) => {
 	useEffect(() => {
-		props.requestTasks(props.currentPage, props.categoryFilter, props.completionStatusFilter);
-	}, [props.currentPage, props.categoryFilter, props.completionStatusFilter]);
+		requestTasks({ currentPage, categoryFilter, completionStatusFilter, teamId });
+	}, [currentPage, categoryFilter, completionStatusFilter]);
 
 	const getPrettifiedDate = (date) => moment(date).format('MMM DD, YYYY, HH:mm');
 
 	return (
 		<tbody>
-			{props.tasks.map((item) => (
+			{tasks.map((item) => (
 				<Task
 					key={item.id}
 					isCompleted={item.isCompleted}
@@ -29,6 +36,7 @@ Tasks.propTypes = {
 	requestTasks: PropTypes.func.isRequired,
 	tasks: PropTypes.array.isRequired,
 	currentPage: PropTypes.number.isRequired,
+	user: PropTypes.object.isRequired,
 	markTaskAsCompleted: PropTypes.func,
 	categoryFilter: PropTypes.string,
 	completionStatusFilter: PropTypes.string,

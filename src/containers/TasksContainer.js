@@ -8,11 +8,11 @@ const mapStateToProps = (state) => ({
 	currentPage: state.currentPage,
 	categoryFilter: state.categoryFilter,
 	completionStatusFilter: state.completionStatusFilter,
+	user: state.user,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	requestTasks: (page, category, isCompleted) =>
-		dispatch(requestTasks(page, category, isCompleted)),
+	requestTasks: (params) => dispatch(requestTasks(params)),
 	markTaskAsCompleted: (task, page, category, isCompleted) =>
 		dispatch(markTaskAsCompleted(task, page, category, isCompleted)),
 });

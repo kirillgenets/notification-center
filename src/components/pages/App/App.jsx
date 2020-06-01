@@ -1,36 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import PaginationContainer from '../../../containers/PaginationContainer';
 import Header from '../../common/Header';
-import Table from '../board/Table';
-import RoutesSwitcher from '../../common/RoutesSwitcher';
-import SignIn from '../auth/SignIn';
-import SignUp from '../auth/SignUp/SignUp';
+import AppRouterContainer from '../../../containers/AppRouterContainer';
 
 const App = () => {
 	return (
 		<React.Fragment>
 			<Router>
 				<Header />
-				<RoutesSwitcher
-					routesData={[
-						{
-							path: '/',
-							component: Table,
-							exact: true,
-						},
-						{
-							path: '/sign-in',
-							component: SignIn,
-						},
-						{
-							path: '/sign-up',
-							component: SignUp,
-						},
-					]}
-				/>
+				<AppRouterContainer />
 			</Router>
-			<PaginationContainer />
 		</React.Fragment>
 	);
 };

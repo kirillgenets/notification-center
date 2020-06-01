@@ -7,8 +7,7 @@ import registerUser from './../actions/registerUser';
 
 export function* fetchTasks(action) {
 	try {
-		const response = yield call(fetchData, `${API_URL}/Tasks`, action);
-
+		const response = yield call(fetchData, `${API_URL}/Tasks`, action.payload);
 		yield put(receiveTask(response.data));
 	} catch (error) {
 		throw new Error(error);
@@ -17,9 +16,7 @@ export function* fetchTasks(action) {
 
 export function* postUserData(action) {
 	try {
-		console.log('yo');
 		const response = yield call(postData, `${API_URL}/Users`, action.payload);
-
 		yield put(registerUser(response.data));
 	} catch (error) {
 		throw new Error(error);

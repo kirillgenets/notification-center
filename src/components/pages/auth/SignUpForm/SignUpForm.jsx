@@ -42,7 +42,7 @@ const SignUpForm = ({ requestUserRegistration }) => {
 
 		const userData = new FormData(evt.target);
 		const login = userData.get('login');
-		const password = userData.get('login');
+		const password = userData.get('password');
 		const teamName = userData.get('team-name');
 		const teamPassword = userData.get('team-password');
 
