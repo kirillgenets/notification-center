@@ -5,6 +5,8 @@ const initialState = {
 	completionStatusFilter: '',
 	categoryFilter: '',
 	user: {},
+	signUpError: '',
+	signInError: '',
 };
 
 export default initialState;

@@ -5,6 +5,8 @@ import categoryFilter from './categoryFilter';
 import currentPage from './currentPage';
 import pagesCount from './pagesCount';
 import user from './user';
+import signInError from './signInError';
+import signUpError from './signUpError';
 
 const rootReducer = combineReducers({
 	tasks,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
 	currentPage,
 	pagesCount,
 	user,
+	signUpError,
+	signInError,
 });
 
 export default rootReducer;

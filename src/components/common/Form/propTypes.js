@@ -1,4 +1,4 @@
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default {
 	onFormSubmit: PropTypes.func.isRequired,
@@ -8,6 +8,9 @@ export default {
 			label: PropTypes.string.isRequired,
 			type: PropTypes.string,
 			placeholder: PropTypes.string,
+			required: PropTypes.bool,
+			minLength: PropTypes.number,
+			maxLength: PropTypes.number,
 		})
 	).isRequired,
 	title: PropTypes.string,
@@ -17,4 +20,5 @@ export default {
 		text: PropTypes.string.isRequired,
 		link: PropTypes.string.isRequired,
 	}),
+	error: PropTypes.string,
 };

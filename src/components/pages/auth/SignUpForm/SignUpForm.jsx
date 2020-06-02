@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Modal from '../../../common/Modal';
 import Form from '../../../common/Form';
 import propTypes from './propTypes';
 
-const SignUpForm = ({ requestUserRegistration }) => {
+const SignUpForm = ({ requestUserRegistration, error, removeSignUpError }) => {
+	useEffect(() => {
+		return () => {
+			removeSignUpError();
+		};
+	}, []);
+
 	const fieldsData = [
 		{
 			name: 'login',
 			label: 'Your login:',
 			placeholder: 'bestcoder123',
 			type: 'text',
+			required: true,
 		},
 		{
 			name: 'password',
 			label: 'Your password:',
 			placeholder: '********',
 			type: 'password',
+			required: true,
+			minLength: 8,
+			maxLength: 50,
 		},
 		{
 			name: 'team-name',
 			label: 'Your team name:',
 			placeholder: 'codemonsters',
 			type: 'text',
+			required: true,
 		},
 
 		{
@@ -29,6 +40,7 @@ const SignUpForm = ({ requestUserRegistration }) => {
 			label: 'Your team password:',
 			placeholder: '********',
 			type: 'password',
+			required: true,
 		},
 	];
 
@@ -56,6 +68,7 @@ const SignUpForm = ({ requestUserRegistration }) => {
 				subtitle="To start work with our app you have to create an account..."
 				fieldsData={fieldsData}
 				analogData={analogData}
+				error={error}
 			/>
 		</Modal>
 	);

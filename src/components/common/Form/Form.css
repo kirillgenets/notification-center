@@ -10,11 +10,16 @@
 	font-weight: 500;
 }
 
-.description {
+.description,
+.error {
 	margin-top: 0;
 	margin-bottom: 15px;
 
 	font-size: 18px;
+}
+
+.error {
+	color: rgb(114, 11, 11);
 }
 
 .subtitle {
@@ -137,7 +142,8 @@ input:focus {
 		font-size: 18px;
 	}
 
-	.description {
+	.description,
+	.error {
 		margin-bottom: 8px;
 
 		font-size: 14px;

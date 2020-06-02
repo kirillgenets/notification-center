@@ -4,6 +4,7 @@ import postData from './../../API/postData';
 import receiveTask from '../actions/receiveTasks';
 import { API_URL } from '../constants';
 import registerUser from './../actions/registerUser';
+import setSignUpError from './../actions/setSignUpError';
 
 export function* fetchTasks(action) {
 	try {
@@ -19,6 +20,6 @@ export function* postUserData(action) {
 		const response = yield call(postData, `${API_URL}/Users`, action.payload);
 		yield put(registerUser(response.data));
 	} catch (error) {
-		throw new Error(error);
+		yield put(setSignUpError(error.response.data.detail));
 	}
 }

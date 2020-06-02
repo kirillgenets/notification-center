@@ -1,12 +1,12 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import propTypes from './propTypes';
 import RoutesSwitcher from '../../common/RoutesSwitcher';
 import isObjectEmpty from './../../../utils/isObjectEmpty';
 import SignUp from './../auth/SignUp';
 import SignIn from '../auth/SignIn';
 import Table from './../board/Table';
 
-const AppRouter = ({ user }) => {
+const AppRouter = ({ user, removeSignUpError }) => {
 	const routesData = isObjectEmpty(user)
 		? [
 				{

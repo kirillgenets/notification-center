@@ -1,8 +1,8 @@
 import { REQUEST_USER_REGISTRATION } from '../constants';
 
-const requestUserRegistration = ({ login, password, teamName, teamPassword }) => ({
+const requestUserRegistration = (userData) => ({
 	type: REQUEST_USER_REGISTRATION,
-	payload: { login, password, teamName, teamPassword },
+	payload: userData,
 });
 
 export default requestUserRegistration;

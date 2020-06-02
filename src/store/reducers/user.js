@@ -1,13 +1,15 @@
 import initialState from '../initialState';
-import { REGISTER_USER } from '../constants';
+import { REGISTER_USER, AUTHENTICATE_USER } from '../constants';
 
-const tasks = (state = initialState, action) => {
+const user = (state = initialState, action) => {
 	switch (action.type) {
 		case REGISTER_USER:
+			return action.payload;
+		case AUTHENTICATE_USER:
 			return action.payload;
 		default:
 			return state;
 	}
 };
 
-export default tasks;
+export default user;

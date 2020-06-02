@@ -6,10 +6,10 @@ import propTypes from './propTypes';
 import defaultProps from './defaultProps';
 import styles from './Form.css';
 
-const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogData }) => {
+const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogData, error }) => {
 	const renderFields = () =>
-		fieldsData.map(({ name, label, type, placeholder }) => (
-			<div className={styles['input-wrapper']}>
+		fieldsData.map(({ name, label, type, placeholder, required, minLength, maxLength }) => (
+			<div key={`${name}_${type}`} className={styles['input-wrapper']}>
 				<label className={styles.label} htmlFor={name}>
 					{label}
 				</label>
@@ -22,6 +22,9 @@ const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogDa
 					name={name}
 					placeholder={placeholder ? placeholder : ''}
 					id={name}
+					required={required}
+					minLength={minLength}
+					maxLength={maxLength}
 				/>
 			</div>
 		));
@@ -42,6 +45,7 @@ const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogDa
 			{description ? <p className={styles.description}>{description}</p> : null}
 			{subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
 			<fieldset className={styles.fieldset}>{renderFields()}</fieldset>
+			{error ? <p className={styles.error}>{error}</p> : null}
 			<button className={styles.submit} type="submit">
 				Submit
 			</button>
