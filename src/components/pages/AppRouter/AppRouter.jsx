@@ -11,7 +11,7 @@ const AppRouter = ({ user, removeSignUpError }) => {
 		? [
 				{
 					path: '/',
-					component: SignUp,
+					component: SignIn,
 					exact: true,
 				},
 				{

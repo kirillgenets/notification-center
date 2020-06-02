@@ -34,7 +34,6 @@ const SignUpForm = ({ requestUserRegistration, error, removeSignUpError }) => {
 			type: 'text',
 			required: true,
 		},
-
 		{
 			name: 'team-password',
 			label: 'Your team password:',

@@ -1,10 +1,10 @@
 import React from 'react';
-import SignInForm from '../SignInForm';
+import SignInFormContainer from '../../../../containers/SignInFormContainer';
 
 const SignIn = () => {
 	return (
 		<div>
-			<SignInForm />
+			<SignInFormContainer />
 		</div>
 	);
 };
