@@ -22,6 +22,7 @@ export function* postUserData(action) {
 		const response = yield call(postData, `${API_URL}/Users`, action.payload);
 		yield put(registerUser(response.data));
 	} catch (error) {
+		console.log('function*tryToSignIn -> error', error.response);
 		yield put(setSignUpError(error.response.data.detail));
 	}
 }

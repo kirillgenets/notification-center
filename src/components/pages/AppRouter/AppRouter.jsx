@@ -5,7 +5,7 @@ import RoutesSwitcher from '../../common/RoutesSwitcher';
 import isObjectEmpty from './../../../utils/isObjectEmpty';
 import SignUp from './../auth/SignUp';
 import SignIn from '../auth/SignIn';
-import Table from './../board/Table';
+import Board from './../board/Board';
 
 const AppRouter = ({ user }) => {
 	const history = useHistory();
@@ -19,7 +19,7 @@ const AppRouter = ({ user }) => {
 		? [
 				{
 					path: '/',
-					component: Table,
+					component: Board,
 					exact: true,
 				},
 		  ]

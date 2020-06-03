@@ -1,13 +1,28 @@
 import React from 'react';
+import propTypes from './propTypes';
 import Title from '../Title';
 import Navigation from '../Navigation';
 import styles from './Header.css';
+import isObjectEmpty from '../../../utils/isObjectEmpty';
 
-const Header = () => (
-	<header className={styles.header}>
-		<Title />
-		<Navigation
-			routesData={[
+const Header = ({ user }) => {
+	const isAuth = typeof user === 'object' && !isObjectEmpty(user);
+	const routesData = isAuth
+		? [
+				{
+					title: 'Tasks',
+					path: '/',
+				},
+				{
+					title: 'Add Task',
+					path: '/add-task',
+				},
+				{
+					title: 'Logout',
+					path: '/logout',
+				},
+		  ]
+		: [
 				{
 					title: 'Sign In',
 					path: '/sign-in',
@@ -20,9 +35,16 @@ const Header = () => (
 					title: 'Create a Team',
 					path: '/create-team',
 				},
-			]}
-		/>
-	</header>
-);
+		  ];
+
+	return (
+		<header className={styles.header}>
+			<Title />
+			<Navigation routesData={routesData} />
+		</header>
+	);
+};
+
+Header.propTypes = propTypes;
 
 export default Header;

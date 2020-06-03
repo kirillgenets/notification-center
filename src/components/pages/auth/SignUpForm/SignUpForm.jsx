@@ -57,7 +57,7 @@ const SignUpForm = ({ requestUserRegistration, error, removeSignUpError }) => {
 		const teamName = userData.get('team-name');
 		const teamPassword = userData.get('team-password');
 
-		requestUserRegistration({ login, password: password.split(''), teamName, teamPassword });
+		requestUserRegistration({ login, password, teamName, teamPassword });
 	};
 
 	return (
