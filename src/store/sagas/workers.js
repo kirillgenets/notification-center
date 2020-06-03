@@ -28,7 +28,7 @@ export function* postUserData(action) {
 
 export function* tryToSignIn(action) {
 	try {
-		const response = yield call(fetchData, `${API_URL}/Users`, action.payload);
+		const response = yield call(postData, `${API_URL}/Users`, action.payload, { isSignIn: true });
 		yield put(authenticateUser(response.data));
 	} catch (error) {
 		yield put(setSignInError(error.response.data.detail));
