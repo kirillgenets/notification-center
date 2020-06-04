@@ -26,10 +26,10 @@ const FilterRadio = (props) => {
 FilterRadio.propTypes = {
 	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired,
+	value: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
 	description: PropTypes.string.isRequired,
 	categoryFilter: PropTypes.string,
-	completionStatusFilter: PropTypes.boolean,
+	completionStatusFilter: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 export default FilterRadio;

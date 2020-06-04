@@ -1,73 +1,73 @@
 /* Filter */
 
 .filter {
-  box-sizing: border-box;
-  width: 241px;
+	box-sizing: border-box;
+	width: 241px;
 
-  position: absolute;
-  top: 40px;
-  z-index: 1;
+	position: absolute;
+	top: 40px;
+	z-index: 1;
 
-  background-color: #51A8E7;
+	background-color: #009fb7;
 
-  color: #ffffff;
+	color: #ffffff;
 }
 
 .filter::before {
-  content: '';
+	content: '';
 
-  width: 0; 
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 7px solid #51A8E7;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 7px solid #009fb7;
 
-  position: absolute;
-  left: 10px;
-  top: -7px;
+	position: absolute;
+	left: 10px;
+	top: -7px;
 }
 
 .reset {
-  width: 100%;
-  margin: 8px 0;
-  border: none;
+	width: 100%;
+	margin: 8px 0;
+	border: none;
 
-  background-color: transparent;
+	background-color: transparent;
 
-  font-size: 14px;
-  color: #ffffff;
+	font-size: 14px;
+	color: #ffffff;
 
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .group {
-  box-sizing: border-box;
-  width: 225px;
-  margin: 0 auto;
-  margin-bottom: 16px;
-  padding: 18px 0 0;
-  border: none;
-  border-top: 1px solid #ffffff;
+	box-sizing: border-box;
+	width: 225px;
+	margin: 0 auto;
+	margin-bottom: 16px;
+	padding: 18px 0 0;
+	border: none;
+	border-top: 1px solid #ffffff;
 }
 
 .submit {
-  width: 100%;
-  padding: 12px 0;
-  border: none;
+	width: 100%;
+	padding: 12px 0;
+	border: none;
 
-  background-color:#E3D552;
+	background-color: #006c7c;
 
-  font-size: 18px;
-  color: #ffffff;
+	font-size: 18px;
+	color: #ffffff;
 
-  cursor: pointer;
-  transition: 0.3s;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
 .submit:hover {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 
 .submit:active {
-  opacity: 0.6;
+	opacity: 0.6;
 }

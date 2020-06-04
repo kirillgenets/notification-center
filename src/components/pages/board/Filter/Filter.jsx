@@ -12,7 +12,7 @@ const Filter = (props) => {
 		const completionStatus = JSON.parse(filterData.get('completion-status'));
 		const category = filterData.get('category');
 
-		if (completionStatus) {
+		if (completionStatus !== undefined) {
 			props.setCompletionStatusFilter(completionStatus);
 		}
 

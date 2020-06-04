@@ -12,7 +12,12 @@ const Tasks = ({
 	user: { teamId },
 }) => {
 	useEffect(() => {
-		requestTasks({ currentPage, categoryFilter, completionStatusFilter, teamId });
+		requestTasks({
+			page: currentPage,
+			category: categoryFilter,
+			isCompleted: completionStatusFilter,
+			teamId,
+		});
 	}, [currentPage, categoryFilter, completionStatusFilter]);
 
 	const getPrettifiedDate = (date) => moment(date).format('MMM DD, YYYY, HH:mm');
@@ -39,7 +44,7 @@ Tasks.propTypes = {
 	user: PropTypes.object.isRequired,
 	markTaskAsCompleted: PropTypes.func,
 	categoryFilter: PropTypes.string,
-	completionStatusFilter: PropTypes.string,
+	completionStatusFilter: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 export default Tasks;
