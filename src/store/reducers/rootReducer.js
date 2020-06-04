@@ -7,6 +7,7 @@ import pagesCount from './pagesCount';
 import user from './user';
 import signInError from './signInError';
 import signUpError from './signUpError';
+import team from './team';
 
 const rootReducer = combineReducers({
 	tasks,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
 	user,
 	signUpError,
 	signInError,
+	team,
 });
 
 export default rootReducer;

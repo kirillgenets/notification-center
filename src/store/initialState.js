@@ -5,6 +5,7 @@ const initialState = {
 	completionStatusFilter: '',
 	categoryFilter: '',
 	user: {},
+	team: {},
 	signUpError: '',
 	signInError: '',
 };

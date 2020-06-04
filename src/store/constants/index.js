@@ -15,6 +15,8 @@ export const SET_SIGN_UP_ERROR = 'SET_SIGN_UP_ERROR';
 export const SET_SIGN_IN_ERROR = 'SET_SIGN_IN_ERROR';
 export const REMOVE_SIGN_UP_ERROR = 'SET_SIGN_UP_ERROR';
 export const REMOVE_SIGN_IN_ERROR = 'SET_SIGN_IN_ERROR';
+export const REQUEST_TEAM_AUTHENTICATION = 'REQUEST_TEAM_AUTHENTICATION';
+export const AUTHENTICATE_TEAM = 'AUTHENTICATE_TEAM';
 
 export const CompletionStatusFilters = {
 	SHOW_ALL: '',

@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from './propTypes';
-import Title from '../Title';
+import TitleContainer from '../../../containers/TitleContainer';
 import Navigation from '../Navigation';
 import styles from './Header.css';
 import isObjectEmpty from '../../../utils/isObjectEmpty';
@@ -39,7 +39,7 @@ const Header = ({ user }) => {
 
 	return (
 		<header className={styles.header}>
-			<Title />
+			<TitleContainer />
 			<Navigation routesData={routesData} />
 		</header>
 	);

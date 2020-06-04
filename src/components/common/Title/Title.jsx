@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink as Link } from 'react-router-dom';
 import propTypes from './propTypes';
 import defaultProps from './defaultProps';
 import styles from './Title.css';
@@ -8,9 +9,9 @@ const Title = ({ teamName }) => {
 		<h1 className={styles.title}>
 			TeamApp! {teamName ? ' | ' : null}
 			{teamName ? (
-				<a className={styles['team-name']} href="/board">
+				<Link className={styles['team-name']} to="/">
 					{teamName}
-				</a>
+				</Link>
 			) : null}
 		</h1>
 	);
