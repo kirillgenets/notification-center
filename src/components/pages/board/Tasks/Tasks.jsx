@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
+import propTypes from './propTypes';
 import Task from '../Task';
+import getTicketName from './../../../../utils/getTicketName';
 
 const Tasks = ({
 	tasks,
@@ -9,7 +10,7 @@ const Tasks = ({
 	categoryFilter,
 	completionStatusFilter,
 	requestTasks,
-	user: { teamId },
+	team: { id: teamId, name: teamName },
 }) => {
 	useEffect(() => {
 		requestTasks({
@@ -27,9 +28,10 @@ const Tasks = ({
 			{tasks.map((item) => (
 				<Task
 					key={item.id}
+					id={item.id}
 					isCompleted={item.isCompleted}
 					category={item.category}
-					description={item.description}
+					title={getTicketName({ teamName, taskId: item.id, taskTitle: item.title })}
 					date={getPrettifiedDate(item.createdOn)}
 				/>
 			))}
@@ -37,14 +39,6 @@ const Tasks = ({
 	);
 };
 
-Tasks.propTypes = {
-	requestTasks: PropTypes.func.isRequired,
-	tasks: PropTypes.array.isRequired,
-	currentPage: PropTypes.number.isRequired,
-	user: PropTypes.object.isRequired,
-	markTaskAsCompleted: PropTypes.func,
-	categoryFilter: PropTypes.string,
-	completionStatusFilter: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-};
+Tasks.propTypes = propTypes;
 
 export default Tasks;

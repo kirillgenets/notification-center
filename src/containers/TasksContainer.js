@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 	currentPage: state.currentPage,
 	categoryFilter: state.categoryFilter,
 	completionStatusFilter: state.completionStatusFilter,
-	user: state.user,
+	team: state.team,
 });
 
 const mapDispatchToProps = (dispatch) => ({

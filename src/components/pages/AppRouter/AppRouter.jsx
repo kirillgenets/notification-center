@@ -6,6 +6,7 @@ import isObjectEmpty from './../../../utils/isObjectEmpty';
 import SignUp from './../auth/SignUp';
 import SignIn from '../auth/SignIn';
 import Board from './../board/Board';
+import TaskPage from './../task/TaskPage';
 
 const AppRouter = ({ user }) => {
 	const history = useHistory();
@@ -21,6 +22,10 @@ const AppRouter = ({ user }) => {
 					path: '/',
 					component: Board,
 					exact: true,
+				},
+				{
+					path: '/task/:id',
+					component: TaskPage,
 				},
 		  ]
 		: [
