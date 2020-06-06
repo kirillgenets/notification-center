@@ -9,7 +9,9 @@ const TaskPage = ({ teamName, tasks, userLogin }) => {
 	const { id } = useParams();
 	const taskData = tasks.find((task) => task.id == id);
 
-	const handleEditButtonClick = () => [];
+	const handleEditButtonClick = () => {};
+
+	const handleBackButtonClick = () => {};
 
 	const renderDetails = () => (
 		<div className={styles.details}>
@@ -45,6 +47,7 @@ const TaskPage = ({ teamName, tasks, userLogin }) => {
 				<ActionButton title="Edit" onClick={handleEditButtonClick} />
 				{renderDetails()}
 				{renderDescription()}
+				<ActionButton title="🠈 Back" onClick={handleBackButtonClick} />
 			</div>
 		</div>
 	);

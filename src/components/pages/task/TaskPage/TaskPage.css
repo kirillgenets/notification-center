@@ -1,4 +1,7 @@
 .wrapper {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .data-wrapper {
@@ -38,5 +41,9 @@
 }
 
 .description-text {
+	height: 250px;
+
 	font-size: 18px;
+
+	overflow: auto;
 }
