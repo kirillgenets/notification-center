@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import TaskPage from './../components/pages/task/TaskPage';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	teamName: state.team.name,
 	tasks: state.tasks,
-	id: ownProps.id,
+	userLogin: state.user.login,
 });
 
 export default connect(mapStateToProps)(TaskPage);
