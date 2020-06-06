@@ -1,5 +1,5 @@
 .button {
-	width: 200px;
+	width: 150px;
 	margin: 0;
 	padding: 10px 15px;
 	border: none;
@@ -7,7 +7,7 @@
 
 	background: #009fb7;
 
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: 500;
 	color: #ffffff;
 

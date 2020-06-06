@@ -1,8 +1,12 @@
 .wrapper {
 }
 
+.data-wrapper {
+	width: 50%;
+}
+
 .title {
-	font-size: 36px;
+	font-size: 24px;
 	font-weight: 600;
 	color: #006c7c;
 }
@@ -10,20 +14,29 @@
 .block-title {
 	margin-bottom: 14px;
 
-	font-size: 24px;
+	font-size: 20px;
 }
 
 .details {
+	margin-bottom: 35px;
 }
 
 .details-item {
 	margin: 0 0 7px 0;
 	padding: 0;
 
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .details-value {
 	font-weight: 600;
 	color: #006c7c;
+}
+
+.description {
+	margin-bottom: 60px;
+}
+
+.description-text {
+	font-size: 18px;
 }

@@ -29,13 +29,23 @@ const TaskPage = ({ teamName, tasks, userLogin }) => {
 		</div>
 	);
 
+	const renderDescription = () => (
+		<div className={styles.description}>
+			<h3 className={styles['block-title']}>Description:</h3>
+			<p className={styles['description-text']}>{taskData.description}</p>
+		</div>
+	);
+
 	return (
 		<div className={styles.wrapper}>
-			<h1 className={styles.title}>
-				{getTicketName({ taskId: taskData.id, taskTitle: taskData.title, teamName })}
-			</h1>
-			<ActionButton title="Edit" onClick={handleEditButtonClick} />
-			{renderDetails()}
+			<div className={styles['data-wrapper']}>
+				<h1 className={styles.title}>
+					{getTicketName({ taskId: taskData.id, taskTitle: taskData.title, teamName })}
+				</h1>
+				<ActionButton title="Edit" onClick={handleEditButtonClick} />
+				{renderDetails()}
+				{renderDescription()}
+			</div>
 		</div>
 	);
 };
