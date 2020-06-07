@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import propTypes from './propTypes';
 import styles from './TaskPage.css';
 import ActionButton from './../../../common/ActionButton';
+import Comments from './../Comments';
 import getTicketName from './../../../../utils/getTicketName';
 
 const TaskPage = ({ teamName, tasks, userLogin }) => {
@@ -52,6 +53,7 @@ const TaskPage = ({ teamName, tasks, userLogin }) => {
 				{renderDescription()}
 				<ActionButton title="🠈 Back" onClick={handleBackButtonClick} />
 			</div>
+			<Comments taskId={id} />
 		</div>
 	);
 };
