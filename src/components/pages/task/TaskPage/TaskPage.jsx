@@ -6,7 +6,7 @@ import ActionButton from './../../../common/ActionButton';
 import Comments from './../Comments';
 import getTicketName from './../../../../utils/getTicketName';
 
-const TaskPage = ({ teamName, tasks, userLogin }) => {
+const TaskPage = ({ teamId, teamName, tasks, userLogin }) => {
 	const history = useHistory();
 	const { id } = useParams();
 	const taskData = tasks.find((task) => task.id == id);
@@ -53,7 +53,7 @@ const TaskPage = ({ teamName, tasks, userLogin }) => {
 				{renderDescription()}
 				<ActionButton title="🠈 Back" onClick={handleBackButtonClick} />
 			</div>
-			<Comments taskId={id} />
+			<Comments teamId={teamId} taskId={id} />
 		</div>
 	);
 };
