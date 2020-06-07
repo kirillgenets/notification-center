@@ -1,17 +1,20 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import propTypes from './propTypes';
 import styles from './TaskPage.css';
 import ActionButton from './../../../common/ActionButton';
 import getTicketName from './../../../../utils/getTicketName';
 
 const TaskPage = ({ teamName, tasks, userLogin }) => {
+	const history = useHistory();
 	const { id } = useParams();
 	const taskData = tasks.find((task) => task.id == id);
 
 	const handleEditButtonClick = () => {};
 
-	const handleBackButtonClick = () => {};
+	const handleBackButtonClick = () => {
+		history.push('/');
+	};
 
 	const renderDetails = () => (
 		<div className={styles.details}>
