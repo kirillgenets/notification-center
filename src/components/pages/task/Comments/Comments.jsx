@@ -19,10 +19,13 @@ const Comments = ({ teamId, taskId }) => {
 		fetchCommentsList();
 	}, []);
 
-	const renderComments = () =>
-		commentsList.map((comment) => (
-			<Comment key={uuid()} author={comment.authorLogin} text={comment.text} />
-		));
+	const renderComments = () => (
+		<ul className={styles.list}>
+			{commentsList.map((comment) => (
+				<Comment key={uuid()} author={comment.authorLogin} text={comment.text} />
+			))}
+		</ul>
+	);
 
 	const handleAddComment = ({ text, authorId, authorLogin, taskId, teamId }) => {
 		setCommentsList([...commentsList, { text, authorId, authorLogin, taskId, teamId }]);
@@ -30,7 +33,11 @@ const Comments = ({ teamId, taskId }) => {
 
 	return (
 		<div className={styles.wrapper}>
-			<ul className={styles.list}>{renderComments()}</ul>
+			{commentsList.length === 0 ? (
+				<p className={styles.hint}>You can add the first comment!</p>
+			) : (
+				renderComments()
+			)}
 			<AddCommentContainer taskId={taskId} teamId={teamId} onSubmit={handleAddComment} />
 		</div>
 	);

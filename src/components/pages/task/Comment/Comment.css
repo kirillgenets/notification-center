@@ -1,8 +1,41 @@
 .wrapper {
+	position: relative;
+
+	width: 440px;
+	margin-bottom: 25px;
+	padding: 13px;
+	border-radius: 15px;
+
+	background-color: #006c7c;
+
+	font-size: 14px;
+	color: #ffffff;
 }
 
 .text {
+	margin: 0;
+	padding: 0;
 }
 
 .author {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	box-sizing: border-box;
+	height: 22px;
+	padding: 0px 15px;
+
+	background-color: #009fb7;
+
+	transform: translateY(50%);
+}
+
+.author p {
+	margin: 0;
+	padding: 0;
 }

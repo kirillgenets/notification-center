@@ -43,7 +43,9 @@ const AddComment = ({ teamId, taskId, user, onSubmit }) => {
 				placeholder="Your comment message..."
 			></textarea>
 			{error ? <p className={styles.error}>{error}</p> : null}
-			<button type="submit">Send!</button>
+			<button className={styles.submit} type="submit">
+				Send!
+			</button>
 		</form>
 	);
 };

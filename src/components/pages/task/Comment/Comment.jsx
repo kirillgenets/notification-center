@@ -6,7 +6,9 @@ const Comment = ({ author, text }) => {
 	return (
 		<li className={styles.wrapper}>
 			<p className={styles.text}>{text}</p>
-			<div className={styles.author}>{author}</div>
+			<div className={styles.author}>
+				<p>{author}</p>
+			</div>
 		</li>
 	);
 };
