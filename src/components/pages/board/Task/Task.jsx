@@ -13,7 +13,9 @@ const Task = ({ id, category, title, isCompleted, date }) => {
 				{category.toUpperCase()}
 			</td>
 			<td className={styles.text}>
-				<Link to={`/task/${id}`}>{title}</Link>
+				<Link className={styles.link} to={`/task/${id}`}>
+					{title}
+				</Link>
 			</td>
 			<td className={styles.date}>{date}</td>
 		</tr>

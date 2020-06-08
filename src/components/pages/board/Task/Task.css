@@ -1,80 +1,83 @@
 /* Task */
 
 .task {
-  border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
 
-  color: #666666;
+	color: #666666;
 
-  cursor: pointer;
-  transition: 0.3s;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
 .task:hover {
-  opacity: 0.6;
+	opacity: 0.6;
 }
 
 .task:active {
-  opacity: 0.4;
+	opacity: 0.4;
 }
 
 .incomplete {
-  background-color: #f3f6f9;
+	background-color: #f3f6f9;
+}
+
+.link {
+	color: #006c7c;
 }
 
 .category,
 .text,
 .date {
-  padding: 25px 0;
+	padding: 25px 15px 25px 0;
 }
 
 .category {
-  padding-left: 46px;
+	padding-left: 46px;
 
-  position: relative;
+	position: relative;
 }
 
 .incomplete .category::before {
-  content: '';
+	content: '';
 
-  width: 9px;
-  height: 100%;
+	width: 9px;
+	height: 100%;
 
-  position: absolute;
-  left: 0;
-  top: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 .crit::before {
-  background-color: #cd3e3e;
+	background-color: #cd3e3e;
 }
 
 .info::before {
-  background-color: #4174f7;
+	background-color: #4174f7;
 }
 
 .success::before {
-  background-color: #8bd244;
+	background-color: #8bd244;
 }
 
 .warn::before {
-  background-color: #e3d552;
+	background-color: #e3d552;
 }
 
 .error::before {
-  background-color: #c56104;
+	background-color: #c56104;
 }
 
 .debug::before {
-  background-color: #fc2aab;
+	background-color: #fc2aab;
 }
 
 .text {
-  width: 825px;
+	width: 825px;
 
-  text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .date {
-  width: 200px;
-  padding-right: 116px;
+	padding-right: 45px;
 }

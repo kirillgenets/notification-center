@@ -8,7 +8,9 @@ const App = () => {
 		<React.Fragment>
 			<Router>
 				<HeaderContainer />
-				<AppRouterContainer />
+				<main>
+					<AppRouterContainer />
+				</main>
 			</Router>
 		</React.Fragment>
 	);

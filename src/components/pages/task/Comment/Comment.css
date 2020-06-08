@@ -1,7 +1,6 @@
 .wrapper {
 	position: relative;
 
-	width: 440px;
 	margin-bottom: 25px;
 	padding: 13px;
 	border-radius: 15px;
@@ -15,6 +14,8 @@
 .text {
 	margin: 0;
 	padding: 0;
+
+	word-break: break-all;
 }
 
 .author {

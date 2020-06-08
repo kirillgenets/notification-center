@@ -22,3 +22,12 @@
 .button:active {
 	opacity: 0.8;
 }
+
+@media screen and (max-width: 768px) {
+	.button {
+		width: 90px;
+		padding: 6px 10px;
+
+		font-size: 14px;
+	}
+}

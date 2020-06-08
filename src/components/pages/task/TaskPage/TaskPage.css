@@ -2,6 +2,10 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+
+	box-sizing: border-box;
+	height: 100%;
+	padding-top: 20px;
 }
 
 .data-wrapper {
@@ -41,9 +45,29 @@
 }
 
 .description-text {
-	height: 250px;
+	height: 200px;
 
 	font-size: 18px;
 
 	overflow: auto;
+}
+
+@media screen and (max-width: 768px) {
+	.title {
+		font-size: 20px;
+	}
+
+	.block-title {
+		font-size: 18px;
+	}
+
+	.details-item {
+		font-size: 14px;
+	}
+
+	.description-text {
+		height: 100px;
+
+		font-size: 14px;
+	}
 }
