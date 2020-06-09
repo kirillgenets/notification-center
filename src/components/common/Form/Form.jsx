@@ -8,26 +8,42 @@ import styles from './Form.css';
 
 const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogData, error }) => {
 	const renderFields = () =>
-		fieldsData.map(({ name, label, type, placeholder, required, minLength, maxLength }) => (
-			<div key={`${name}_${type}`} className={styles['input-wrapper']}>
-				<label className={styles.label} htmlFor={name}>
-					{label}
-				</label>
-				<input
-					className={classNames(
-						styles.input,
-						styles[type ? `input-type-${type}` : 'input-type-text']
-					)}
-					type={type ? type : 'text'}
-					name={name}
-					placeholder={placeholder ? placeholder : ''}
-					id={name}
-					required={required}
-					minLength={minLength}
-					maxLength={maxLength}
-				/>
-			</div>
-		));
+		fieldsData.map(
+			({
+				name,
+				label,
+				type,
+				placeholder,
+				required,
+				minLength,
+				maxLength,
+				defaultValue,
+				checked,
+			}) => (
+				<div key={`${name}_${type}`} className={styles['input-wrapper']}>
+					{label ? (
+						<label className={styles.label} htmlFor={name}>
+							{label}
+						</label>
+					) : null}
+					<input
+						className={classNames(
+							styles.input,
+							styles[type ? `input-type-${type}` : 'input-type-text']
+						)}
+						type={type ? type : 'text'}
+						name={name}
+						placeholder={placeholder ? placeholder : ''}
+						id={name}
+						required={required}
+						minLength={minLength}
+						maxLength={maxLength}
+						defaultValue={defaultValue ? defaultValue : ''}
+						defaultChecked={checked}
+					/>
+				</div>
+			)
+		);
 
 	const renderAnalogLink = () =>
 		analogData && !isObjectEmpty(analogData) ? (

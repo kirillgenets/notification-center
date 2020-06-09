@@ -9,4 +9,6 @@ export default {
 		PropTypes.node,
 		PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.node])),
 	]),
+	isClosable: PropTypes.bool,
+	onClose: PropTypes.func,
 };

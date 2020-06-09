@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import propTypes from './propTypes';
 import styles from './TaskPage.css';
 import ActionButton from './../../../common/ActionButton';
 import Comments from './../Comments';
+import TaskForm from './../../../common/TaskForm';
 import getTicketName from './../../../../utils/getTicketName';
 
 const TaskPage = ({ teamId, teamName, tasks, userLogin }) => {
+	const [isEdit, setIsEdit] = useState(false);
+
 	const history = useHistory();
 	const { id } = useParams();
 	const taskData = tasks.find((task) => task.id == id);
 
-	const handleEditButtonClick = () => {};
+	const handleEditButtonClick = () => {
+		setIsEdit(true);
+	};
+
+	const handleEditFormClose = () => {
+		setIsEdit(false);
+	};
 
 	const handleBackButtonClick = () => {
 		history.push('/');
@@ -43,17 +52,20 @@ const TaskPage = ({ teamId, teamName, tasks, userLogin }) => {
 	);
 
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles['data-wrapper']}>
-				<h1 className={styles.title}>
-					{getTicketName({ taskId: taskData.id, taskTitle: taskData.title, teamName })}
-				</h1>
-				<ActionButton title="Edit" onClick={handleEditButtonClick} />
-				{renderDetails()}
-				{renderDescription()}
-				<ActionButton title="🠈 Back" onClick={handleBackButtonClick} />
+		<div className={styles['global-wrapper']}>
+			{isEdit ? <TaskForm isEdit={true} onClose={handleEditFormClose} taskData={taskData} /> : null}
+			<div className={styles.wrapper}>
+				<div className={styles['data-wrapper']}>
+					<h1 className={styles.title}>
+						{getTicketName({ taskId: taskData.id, taskTitle: taskData.title, teamName })}
+					</h1>
+					<ActionButton title="Edit" onClick={handleEditButtonClick} />
+					{renderDetails()}
+					{renderDescription()}
+				</div>
+				<Comments teamId={teamId} taskId={id} />
 			</div>
-			<Comments teamId={teamId} taskId={id} />
+			<ActionButton title="🠈 Back" onClick={handleBackButtonClick} />
 		</div>
 	);
 };

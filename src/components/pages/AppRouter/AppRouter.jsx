@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import propTypes from './propTypes';
 import RoutesSwitcher from '../../common/RoutesSwitcher';
@@ -11,10 +11,6 @@ import TaskPageContainer from '../../../containers/TaskPageContainer';
 const AppRouter = ({ user }) => {
 	const history = useHistory();
 	const isAuth = typeof user === 'object' && !isObjectEmpty(user);
-
-	if (isAuth) {
-		history.push('/');
-	}
 
 	const routesData = isAuth
 		? [
@@ -43,6 +39,10 @@ const AppRouter = ({ user }) => {
 					component: SignUp,
 				},
 		  ];
+
+	if (isAuth && history.location.pathname !== '/') {
+		history.push('/');
+	}
 
 	return <RoutesSwitcher routesData={routesData} />;
 };

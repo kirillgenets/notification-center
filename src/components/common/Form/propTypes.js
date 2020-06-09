@@ -11,14 +11,16 @@ export default {
 			required: PropTypes.bool,
 			minLength: PropTypes.number,
 			maxLength: PropTypes.number,
+			defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+			checked: PropTypes.bool,
 		})
 	).isRequired,
 	title: PropTypes.string,
 	description: PropTypes.string,
 	subtitle: PropTypes.string,
 	analogData: PropTypes.shape({
-		text: PropTypes.string.isRequired,
-		link: PropTypes.string.isRequired,
+		text: PropTypes.string,
+		link: PropTypes.string,
 	}),
 	error: PropTypes.string,
 };
