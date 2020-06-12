@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import moment from 'moment';
 import propTypes from './propTypes';
 import Task from '../Task';
-import getTicketName from './../../../../utils/getTicketName';
 
 const Tasks = ({
 	tasks,
@@ -31,7 +30,7 @@ const Tasks = ({
 					id={item.id}
 					isCompleted={item.isCompleted}
 					category={item.category}
-					title={getTicketName({ teamName, taskId: item.id, taskTitle: item.title })}
+					title={item.title}
 					date={getPrettifiedDate(item.createdOn)}
 				/>
 			))}

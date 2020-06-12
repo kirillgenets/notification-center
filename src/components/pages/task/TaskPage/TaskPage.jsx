@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import propTypes from './propTypes';
 import styles from './TaskPage.css';
 import ActionButton from './../../../common/ActionButton';
 import Comments from './../Comments';
-import TaskForm from './../../../common/TaskForm';
-import getTicketName from './../../../../utils/getTicketName';
+import TaskFormContainer from './../../../../containers/TaskFormContainer';
+import fetchData from './../../../../API/fetchData';
+import { API_URL } from '../../../../store/constants';
 
-const TaskPage = ({ teamId, teamName, tasks, userLogin }) => {
+const TaskPage = ({ teamId, tasks }) => {
 	const [isEdit, setIsEdit] = useState(false);
+	const [assignee, setAssignee] = useState({});
 
 	const history = useHistory();
 	const { id } = useParams();
 	const taskData = tasks.find((task) => task.id == id);
+
+	const fetchAssigneeData = async () => {
+		const response = await fetchData(`${API_URL}/Users/${taskData.assigneeId}`);
+		setAssignee(response.data);
+	};
+
+	useEffect(() => {
+		fetchAssigneeData();
+	}, []);
 
 	const handleEditButtonClick = () => {
 		setIsEdit(true);
@@ -39,7 +50,7 @@ const TaskPage = ({ teamId, teamName, tasks, userLogin }) => {
 				</span>
 			</p>
 			<p className={styles['details-item']}>
-				Assignee: <span className={styles['details-value']}>{userLogin}</span>
+				Assignee: <span className={styles['details-value']}>{assignee.login}</span>
 			</p>
 		</div>
 	);
@@ -53,12 +64,12 @@ const TaskPage = ({ teamId, teamName, tasks, userLogin }) => {
 
 	return (
 		<div className={styles['global-wrapper']}>
-			{isEdit ? <TaskForm isEdit={true} onClose={handleEditFormClose} taskData={taskData} /> : null}
+			{isEdit ? (
+				<TaskFormContainer isEdit={true} onClose={handleEditFormClose} taskData={taskData} />
+			) : null}
 			<div className={styles.wrapper}>
 				<div className={styles['data-wrapper']}>
-					<h1 className={styles.title}>
-						{getTicketName({ taskId: taskData.id, taskTitle: taskData.title, teamName })}
-					</h1>
+					<h1 className={styles.title}>{taskData.title}</h1>
 					<ActionButton title="Edit" onClick={handleEditButtonClick} />
 					{renderDetails()}
 					{renderDescription()}

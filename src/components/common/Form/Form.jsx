@@ -7,43 +7,46 @@ import defaultProps from './defaultProps';
 import styles from './Form.css';
 
 const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogData, error }) => {
+	const getFieldProps = ({
+		name,
+		type,
+		placeholder,
+		required,
+		minLength,
+		maxLength,
+		defaultValue,
+		checked,
+	}) => {
+		const props = {
+			className: classNames(styles.input, styles[type ? `input-type-${type}` : 'input-type-text']),
+			type: type ? type : 'text',
+			name,
+			placeholder: placeholder ? placeholder : '',
+			id: name,
+			required,
+			minLength,
+			maxLength,
+			defaultChecked: checked,
+		};
+
+		if (type !== 'checkbox') {
+			props.defaultValue = defaultValue;
+		}
+
+		return props;
+	};
+
 	const renderFields = () =>
-		fieldsData.map(
-			({
-				name,
-				label,
-				type,
-				placeholder,
-				required,
-				minLength,
-				maxLength,
-				defaultValue,
-				checked,
-			}) => (
-				<div key={`${name}_${type}`} className={styles['input-wrapper']}>
-					{label ? (
-						<label className={styles.label} htmlFor={name}>
-							{label}
-						</label>
-					) : null}
-					<input
-						className={classNames(
-							styles.input,
-							styles[type ? `input-type-${type}` : 'input-type-text']
-						)}
-						type={type ? type : 'text'}
-						name={name}
-						placeholder={placeholder ? placeholder : ''}
-						id={name}
-						required={required}
-						minLength={minLength}
-						maxLength={maxLength}
-						defaultValue={defaultValue ? defaultValue : ''}
-						defaultChecked={checked}
-					/>
-				</div>
-			)
-		);
+		fieldsData.map((data) => (
+			<div key={`${data.name}_${data.type}`} className={styles['input-wrapper']}>
+				{data.label ? (
+					<label className={styles.label} htmlFor={data.name}>
+						{data.label}
+					</label>
+				) : null}
+				<input {...getFieldProps(data)} />
+			</div>
+		));
 
 	const renderAnalogLink = () =>
 		analogData && !isObjectEmpty(analogData) ? (

@@ -1,4 +1,4 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 import fetchData from '../../API/fetchData';
 import postData from './../../API/postData';
 import receiveTasks from '../actions/receiveTasks';
@@ -9,6 +9,9 @@ import setSignInError from './../actions/setSignInError';
 import authenticateUser from './../actions/authenticateUser';
 import authenticateTeam from './../actions/authenticateTeam';
 import requestTeamAuthentication from './../actions/requestTeamAuthentication';
+import putData from './../../API/putData';
+import requestTasks from './../actions/requestTasks';
+import { getCurrentPage, getCategoryFilter, getCompletionStatusFilter, getTeam } from './selectors';
 
 export function* fetchTasks(action) {
 	try {
@@ -43,6 +46,20 @@ export function* tryToGetTeam(action) {
 	try {
 		const response = yield call(fetchData, `${API_URL}/Teams/${action.payload}`);
 		yield put(authenticateTeam(response.data));
+	} catch (error) {
+		throw new Error(error);
+	}
+}
+
+export function* putTask(action) {
+	try {
+		const response = yield call(putData, `${API_URL}/Tasks/${action.payload.id}`, action.payload);
+		console.log('function*putTask -> response', response);
+		const page = yield select(getCurrentPage);
+		const category = yield select(getCategoryFilter);
+		const isCompleted = yield select(getCompletionStatusFilter);
+		const team = yield select(getTeam);
+		yield put(requestTasks({ page, category, isCompleted, teamId: team.id }));
 	} catch (error) {
 		throw new Error(error);
 	}

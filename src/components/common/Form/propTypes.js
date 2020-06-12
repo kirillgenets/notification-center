@@ -5,7 +5,7 @@ export default {
 	fieldsData: PropTypes.arrayOf(
 		PropTypes.shape({
 			name: PropTypes.string.isRequired,
-			label: PropTypes.string.isRequired,
+			label: PropTypes.string,
 			type: PropTypes.string,
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,

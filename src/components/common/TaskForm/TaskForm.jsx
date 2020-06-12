@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from './../Modal';
 import Form from './../Form';
 import propTypes from './propTypes';
 import defaultProps from './defaultProps';
 
-const TaskForm = ({ taskData, isEdit, onClose }) => {
+const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
+	const [isOpened, setIsOpened] = useState(true);
+
 	const fieldsData = isEdit
 		? [
 				{
@@ -42,18 +44,6 @@ const TaskForm = ({ taskData, isEdit, onClose }) => {
 					type: 'hidden',
 					required: true,
 					defaultValue: taskData.date,
-				},
-				{
-					name: 'assigneeId',
-					type: 'hidden',
-					required: true,
-					defaultValue: taskData.assigneeId,
-				},
-				{
-					name: 'assigneeLogin',
-					type: 'hidden',
-					required: true,
-					defaultValue: taskData.assigneeLogin,
 				},
 				{
 					name: 'title',
@@ -117,7 +107,25 @@ const TaskForm = ({ taskData, isEdit, onClose }) => {
 				},
 		  ];
 
-	const handleFormSubmit = () => {};
+	const handleFormSubmit = (evt) => {
+		evt.preventDefault();
+
+		const taskData = new FormData(evt.target);
+		requestTaskEdit({
+			id: Number(taskData.get('id')),
+			assigneeId: Number(taskData.get('assignee-id')),
+			assigneeLogin: taskData.get('assignee-login'),
+			teamId: Number(taskData.get('team-id')),
+			teamName: taskData.get('team-name'),
+			title: taskData.get('title'),
+			description: taskData.get('description'),
+			category: taskData.get('category'),
+			isCompleted: taskData.get('completion-status') !== null,
+		});
+		setIsOpened(false);
+	};
+
+	if (!isOpened) return null;
 
 	return (
 		<Modal isClosable={true} onClose={onClose}>

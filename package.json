@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "webpack-dev-server --mode development --open --hot",
+		"build": "webpack",
 		"test": "jest",
 		"lint": "eslint ./src/**/*.{js,jsx}",
 		"fix": "eslint ./src/**/*.{js,jsx} --fix",
