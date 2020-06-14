@@ -12,6 +12,7 @@ import requestTeamAuthentication from './../actions/requestTeamAuthentication';
 import putData from './../../API/putData';
 import requestTasks from './../actions/requestTasks';
 import { getCurrentPage, getCategoryFilter, getCompletionStatusFilter, getTeam } from './selectors';
+import createTask from './../actions/createTask';
 
 export function* fetchTasks(action) {
 	try {
@@ -53,7 +54,21 @@ export function* tryToGetTeam(action) {
 
 export function* putTask(action) {
 	try {
-		const response = yield call(putData, `${API_URL}/Tasks/${action.payload.id}`, action.payload);
+		yield call(putData, `${API_URL}/Tasks/${action.payload.id}`, action.payload);
+		const page = yield select(getCurrentPage);
+		const category = yield select(getCategoryFilter);
+		const isCompleted = yield select(getCompletionStatusFilter);
+		const team = yield select(getTeam);
+		yield put(requestTasks({ page, category, isCompleted, teamId: team.id }));
+	} catch (error) {
+		throw new Error(error);
+	}
+}
+
+export function* postTask(action) {
+	try {
+		const response = yield call(postData, `${API_URL}/Tasks`, action.payload);
+		yield put(createTask(response.data));
 		const page = yield select(getCurrentPage);
 		const category = yield select(getCategoryFilter);
 		const isCompleted = yield select(getCompletionStatusFilter);

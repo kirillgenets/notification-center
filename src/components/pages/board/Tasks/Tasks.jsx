@@ -31,7 +31,7 @@ const Tasks = ({
 					isCompleted={item.isCompleted}
 					category={item.category}
 					title={item.title}
-					date={getPrettifiedDate(item.createdOn)}
+					date={getPrettifiedDate(item.date)}
 				/>
 			))}
 		</tbody>

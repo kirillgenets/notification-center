@@ -6,8 +6,9 @@ import defaultProps from './defaultProps';
 import fetchData from './../../../API/fetchData';
 import { API_URL } from '../../../store/constants';
 
-const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
+const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit, requestTaskCreation, teamId }) => {
 	const [users, setUsers] = useState([]);
+	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	const fetchUsers = async () => {
 		const response = await fetchData(`${API_URL}/Users`, { teamId: taskData.teamId });
@@ -87,12 +88,6 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
 		  ]
 		: [
 				{
-					name: 'assigneeLogin',
-					label: 'Assignee:',
-					type: 'text',
-					required: true,
-				},
-				{
 					name: 'title',
 					label: 'Title:',
 					type: 'text',
@@ -111,17 +106,20 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
 					required: true,
 				},
 				{
-					name: 'completion-status',
-					label: 'Completion status:',
-					type: 'checkbox',
-					required: true,
+					name: 'assignee-id',
+					label: 'Assignee:',
+					type: 'select',
+					required: false,
+					defaultValue: taskData.assigneeId,
+					options: users.map((user) => ({
+						value: user.id,
+						text: user.login,
+						selected: user.id === taskData.assigneeId,
+					})),
 				},
 		  ];
 
-	const handleFormSubmit = (evt) => {
-		evt.preventDefault();
-
-		const taskData = new FormData(evt.target);
+	const editTask = (taskData) => {
 		requestTaskEdit({
 			id: Number(taskData.get('id')),
 			assigneeId: Number(taskData.get('assignee-id')),
@@ -133,8 +131,33 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
 			category: taskData.get('category'),
 			isCompleted: taskData.get('completion-status') !== null,
 		});
-		onClose();
 	};
+
+	const createTask = (taskData) => {
+		requestTaskCreation({
+			assigneeId: Number(taskData.get('assignee-id')),
+			teamId: teamId,
+			title: taskData.get('title'),
+			description: taskData.get('description'),
+			category: taskData.get('category'),
+			isCompleted: false,
+		});
+	};
+
+	const handleFormSubmit = (evt) => {
+		evt.preventDefault();
+
+		const taskData = new FormData(evt.target);
+		if (isEdit) {
+			editTask(taskData);
+		} else {
+			createTask(taskData);
+		}
+
+		setIsSubmitted(true);
+	};
+
+	if (isSubmitted) return null;
 
 	return (
 		<Modal isClosable={true} onClose={onClose}>

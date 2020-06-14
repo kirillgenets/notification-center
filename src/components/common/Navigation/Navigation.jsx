@@ -6,13 +6,21 @@ import styles from './Navigation.css';
 
 const Navigation = ({ routesData }) => {
 	const renderItems = () =>
-		routesData.map(({ path, title }) => (
-			<li key={uuid()} className={styles.item}>
-				<Link className={styles.link} to={path}>
-					{title}
-				</Link>
-			</li>
-		));
+		routesData.map(({ path, title, action }) => {
+			return (
+				<li key={uuid()} className={styles.item}>
+					{action ? (
+						<button className={styles.link} onClick={action}>
+							{title}
+						</button>
+					) : (
+						<Link className={styles.link} to={path}>
+							{title}
+						</Link>
+					)}
+				</li>
+			);
+		});
 
 	return (
 		<React.Fragment>

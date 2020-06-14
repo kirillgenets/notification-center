@@ -14,10 +14,6 @@ const Header = ({ user }) => {
 					path: '/',
 				},
 				{
-					title: 'Add Task',
-					path: '/add-task',
-				},
-				{
 					title: 'Logout',
 					path: '/logout',
 				},
