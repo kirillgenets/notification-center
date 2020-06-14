@@ -5,7 +5,7 @@ import Navigation from '../Navigation';
 import styles from './Header.css';
 import isObjectEmpty from '../../../utils/isObjectEmpty';
 
-const Header = ({ user }) => {
+const Header = ({ user, logoutUser }) => {
 	const isAuth = typeof user === 'object' && !isObjectEmpty(user);
 	const routesData = isAuth
 		? [
@@ -15,7 +15,7 @@ const Header = ({ user }) => {
 				},
 				{
 					title: 'Logout',
-					path: '/logout',
+					action: logoutUser,
 				},
 		  ]
 		: [
