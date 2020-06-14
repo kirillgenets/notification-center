@@ -1,5 +1,6 @@
+/* eslint-disable react/display-name */
 import React from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import propTypes from './propTypes';
 import RoutesSwitcher from '../../common/RoutesSwitcher';
 import isObjectEmpty from './../../../utils/isObjectEmpty';
@@ -9,7 +10,6 @@ import Board from './../board/Board';
 import TaskPageContainer from '../../../containers/TaskPageContainer';
 
 const AppRouter = ({ user }) => {
-	const history = useHistory();
 	const isAuth = typeof user === 'object' && !isObjectEmpty(user);
 
 	const routesData = isAuth
@@ -22,6 +22,14 @@ const AppRouter = ({ user }) => {
 				{
 					path: '/task/:id',
 					component: TaskPageContainer,
+				},
+				{
+					path: '/sign-in',
+					render: () => <Redirect to="/" />,
+				},
+				{
+					path: '/sign-up',
+					render: () => <Redirect to="/" />,
 				},
 		  ]
 		: [
@@ -40,14 +48,9 @@ const AppRouter = ({ user }) => {
 				},
 				{
 					path: '/task/:id',
-					// eslint-disable-next-line react/display-name
 					render: () => <Redirect to="/" />,
 				},
 		  ];
-
-	if (isAuth && history.location.pathname !== '/') {
-		history.push('/');
-	}
 
 	return <RoutesSwitcher routesData={routesData} />;
 };
