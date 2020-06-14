@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './../Modal';
 import Form from './../Form';
 import propTypes from './propTypes';
 import defaultProps from './defaultProps';
+import fetchData from './../../../API/fetchData';
+import { API_URL } from '../../../store/constants';
 
 const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
-	const [isOpened, setIsOpened] = useState(true);
+	const [users, setUsers] = useState([]);
+
+	const fetchUsers = async () => {
+		const response = await fetchData(`${API_URL}/Users`, { teamId: taskData.teamId });
+		setUsers(response.data);
+	};
+
+	useEffect(() => {
+		fetchUsers();
+	}, []);
 
 	const fieldsData = isEdit
 		? [
@@ -14,18 +25,6 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
 					type: 'hidden',
 					required: true,
 					defaultValue: taskData.id,
-				},
-				{
-					name: 'assignee-id',
-					type: 'hidden',
-					required: true,
-					defaultValue: taskData.assigneeId,
-				},
-				{
-					name: 'assignee-login',
-					type: 'hidden',
-					required: true,
-					defaultValue: taskData.assigneeLogin,
 				},
 				{
 					name: 'team-id',
@@ -68,10 +67,22 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
 				},
 				{
 					name: 'completion-status',
-					label: 'Completion status:',
+					label: 'Is completed?',
 					type: 'checkbox',
 					required: false,
 					checked: taskData.isCompleted,
+				},
+				{
+					name: 'assignee-id',
+					label: 'Assignee:',
+					type: 'select',
+					required: false,
+					defaultValue: taskData.assigneeId,
+					options: users.map((user) => ({
+						value: user.id,
+						text: user.login,
+						selected: user.id === taskData.assigneeId,
+					})),
 				},
 		  ]
 		: [
@@ -122,10 +133,8 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
 			category: taskData.get('category'),
 			isCompleted: taskData.get('completion-status') !== null,
 		});
-		setIsOpened(false);
+		onClose();
 	};
-
-	if (!isOpened) return null;
 
 	return (
 		<Modal isClosable={true} onClose={onClose}>

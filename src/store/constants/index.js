@@ -20,6 +20,14 @@ export const AUTHENTICATE_TEAM = 'AUTHENTICATE_TEAM';
 export const REQUEST_TASK_EDIT = 'REQUEST_TASK_EDIT';
 export const UPDATE_TASK = 'UPDATE_TASK';
 
+export const Categories = {
+	CRITICAL: 'crit',
+	WARNING: 'warn',
+	INFO: 'info',
+	ERROR: 'error',
+	DEBUG: 'debug',
+};
+
 export const CompletionStatusFilters = {
 	SHOW_ALL: '',
 	SHOW_COMPLETE: true,
@@ -27,11 +35,11 @@ export const CompletionStatusFilters = {
 };
 export const CategoryFilters = {
 	SHOW_ALL: '',
-	SHOW_CRITICAL: 'crit',
-	SHOW_WARN: 'warn',
-	SHOW_INFO: 'info',
-	SHOW_ERROR: 'error',
-	SHOW_DEBUG: 'debug',
+	SHOW_CRITICAL: Categories.CRITICAL,
+	SHOW_WARN: Categories.WARNING,
+	SHOW_INFO: Categories.INFO,
+	SHOW_ERROR: Categories.ERROR,
+	SHOW_DEBUG: Categories.DEBUG,
 };
 export const FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY';
 export const RESET_FILTERS = 'RESET_FILTERS';

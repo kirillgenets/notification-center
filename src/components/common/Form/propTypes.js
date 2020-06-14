@@ -13,6 +13,13 @@ export default {
 			maxLength: PropTypes.number,
 			defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 			checked: PropTypes.bool,
+			options: PropTypes.arrayOf(
+				PropTypes.shape({
+					value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+					text: PropTypes.string,
+					selected: PropTypes.bool,
+				})
+			),
 		})
 	).isRequired,
 	title: PropTypes.string,

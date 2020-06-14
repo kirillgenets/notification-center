@@ -23,7 +23,7 @@ const TaskPage = ({ teamId, tasks }) => {
 
 	useEffect(() => {
 		fetchAssigneeData();
-	}, []);
+	}, [tasks]);
 
 	const handleEditButtonClick = () => {
 		setIsEdit(true);

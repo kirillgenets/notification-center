@@ -5,18 +5,12 @@ import isObjectEmpty from '../../../utils/isObjectEmpty';
 import propTypes from './propTypes';
 import defaultProps from './defaultProps';
 import styles from './Form.css';
+import uuid from 'uuid/dist/v1';
 
 const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogData, error }) => {
-	const getFieldProps = ({
-		name,
-		type,
-		placeholder,
-		required,
-		minLength,
-		maxLength,
-		defaultValue,
-		checked,
-	}) => {
+	const renderInput = (data) => {
+		const { name, type, placeholder, required, minLength, maxLength, defaultValue, checked } = data;
+
 		const props = {
 			className: classNames(styles.input, styles[type ? `input-type-${type}` : 'input-type-text']),
 			type: type ? type : 'text',
@@ -33,7 +27,21 @@ const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogDa
 			props.defaultValue = defaultValue;
 		}
 
-		return props;
+		return <input {...props} />;
+	};
+
+	const renderSelect = (data) => {
+		const { options, required, name } = data;
+
+		return (
+			<select required={required} name={name}>
+				{options.map(({ value, text, selected }) => (
+					<option key={uuid()} value={value} selected={selected}>
+						{text}
+					</option>
+				))}
+			</select>
+		);
 	};
 
 	const renderFields = () =>
@@ -44,7 +52,7 @@ const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogDa
 						{data.label}
 					</label>
 				) : null}
-				<input {...getFieldProps(data)} />
+				{data.type === 'select' ? renderSelect(data) : renderInput(data)}
 			</div>
 		));
 

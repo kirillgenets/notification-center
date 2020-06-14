@@ -54,7 +54,6 @@ export function* tryToGetTeam(action) {
 export function* putTask(action) {
 	try {
 		const response = yield call(putData, `${API_URL}/Tasks/${action.payload.id}`, action.payload);
-		console.log('function*putTask -> response', response);
 		const page = yield select(getCurrentPage);
 		const category = yield select(getCategoryFilter);
 		const isCompleted = yield select(getCompletionStatusFilter);
