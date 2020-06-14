@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
 import propTypes from './propTypes';
 import RoutesSwitcher from '../../common/RoutesSwitcher';
 import isObjectEmpty from './../../../utils/isObjectEmpty';
@@ -37,6 +37,11 @@ const AppRouter = ({ user }) => {
 				{
 					path: '/sign-up',
 					component: SignUp,
+				},
+				{
+					path: '/task/:id',
+					// eslint-disable-next-line react/display-name
+					render: () => <Redirect to="/" />,
 				},
 		  ];
 

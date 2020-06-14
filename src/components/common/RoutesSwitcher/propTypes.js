@@ -4,7 +4,8 @@ export default {
 	routesData: PropTypes.arrayOf(
 		PropTypes.shape({
 			path: PropTypes.string.isRequired,
-			component: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
+			component: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+			render: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 			exact: PropTypes.bool,
 		})
 	).isRequired,
