@@ -13,7 +13,7 @@ const Board = () => {
 	};
 
 	const handleAddTaskFormClose = () => {
-		setIsCreatingTask(addFallbackNodesSizes);
+		setIsCreatingTask(false);
 	};
 
 	return (

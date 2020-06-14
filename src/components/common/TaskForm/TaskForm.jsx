@@ -51,6 +51,7 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit, requestTaskCreat
 					type: 'text',
 					required: false,
 					defaultValue: taskData.title,
+					minLength: 3,
 				},
 				{
 					name: 'description',
@@ -58,6 +59,7 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit, requestTaskCreat
 					type: 'textarea',
 					required: false,
 					defaultValue: taskData.description,
+					minLength: 3,
 				},
 				{
 					name: 'category',
@@ -65,6 +67,7 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit, requestTaskCreat
 					type: 'text',
 					required: false,
 					defaultValue: taskData.category,
+					minLength: 1,
 				},
 				{
 					name: 'completion-status',
@@ -96,7 +99,7 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit, requestTaskCreat
 				{
 					name: 'description',
 					label: 'Description:',
-					type: 'text',
+					type: 'textarea',
 					required: false,
 				},
 				{
