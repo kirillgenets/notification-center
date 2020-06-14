@@ -44,6 +44,36 @@ const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogDa
 		);
 	};
 
+	const renderTextArea = (data) => {
+		const { name, placeholder, required, minLength, maxLength, defaultValue } = data;
+
+		return (
+			<textarea
+				className={classNames(styles.input, styles.textarea)}
+				name={name}
+				placeholder={placeholder}
+				required={required}
+				minLength={minLength}
+				maxLength={maxLength}
+			>
+				{defaultValue}
+			</textarea>
+		);
+	};
+
+	const renderCorrectField = (data) => {
+		const { type } = data;
+
+		switch (type) {
+			case 'select':
+				return renderSelect(data);
+			case 'textarea':
+				return renderTextArea(data);
+			default:
+				return renderInput(data);
+		}
+	};
+
 	const renderFields = () =>
 		fieldsData.map((data) => (
 			<div key={`${data.name}_${data.type}`} className={styles['input-wrapper']}>
@@ -52,7 +82,7 @@ const Form = ({ onFormSubmit, fieldsData, title, description, subtitle, analogDa
 						{data.label}
 					</label>
 				) : null}
-				{data.type === 'select' ? renderSelect(data) : renderInput(data)}
+				{renderCorrectField(data)}
 			</div>
 		));
 

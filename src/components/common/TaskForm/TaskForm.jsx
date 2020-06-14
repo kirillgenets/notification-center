@@ -54,7 +54,7 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit }) => {
 				{
 					name: 'description',
 					label: 'Description:',
-					type: 'text',
+					type: 'textarea',
 					required: false,
 					defaultValue: taskData.description,
 				},

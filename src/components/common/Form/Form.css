@@ -55,7 +55,8 @@ input:focus {
 }
 
 .input-type-text,
-.input-type-password {
+.input-type-password,
+.textarea {
 	width: 40%;
 	padding: 10px;
 	border: none;
@@ -67,8 +68,13 @@ input:focus {
 	background: #006c7c;
 }
 
+.textarea {
+	resize: none;
+}
+
 .input-type-text::placeholder,
-.input-type-password::placeholder {
+.input-type-password::placeholder,
+.textarea::placeholder {
 	font-size: 18px;
 	text-align: center;
 	color: #ffffff;
