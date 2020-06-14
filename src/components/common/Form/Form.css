@@ -161,7 +161,8 @@ input:focus {
 	}
 
 	.input-type-text,
-	.input-type-password {
+	.input-type-password,
+	.textarea {
 		font-size: 14px;
 	}
 
@@ -183,7 +184,8 @@ input:focus {
 	}
 
 	.input-type-text::placeholder,
-	.input-type-password::placeholder {
+	.input-type-password::placeholder,
+	.textarea::placeholder {
 		font-size: 14px;
 	}
 }

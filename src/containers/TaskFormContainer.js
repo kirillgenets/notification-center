@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 	taskData: ownProps.taskData,
 	isEdit: ownProps.isEdit,
 	onClose: ownProps.onClose,
+	onSubmit: ownProps.onSubmit,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -6,12 +6,19 @@ import defaultProps from './defaultProps';
 import fetchData from './../../../API/fetchData';
 import { API_URL } from '../../../store/constants';
 
-const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit, requestTaskCreation, teamId }) => {
+const TaskForm = ({
+	taskData,
+	isEdit,
+	onClose,
+	onSubmit,
+	requestTaskEdit,
+	requestTaskCreation,
+	teamId,
+}) => {
 	const [users, setUsers] = useState([]);
-	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	const fetchUsers = async () => {
-		const response = await fetchData(`${API_URL}/Users`, { teamId: taskData.teamId });
+		const response = await fetchData(`${API_URL}/Users`, { teamId });
 		setUsers(response.data);
 	};
 
@@ -157,10 +164,8 @@ const TaskForm = ({ taskData, isEdit, onClose, requestTaskEdit, requestTaskCreat
 			createTask(taskData);
 		}
 
-		setIsSubmitted(true);
+		onSubmit();
 	};
-
-	if (isSubmitted) return null;
 
 	return (
 		<Modal isClosable={true} onClose={onClose}>

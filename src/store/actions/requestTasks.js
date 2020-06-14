@@ -1,8 +1,8 @@
 import { REQUEST_TASKS } from '../constants';
 
-const requestTasks = ({ page, category, isCompleted, teamId }) => ({
+const requestTasks = (request) => ({
 	type: REQUEST_TASKS,
-	payload: { page, category, isCompleted, teamId },
+	payload: request,
 });
 
 export default requestTasks;

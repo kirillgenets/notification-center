@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import moment from 'moment';
 import propTypes from './propTypes';
 import Task from '../Task';
+import { TASKS_PER_PAGE } from './../../../../store/constants/index';
 
 const Tasks = ({
 	tasks,
@@ -9,7 +10,7 @@ const Tasks = ({
 	categoryFilter,
 	completionStatusFilter,
 	requestTasks,
-	team: { id: teamId, name: teamName },
+	team: { id: teamId },
 }) => {
 	useEffect(() => {
 		requestTasks({
@@ -17,8 +18,9 @@ const Tasks = ({
 			category: categoryFilter,
 			isCompleted: completionStatusFilter,
 			teamId,
+			pageSize: TASKS_PER_PAGE,
 		});
-	}, [currentPage, categoryFilter, completionStatusFilter]);
+	}, [currentPage, categoryFilter, completionStatusFilter, teamId]);
 
 	const getPrettifiedDate = (date) => moment(date).format('MMM DD, YYYY, HH:mm');
 

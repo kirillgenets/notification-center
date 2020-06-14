@@ -65,7 +65,12 @@ const TaskPage = ({ teamId, tasks }) => {
 	return (
 		<div className={styles['global-wrapper']}>
 			{isEdit ? (
-				<TaskFormContainer isEdit={true} onClose={handleEditFormClose} taskData={taskData} />
+				<TaskFormContainer
+					isEdit={true}
+					onClose={handleEditFormClose}
+					onSubmit={handleEditFormClose}
+					taskData={taskData}
+				/>
 			) : null}
 			<div className={styles.wrapper}>
 				<div className={styles['data-wrapper']}>

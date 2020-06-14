@@ -6,8 +6,17 @@ import {
 	REQUEST_TEAM_AUTHENTICATION,
 	REQUEST_TASK_EDIT,
 	REQUEST_TASK_CREATION,
+	REQUEST_TEAM_CREATION,
 } from '../constants';
-import { fetchTasks, postUserData, tryToSignIn, tryToGetTeam, putTask, postTask } from './workers';
+import {
+	fetchTasks,
+	postUserData,
+	tryToSignIn,
+	tryToGetTeam,
+	putTask,
+	postTask,
+	postTeam,
+} from './workers';
 
 export default function* rootSaga() {
 	yield takeEvery(REQUEST_TASKS, fetchTasks);
@@ -16,4 +25,5 @@ export default function* rootSaga() {
 	yield takeEvery(REQUEST_TEAM_AUTHENTICATION, tryToGetTeam);
 	yield takeEvery(REQUEST_TASK_EDIT, putTask);
 	yield takeEvery(REQUEST_TASK_CREATION, postTask);
+	yield takeEvery(REQUEST_TEAM_CREATION, postTeam);
 }

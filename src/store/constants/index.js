@@ -1,4 +1,4 @@
-export const TASKS_PER_PAGE = 9;
+export const TASKS_PER_PAGE = 8;
 export const API_URL = 'https://localhost:44357/api';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 export const REQUEST_TASKS = 'REQUEST_TASKS';
@@ -22,6 +22,10 @@ export const UPDATE_TASK = 'UPDATE_TASK';
 export const REQUEST_TASK_CREATION = 'REQUEST_TASK_CREATION';
 export const CREATE_TASK = 'CREATE_TASK';
 export const LOGOUT_USER = 'LOGOUT_USER';
+export const REQUEST_TEAM_CREATION = 'REQUEST_TEAM_CREATION';
+export const CREATE_TEAM = 'CREATE_TEAM';
+export const SET_CREATE_TEAM_ERROR = 'SET_CREATE_TEAM_ERROR';
+export const REMOVE_CREATE_TEAM_ERROR = 'REMOVE_CREATE_TEAM_ERROR';
 
 export const Categories = {
 	CRITICAL: 'crit',

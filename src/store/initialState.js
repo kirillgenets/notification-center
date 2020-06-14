@@ -8,6 +8,7 @@ const initialState = {
 	team: {},
 	signUpError: '',
 	signInError: '',
+	createTeamError: '',
 };
 
 export default initialState;

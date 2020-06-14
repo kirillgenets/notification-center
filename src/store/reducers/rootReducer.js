@@ -8,6 +8,7 @@ import user from './user';
 import signInError from './signInError';
 import signUpError from './signUpError';
 import team from './team';
+import createTeamError from './createTeamError';
 
 const rootReducer = combineReducers({
 	tasks,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
 	user,
 	signUpError,
 	signInError,
+	createTeamError,
 	team,
 });
 

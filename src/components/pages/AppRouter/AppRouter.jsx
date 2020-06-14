@@ -8,6 +8,7 @@ import SignUp from './../auth/SignUp';
 import SignIn from '../auth/SignIn';
 import Board from './../board/Board';
 import TaskPageContainer from '../../../containers/TaskPageContainer';
+import CreateTeam from './../auth/CreateTeam/CreateTeam';
 
 const AppRouter = ({ user }) => {
 	const isAuth = typeof user === 'object' && !isObjectEmpty(user);
@@ -45,6 +46,10 @@ const AppRouter = ({ user }) => {
 				{
 					path: '/sign-up',
 					component: SignUp,
+				},
+				{
+					path: '/create-team',
+					component: CreateTeam,
 				},
 				{
 					path: '/task/:id',

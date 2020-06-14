@@ -7,4 +7,5 @@ export default {
 	taskData: PropTypes.object,
 	isEdit: PropTypes.bool,
 	onClose: PropTypes.func,
+	onSubmit: PropTypes.func,
 };

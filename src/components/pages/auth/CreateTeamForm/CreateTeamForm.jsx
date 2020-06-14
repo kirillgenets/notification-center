@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from '../../../common/Modal';
 import Form from '../../../common/Form';
 import propTypes from './propTypes';
 
-const CreateTeamForm = ({ error, requestUserSignIn, removeSignInError }) => {
+const CreateTeamForm = ({ error, requestTeamCreation, removeCreateTeamError }) => {
+	const [isSubmitted, setIsSubmitted] = useState(false);
+
 	useEffect(() => {
 		return () => {
-			removeSignInError();
+			removeCreateTeamError();
 		};
 	}, []);
 
@@ -15,6 +17,13 @@ const CreateTeamForm = ({ error, requestUserSignIn, removeSignInError }) => {
 			name: 'name',
 			label: 'Name:',
 			placeholder: 'codemonsters',
+			type: 'text',
+			required: true,
+		},
+		{
+			name: 'title',
+			label: 'Title:',
+			placeholder: 'Code Monsters',
 			type: 'text',
 			required: true,
 		},
@@ -38,23 +47,31 @@ const CreateTeamForm = ({ error, requestUserSignIn, removeSignInError }) => {
 		evt.preventDefault();
 
 		const userData = new FormData(evt.target);
-		const login = userData.get('login');
+		const name = userData.get('name');
 		const password = userData.get('password');
-		const teamName = userData.get('team-name');
+		const title = userData.get('title');
 
-		requestUserSignIn({ login, password, teamName });
+		requestTeamCreation({ name, title, password });
+		setIsSubmitted(true);
 	};
 
 	return (
-		<Modal>
-			<Form
-				onFormSubmit={handleFormSubmit}
-				subtitle="If you already have an account:"
-				fieldsData={fieldsData}
-				analogData={analogData}
-				error={error}
-			/>
-		</Modal>
+		<React.Fragment>
+			<Modal>
+				<Form
+					onFormSubmit={handleFormSubmit}
+					subtitle="Information about your team:"
+					fieldsData={fieldsData}
+					analogData={analogData}
+					error={error}
+				/>
+			</Modal>
+			{isSubmitted && !error ? (
+				<Modal boxShadow="0px 0px 24px 0px rgba(0,0,0,0.75)" isClosable={true}>
+					Your team is successfully created!
+				</Modal>
+			) : null}
+		</React.Fragment>
 	);
 };
 

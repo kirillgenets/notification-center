@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
 	categoryFilter: state.categoryFilter,
 	completionStatusFilter: state.completionStatusFilter,
 	tasks: state.tasks,
+	teamId: state.team.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({

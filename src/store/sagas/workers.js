@@ -13,6 +13,8 @@ import putData from './../../API/putData';
 import requestTasks from './../actions/requestTasks';
 import { getCurrentPage, getCategoryFilter, getCompletionStatusFilter, getTeam } from './selectors';
 import createTask from './../actions/createTask';
+import createTeam from './../actions/createTeam';
+import setCreateTeamError from './../actions/setCreateTeamError';
 
 export function* fetchTasks(action) {
 	try {
@@ -76,5 +78,14 @@ export function* postTask(action) {
 		yield put(requestTasks({ page, category, isCompleted, teamId: team.id }));
 	} catch (error) {
 		throw new Error(error);
+	}
+}
+
+export function* postTeam(action) {
+	try {
+		const response = yield call(postData, `${API_URL}/Teams`, action.payload);
+		yield put(createTeam(response.data));
+	} catch (error) {
+		yield put(setCreateTeamError(error.response.data.detail));
 	}
 }
