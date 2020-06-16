@@ -26,6 +26,7 @@ export const REQUEST_TEAM_CREATION = 'REQUEST_TEAM_CREATION';
 export const CREATE_TEAM = 'CREATE_TEAM';
 export const SET_CREATE_TEAM_ERROR = 'SET_CREATE_TEAM_ERROR';
 export const REMOVE_CREATE_TEAM_ERROR = 'REMOVE_CREATE_TEAM_ERROR';
+export const DELETE_TASK = 'DELETE_TASK';
 
 export const Categories = {
 	CRITICAL: 'crit',

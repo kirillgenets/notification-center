@@ -6,6 +6,7 @@
 	box-sizing: border-box;
 	height: 100%;
 	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .wrapper {
@@ -56,6 +57,10 @@
 	word-wrap: break-word;
 
 	overflow: auto;
+}
+
+.delete-button {
+	margin-bottom: 10px;
 }
 
 @media screen and (max-width: 768px) {

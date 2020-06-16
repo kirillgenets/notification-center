@@ -15,6 +15,7 @@ import { getCurrentPage, getCategoryFilter, getCompletionStatusFilter, getTeam }
 import createTask from './../actions/createTask';
 import createTeam from './../actions/createTeam';
 import setCreateTeamError from './../actions/setCreateTeamError';
+import deleteData from './../../API/deleteData';
 
 export function* fetchTasks(action) {
 	try {
@@ -71,6 +72,19 @@ export function* postTask(action) {
 	try {
 		const response = yield call(postData, `${API_URL}/Tasks`, action.payload);
 		yield put(createTask(response.data));
+		const page = yield select(getCurrentPage);
+		const category = yield select(getCategoryFilter);
+		const isCompleted = yield select(getCompletionStatusFilter);
+		const team = yield select(getTeam);
+		yield put(requestTasks({ page, category, isCompleted, teamId: team.id }));
+	} catch (error) {
+		throw new Error(error);
+	}
+}
+
+export function* removeTask(action) {
+	try {
+		yield call(deleteData, `${API_URL}/Tasks/${action.payload}`);
 		const page = yield select(getCurrentPage);
 		const category = yield select(getCategoryFilter);
 		const isCompleted = yield select(getCompletionStatusFilter);

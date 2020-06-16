@@ -8,7 +8,7 @@ import TaskFormContainer from './../../../../containers/TaskFormContainer';
 import fetchData from './../../../../API/fetchData';
 import { API_URL } from '../../../../store/constants';
 
-const TaskPage = ({ teamId, tasks }) => {
+const TaskPage = ({ teamId, tasks, deleteTask }) => {
 	const [isEdit, setIsEdit] = useState(false);
 	const [assignee, setAssignee] = useState({});
 
@@ -34,6 +34,11 @@ const TaskPage = ({ teamId, tasks }) => {
 	};
 
 	const handleBackButtonClick = () => {
+		history.push('/');
+	};
+
+	const handleDeleteButtonClick = () => {
+		deleteTask(id);
 		history.push('/');
 	};
 
@@ -80,6 +85,9 @@ const TaskPage = ({ teamId, tasks }) => {
 					{renderDescription()}
 				</div>
 				<Comments teamId={teamId} taskId={id} />
+			</div>
+			<div className={styles['delete-button']}>
+				<ActionButton title="Delete" onClick={handleDeleteButtonClick} />
 			</div>
 			<ActionButton title="🠈 Back" onClick={handleBackButtonClick} />
 		</div>
