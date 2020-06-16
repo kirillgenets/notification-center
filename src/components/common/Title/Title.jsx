@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import propTypes from './propTypes';
 import defaultProps from './defaultProps';

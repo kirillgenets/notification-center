@@ -51,6 +51,7 @@ const CreateTeamForm = ({ error, requestTeamCreation, removeCreateTeamError }) =
 		const password = userData.get('password');
 		const title = userData.get('title');
 
+		removeCreateTeamError();
 		requestTeamCreation({ name, title, password });
 		setIsSubmitted(true);
 	};
