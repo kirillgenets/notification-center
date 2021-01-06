@@ -22,7 +22,7 @@
 	},
 	"homepage": "https://github.com/kirillgenets/teamapp#readme",
 	"dependencies": {
-		"axios": "^0.19.2",
+		"axios": "^0.21.1",
 		"classnames": "^2.2.6",
 		"moment": "^2.25.3",
 		"normalize.css": "^8.0.1",
